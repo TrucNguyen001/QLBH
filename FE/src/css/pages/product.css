@@ -1,0 +1,128 @@
+.show {
+    z-index: 999;
+}
+/* Thiết lập cho phần header form chi tiết nhân viên */
+.detail .detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Phần bên trái của header form */
+.detail .detail-header .employee-header-left{
+    display: flex;
+}
+.detail .detail-header .employee-header-left > div {
+    align-items: center;
+    display: flex;
+}
+.detail .detail-header .employee-header-left div .input-checkbox {
+    margin: 0 10px 0 20px;
+}
+/* Phần bên phải của header form */
+.detail .detail-header .employee-header-right {
+    display: flex;
+}
+.employee-header-right div {
+    margin-left: 15px;
+}
+
+/* Thiết lập css cho phần main */
+.detail-main > div {
+    display: flex;
+    align-items: center;
+}
+.detail-main .row1 > div {
+    justify-content: space-between;
+}
+.detail-main input {
+    width: 100%;
+}
+.detail div .row11,
+.detail div .row21,
+.detail div .row22
+ {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.detail div .row21 > div {
+    width: 48%;
+}
+.detail div .row11 .employee-name {
+    width: 56%;
+}
+.detail div .row11 .employee-code {
+    width: 42%;
+}
+
+
+.detail-main .row1-left,
+.detail-main .row1-right {
+    position: absolute;
+    width: 47%;
+}
+
+.detail-main .row1-left {
+    top: 50px;
+    left: 30px;
+    height: 300px;
+}
+.detail-main .row1-left .position {
+    margin-top: 66px;
+}
+.detail-main .row1-right {
+    top: 50px;
+    right: 30px;
+}
+
+.list-gender {
+    display: flex;
+}
+.detail-main .gender input,
+.detail-main .gender p
+ {
+    width: 30px;
+    margin-right: 6px;
+    height: 20px;
+    margin-top: 10px;
+
+}
+
+.detail-main .gender input {
+    flex-shrink: 0;
+}
+.detail-main .gender p {
+    margin-right: 24px;
+}
+.detail-main .row3 div {
+    margin-top: 235px;
+    width: 100%;
+}
+
+.detail-main .row4 div,
+.detail-main .row5 div {
+    width: 24%;
+    margin-right: 10px;
+}
+
+.detail-main .row4 input,
+.detail-main .row5 input {
+    width: 100%;
+}
+
+/* css cho footer */
+.detail-footer {
+    background: #eeee;
+    height: 60px;
+}
+.detail .m-button-cancel {
+    background: white;
+}
+
+/* .select {
+    display: flex;
+    width: 800px;
+    align-items: center;
+    justify-content: space-between;
+} */
