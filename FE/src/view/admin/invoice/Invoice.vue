@@ -141,7 +141,7 @@
               <td>{{ this.changeDisplayStatus(record.StatusInvoice) }}</td>
               <td>
                 <button
-                  @click="detailInfoRecord(record)"
+                  @click="detailInvoice(record.InvoiceId)"
                   class="btn btn-primary px-4"
                 >
                   Xem
@@ -196,6 +196,12 @@ export default {
     };
   },
   methods: {
+    /**
+     * Chi tiết hoá đơn
+     */
+    detailInvoice(id) {
+      this.$router.push(`/invoice-detail/${id}`);
+    },
     reset() {
       this.listRecordId = [];
       this.listIndexSelected = [];

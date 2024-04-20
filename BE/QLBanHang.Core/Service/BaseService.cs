@@ -167,7 +167,7 @@ namespace QLBanHang.Core.Service
 
         public FileExport ExportExcel<T>()
         {
-            var list = _baseRepository.GetAll();
+            var list = _baseRepository.GetAll(1);
             var properties = typeof(T).GetProperties();
 
             var stream = new MemoryStream();

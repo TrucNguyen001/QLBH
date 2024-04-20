@@ -14,7 +14,7 @@ namespace QLBanHang.Core.Interfaces.Infastructure
         /// Hàm lấy tất cả thông tin trong giỏ hàng
         /// </summary>
         /// <returns>Trả về danh sách sản phẩm mua</returns>
-        IEnumerable<CartDTOs> GetAllById(string id, string text);
+        IEnumerable<CartDTOs> GetAllById(Guid id, string text);
 
         /// <summary>
         /// Thêm dữ liệu

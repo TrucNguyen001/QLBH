@@ -16,7 +16,7 @@ import MCommon from "./js/common/common.js";
 import MResource from "./js/helper/resource.js";
 import MTextArea from "./componentsweb/base/MTextAra.vue";
 
-//import "./js/interceptors/interceptors.js";
+import "./js/interceptors/interceptors.js";
 import "./js/keyboardevenhandler/keyboardeventhandler.js";
 
 import DatePicker from "vue3-datepicker";

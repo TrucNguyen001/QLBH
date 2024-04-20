@@ -31,7 +31,10 @@
             style="font-size: 22px"
             class="bi bi-person-gear"
           ></i>
-          <div v-if="isSetting" class="setting shadow p-3 mb-5 bg-body rounded">
+          <div
+            v-if="isSetting"
+            class="setting shadow p-3 mb-5 bg-body rounded text-black"
+          >
             <div>
               <i style="font-size: 36px" class="bi bi-person-circle"></i>
             </div>
@@ -46,7 +49,7 @@
             <div @click="changePassword" class="canClick">
               Thay đổi mật khẩu <i class="bi bi-lock-fill mx-2"></i>
             </div>
-            <div class="canClick">
+            <div @click="logout" class="canClick">
               Đăng xuất <i class="bi bi-box-arrow-right mx-2"></i>
             </div>
           </div>
@@ -86,6 +89,9 @@ export default {
     };
   },
   methods: {
+    logout() {
+      this.$router.push("/login-admin");
+    },
     hideChangePassword() {
       this.isShowChangePassword = false;
     },
@@ -96,7 +102,7 @@ export default {
      */
     async detailInfo() {
       try {
-        var record = await this.apiService.getByInfo(
+        let record = await this.apiService.getByInfo(
           "Account/getById",
           localStorage.getItem("AccountId")
         );
@@ -109,7 +115,7 @@ export default {
     },
     async changePassword() {
       try {
-        var record = await this.apiService.getByInfo(
+        let record = await this.apiService.getByInfo(
           "Account/getById",
           localStorage.getItem("AccountId")
         );
@@ -171,7 +177,9 @@ export default {
    */
   created() {
     this.userName = localStorage.getItem("FullName");
-    this.email = localStorage.getItem("Email");
+    if (localStorage.getItem("Email")) {
+      this.email = localStorage.getItem("Email");
+    }
   },
 };
 </script>

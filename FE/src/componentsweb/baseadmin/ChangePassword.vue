@@ -121,6 +121,7 @@ export default {
     },
     async updatePassword() {
       if (this.checkPassword()) {
+        this.account.Password = this.password2;
         let result = await this.apiService.update(
           "Account/put",
           this.account.AccountId,
@@ -195,7 +196,6 @@ export default {
       if (value === true) {
         this.errors = {};
         this.account = JSON.parse(JSON.stringify(this.record));
-        console.log(this.account);
       }
     },
   },

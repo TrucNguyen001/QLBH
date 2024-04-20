@@ -232,13 +232,16 @@ export default {
         if (this.validateData()) {
           if (this.statusCode === this.helper.Status.Insert) {
             this.recordSelect.CreatedDate = new Date();
-            this.recordSelect.ModifiedDate = null;
+            this.recordSelect.CreatedBy = localStorage.getItem("FullName");
+            this.recordSelect.Status = 1;
             result = await this.apiService.post(
               "Discount/post",
               this.recordSelect
             );
           } else if (this.statusCode === this.helper.Status.Update) {
             this.recordSelect.ModifiedDate = new Date();
+            this.recordSelect.ModifiedBy = localStorage.getItem("FullName");
+
             result = await this.apiService.update(
               "Discount/put",
               this.recordSelect.DiscountId,

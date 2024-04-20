@@ -57,14 +57,15 @@ namespace QLBanHang.Infrastructure.Repository
 
         public int Delete(Guid id)
         {
-            var sqlCommand = $"DELETE FROM Product WHERE ProductId = @entityId";
-            var sqlConfig = $"DELETE FROM Configuration WHERE ProductId = @entityId";
+            //var sqlCommand = $"DELETE FROM Product WHERE ProductId = @entityId";
+            //var sqlConfig = $"DELETE FROM Configuration WHERE ProductId = @entityId";
+            var sqlCommand = $"UPDATE Product SET Status = 0 WHERE ProductId = @entityId";
 
             DynamicParameters paramet = new DynamicParameters();
 
             paramet.Add("@entityId", id);
 
-            var config = _dbContext.Connection.Execute(sql: sqlConfig, param: paramet);
+            //var config = _dbContext.Connection.Execute(sql: sqlConfig, param: paramet);
             var product = _dbContext.Connection.Execute(sql: sqlCommand, param: paramet);
             return 1;
         }
@@ -162,7 +163,7 @@ namespace QLBanHang.Infrastructure.Repository
             return 1;
         }
 
-        public int MultipleDelete(List<Guid> ids)
+        public int MultipleDelete(List<Guid> ids, int status)
         {
             // Tạo danh sách tham số và chuỗi các tham số
             var paramet = new DynamicParameters();
@@ -180,10 +181,12 @@ namespace QLBanHang.Infrastructure.Repository
             }
 
             // Tạo câu lệnh SQL sử dụng IN và thực hiện xóa
-            var sqlCommand = $"DELETE FROM Product WHERE ProductId IN ({string.Join(", ", parametList)})";
-            var sqlCommandConfig = $"DELETE FROM Configuration WHERE ProductId IN ({string.Join(", ", parametList)})";
+            var sqlCommand = $"UPDATE Product SET Status = @status WHERE ProductId IN ({string.Join(", ", parametList)})";
+            //var sqlCommandConfig = $"DELETE FROM Configuration WHERE ProductId IN ({string.Join(", ", parametList)})";
 
-            var deleteConfig = _dbContext.Connection.Execute(sql: sqlCommandConfig, param: paramet);
+            paramet.Add("@status", status);
+
+            //var deleteConfig = _dbContext.Connection.Execute(sql: sqlCommandConfig, param: paramet);
             var delete = _dbContext.Connection.Execute(sql: sqlCommand, param: paramet);
 
             return 1;
@@ -291,18 +294,19 @@ namespace QLBanHang.Infrastructure.Repository
             return 1;
         }
 
-        public IEnumerable<Product> GetByText(string text)
+        public IEnumerable<Product> GetByText(string text, int status)
         {
-            var sqlCommand = $"SELECT * FROM Product WHERE ProductName LIKE @text OR ProductCode LIKE @text";
+            var sqlCommand = $"SELECT * FROM Product WHERE (ProductName LIKE @text OR ProductCode LIKE @text) AND Status = @status";
             DynamicParameters paramet = new DynamicParameters();
             paramet.Add("@text", "%" + text + "%", System.Data.DbType.String);
+            paramet.Add("@status", status);
 
             var entities = _dbContext.Connection.Query<Product>(sql: sqlCommand, param: paramet);
 
             return entities;
         }
 
-        public IEnumerable<ProductDTOs> GetPaging(int pageSize, int pageIndex, string text)
+        public IEnumerable<ProductDTOs> GetPaging(int pageSize, int pageIndex, string text, int status)
         {
             var sqlCommand = "Proc_GetPagingProduct";
             DynamicParameters paramet = new DynamicParameters();
@@ -310,6 +314,7 @@ namespace QLBanHang.Infrastructure.Repository
             paramet.Add("pageSize", pageSize);
             paramet.Add("pageIndex", pageIndex);
             paramet.Add("text", text);
+            paramet.Add("status", status);
 
             var paging = _dbContext.Connection.Query<ProductDTOs>(sql: sqlCommand, param: paramet, commandType: System.Data.CommandType.StoredProcedure);
 

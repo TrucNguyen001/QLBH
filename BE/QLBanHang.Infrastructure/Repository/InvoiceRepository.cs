@@ -4,6 +4,7 @@ using QLBanHang.Core.DTOs;
 using QLBanHang.Core.Entities;
 using QLBanHang.Core.Interfaces.DBContext;
 using QLBanHang.Core.Interfaces.Infastructure;
+using QLBanHang.Core.MISAEnum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,24 +34,25 @@ namespace QLBanHang.Infrastructure.Repository
             return entity;
         }
 
-        public IEnumerable<CartDTOs> GetByUserId(Guid id)
+        public IEnumerable<CartDTOs> GetByUserId(Guid id, int status)
         {
             var sqlCommand = "Proc_GetInvoiceByUserId";
             DynamicParameters paramet = new DynamicParameters();
 
             paramet.Add("id", id);
+            paramet.Add("status", status);
 
             var entities = _dbContext.Connection.Query<CartDTOs>(sql: sqlCommand, param: paramet, commandType: System.Data.CommandType.StoredProcedure);
 
             return entities;
         }
 
-        public IEnumerable<CartDTOs> GetInvoiceById(Guid accountId, Guid invoiceId)
+        public IEnumerable<CartDTOs> GetInvoiceById(Guid invoiceId)
         {
             var sqlCommand = "Proc_GetInvoiceById";
             DynamicParameters paramet = new DynamicParameters();
 
-            paramet.Add("accountId", accountId);
+            //paramet.Add("accountId", accountId);
             paramet.Add("invoiceId", invoiceId);
 
             var entities = _dbContext.Connection.Query<CartDTOs>(sql: sqlCommand, param: paramet, commandType: System.Data.CommandType.StoredProcedure);
@@ -84,7 +86,7 @@ namespace QLBanHang.Infrastructure.Repository
 
         public IEnumerable<Invoice> SortDecrease()
         {
-            var sqlCommand = $"SELECT * FROM Invoice";
+            var sqlCommand = "SELECT * FROM Invoice";
             var entities = _dbContext.Connection.Query<Invoice>(sql: sqlCommand);
             return entities.OrderByDescending(invoice => Convert.ToInt64(invoice.InvoiceCode.Substring(3)));
         }
@@ -136,6 +138,20 @@ namespace QLBanHang.Infrastructure.Repository
 
             var entities = _dbContext.Connection.Query<Invoice>(sql: sqlCommand, param: paramet);
 
+            return entities;
+        }
+
+        public IEnumerable<Invoice> GetAll(int year)
+        {
+            var sqlCommand = "";
+            sqlCommand = $"SELECT * FROM Invoice Where StatusInvoice = 4";
+            if (year > 0)
+            {
+                sqlCommand = $"SELECT * FROM Invoice Where StatusInvoice = 4 AND YEAR(CreatedDate) = @year";
+            }
+            DynamicParameters paramet = new DynamicParameters();
+            paramet.Add("@year", year);
+            var entities = _dbContext.Connection.Query<Invoice>(sql: sqlCommand, param: paramet);
             return entities;
         }
     }

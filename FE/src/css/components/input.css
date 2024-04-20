@@ -38,6 +38,10 @@
 .input-icon {
    display: flex;
 }
+.input-icon input {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
 .icon-search {
     cursor: pointer;
     height: 36px;

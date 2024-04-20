@@ -2,6 +2,7 @@
   <header-web />
   <div style="margin-top: 160px">
     <content-web-vue />
+    <hr class="container" />
   </div>
   <footer-web-vue />
 </template>

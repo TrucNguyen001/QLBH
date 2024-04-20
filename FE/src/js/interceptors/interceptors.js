@@ -55,15 +55,20 @@ axios.interceptors.request.use(async (config) => {
 // Thực khi khi kết quả api trả về
 axios.interceptors.response.use(
   (response) => {
-    if (
-      response.config.url.indexOf("/post") > 0 ||
-      response.config.url.indexOf("/put") > 0
-    ) {
-      common.showToast(resource.ContentSuccess.SaveDataSuccess);
+    if (response.config.url.indexOf("/post") > 0) {
+      common.showToast("Thêm mới dữ liệu thành công");
     }
 
-    if (response.config.url.indexOf("/delete") > 0) {
-      common.showToast(resource.ContentSuccess.SaveDataSuccess);
+    if (response.config.url.indexOf("/put") > 0) {
+      common.showToast("Cập nhật dữ liệu thành công");
+    }
+
+    if (response.config.url.indexOf("/delete/0") > 0) {
+      common.showToast("Xoá dữ liệu thành công");
+    }
+
+    if (response.config.url.indexOf("/delete/1") > 0) {
+      common.showToast("Khôi phục dữ liệu thành công");
     }
     return response;
   },

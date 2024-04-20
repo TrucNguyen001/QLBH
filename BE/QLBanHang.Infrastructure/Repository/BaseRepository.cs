@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MySqlConnector;
 using QLBanHang.Core.Interfaces.Infastructure;
+using static Org.BouncyCastle.Crypto.Engines.SM2Engine;
 
 namespace QLBanHang.Infrastructure.Repository
 {
@@ -22,9 +23,13 @@ namespace QLBanHang.Infrastructure.Repository
             _nameClass = typeof(T).Name;
         }
 
-        public IEnumerable<T> GetAll()
+        public IEnumerable<T> GetAll(int status)
         {
-            var entities = _dbContext.Connection.Query<T>($"SELECT * FROM {_nameClass}");
+            DynamicParameters paramet = new DynamicParameters();
+            paramet.Add("@status", status);
+
+            var entities = _dbContext.Connection.Query<T>($"SELECT * FROM {_nameClass} WHERE Status = @status", param: paramet);
+
             return entities;
         }
 
@@ -46,13 +51,14 @@ namespace QLBanHang.Infrastructure.Repository
             return true;
         }
 
-        public int Delete(Guid id)
+        public int Delete(Guid id, int status)
         {
-            var sqlCommand = $"DELETE FROM {_nameClass} WHERE {_nameClass}Id = @entityId";
+            var sqlCommand = $"UPDATE {_nameClass} SET Status = @status WHERE {_nameClass}Id = @entityId";
 
             DynamicParameters paramet = new DynamicParameters();
 
             paramet.Add("@entityId", id);
+            paramet.Add("@status", status);
 
             var misaEntity = _dbContext.Connection.Execute(sql: sqlCommand, param: paramet);
             return 1;
@@ -103,7 +109,7 @@ namespace QLBanHang.Infrastructure.Repository
             return 1;
         }
 
-        public int MultipleDelete(List<Guid> ids)
+        public int MultipleDelete(List<Guid> ids, int status)
         {
             // Tạo danh sách tham số và chuỗi các tham số
             var paramet = new DynamicParameters();
@@ -118,7 +124,8 @@ namespace QLBanHang.Infrastructure.Repository
             }
 
             // Tạo câu lệnh SQL sử dụng IN và thực hiện xóa
-            var sqlCommand = $"DELETE FROM {_nameClass} WHERE {_nameClass}Id IN ({string.Join(", ", parametList)})";
+            var sqlCommand = $"UPDATE {_nameClass} SET Status = @status WHERE {_nameClass}Id IN ({string.Join(", ", parametList)})";
+            paramet.Add("@status", status);
 
             var delete = _dbContext.Connection.Execute(sql: sqlCommand, param: paramet);
 
@@ -196,22 +203,24 @@ namespace QLBanHang.Infrastructure.Repository
             return 1;
         }
 
-        public IEnumerable<T> GetByText(string text)
+        public IEnumerable<T> GetByText(string text, int status)
         {
-            var sqlCommand = $"SELECT * FROM {_nameClass} WHERE {_nameClass}Name LIKE @text OR {_nameClass}Code LIKE @text";
+            var sqlCommand = $"SELECT * FROM {_nameClass} WHERE ({_nameClass}Name LIKE @text OR {_nameClass}Code LIKE @text) AND Status = @status";
             DynamicParameters paramet = new DynamicParameters();
             paramet.Add("@text", "%" + text + "%", System.Data.DbType.String);
+            paramet.Add("@status", status);
 
             var entities = _dbContext.Connection.Query<T>(sql: sqlCommand, param: paramet);
 
             return entities;
         }
 
-        public IEnumerable<T> GetPaging(int pageSize, int pageIndex, string text)
+        public IEnumerable<T> GetPaging(int pageSize, int pageIndex, string text, int status = 1)
         {
-            var sqlCommand = $"SELECT * FROM {_nameClass} WHERE {_nameClass}Name LIKE @text OR {_nameClass}Code LIKE @text ORDER BY COALESCE(ModifiedDate, CreatedDate) DESC";
+            var sqlCommand = $"SELECT * FROM {_nameClass} WHERE ({_nameClass}Name LIKE @text OR {_nameClass}Code LIKE @text) AND Status = @status ORDER BY COALESCE(ModifiedDate, CreatedDate) DESC";
             DynamicParameters paramet = new DynamicParameters();
             paramet.Add("@text", "%" + text + "%", System.Data.DbType.String);
+            paramet.Add("@status", status);
 
             var entities = _dbContext.Connection.Query<T>(sql: sqlCommand, param: paramet);
             entities = entities.Skip(pageSize * (pageIndex - 1)).Take(pageSize);

@@ -61,7 +61,10 @@ namespace QLBanHang.API.Controllers
             var respository = _invoiceRepository.Update(entity, id, accountId);
 
             _cartRepository.Update(id, accountId);
-            _discountService.UpdateInputNumber((Guid)service.DiscountId, service.InputNumber - 1);
+            if(service != null)
+            {
+                _discountService.UpdateInputNumber((Guid)service.DiscountId, service.InputNumber - 1);
+            }
 
             return StatusCode(200, respository);
         }
@@ -76,10 +79,10 @@ namespace QLBanHang.API.Controllers
         /// 500: Nếu có exception
         /// </returns>
         /// CreatedBy: NVTruc(31/3/2024)
-        [HttpGet("user/{id}")]
-        public IActionResult GetByUserId(Guid id)
+        [HttpGet("user/{id}/{status}")]
+        public IActionResult GetByUserId(Guid id, int status)
         {
-            var entity = _invoiceRepository.GetByUserId(id);
+            var entity = _invoiceRepository.GetByUserId(id, status);
             return StatusCode(200, entity);
         }
 
@@ -110,10 +113,10 @@ namespace QLBanHang.API.Controllers
         /// 500: Nếu có exception
         /// </returns>
         /// CreatedBy: NVTruc(31/3/2024)
-        [HttpGet("invoice/{accountId}/{invoiceId}")]
-        public IActionResult GetInvoiceById(Guid accountId, Guid invoiceId)
+        [HttpGet("invoice/{invoiceId}")]
+        public IActionResult GetInvoiceById(Guid invoiceId)
         {
-            var entity = _invoiceRepository.GetInvoiceById(accountId, invoiceId);
+            var entity = _invoiceRepository.GetInvoiceById(invoiceId);
             return StatusCode(200, entity);
         }
 
@@ -172,5 +175,22 @@ namespace QLBanHang.API.Controllers
             var repository = _invoiceRepository.MultipleUpdateStatus(ids, status);
             return StatusCode(200, repository);
         }
+
+        /// <summary>
+        /// Lấy toàn bộ bản ghi
+        /// </summary>
+        /// <returns>
+        /// 200: Nếu có dữ liệu
+        /// 400: Lỗi nghiệp vụ
+        /// 500: Nếu có exception
+        /// </returns>
+        /// CreatedBy: NVTruc(31/3/2024)
+        [HttpGet("getAll/{year}")]
+        public IActionResult GetAll(int year)
+        {
+            var entities = _invoiceRepository.GetAll(year);
+            return StatusCode(200, entities);
+        }
+
     }
 }

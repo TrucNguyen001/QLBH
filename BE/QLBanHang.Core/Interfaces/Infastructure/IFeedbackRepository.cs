@@ -9,5 +9,6 @@ namespace QLBanHang.Core.Interfaces.Infastructure
 {
     public interface IFeedbackRepository : IBaseRepository<Feedback>
     {
+       // int updateStatusComment(Comment entity, Guid Id);
     }
 }

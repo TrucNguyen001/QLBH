@@ -19,10 +19,10 @@ namespace QLBanHang.Core.Service
 
         public string GetDiscountCode()
         {
-            string kyTu = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*<>,.?/";
+            string kyTu = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
             Random random = new Random();
-            char[] mangKyTu = new char[7];
-            for (int i = 0; i < 7; i++)
+            char[] mangKyTu = new char[10];
+            for (int i = 0; i < 10; i++)
             {
                 mangKyTu[i] = kyTu[random.Next(kyTu.Length)];
             }

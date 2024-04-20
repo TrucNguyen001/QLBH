@@ -27,6 +27,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-color: #041434;
+    color: #ffffff;
 }
 /* Thiết lập cho phần header right đầu */
 .header-right .header-right-start {
@@ -42,6 +44,7 @@
 /* name company header right */
 .header-right .header-right-start .name-company {
     font-family: notosans-bold;
+    font-size: 16px;
 }
 /* Thiết lập cho phần header cuối */
 .header-right .header-right-end {

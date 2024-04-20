@@ -39,10 +39,17 @@ namespace QLBanHang.Infrastructure.Repository
         /// Created by: Nguyễn Văn Trúc(17/2/2024)
         public Account GetByUserNameRole(string username, string role)
         {
-            var sqlCommand = "SELECT * FROM Account WHERE UserName = @username AND Role = @role AND Status = 1";
+            var sqlCommand = "";
+            if(role == "User")
+            {
+                sqlCommand = "SELECT * FROM Account WHERE UserName = @username AND Role = 'User' AND Status = 1";
+            }
+            else
+            {
+                sqlCommand = "SELECT * FROM Account WHERE UserName = @username AND (Role = 'Admin' OR Role = 'Employee') AND Status = 1";
+            }
             DynamicParameters paramet = new DynamicParameters();
             paramet.Add("@username", username);
-            paramet.Add("@role", role);
 
             var user = _dbContext.Connection.QueryFirstOrDefault<Account>(sql: sqlCommand, param: paramet);
 

@@ -26,6 +26,7 @@ import LoginUser from "../../view/loginuser/LoginApp.vue";
 import LoginAdmin from "../../view/loginadmin/LoginApp.vue";
 
 import Forget from "../../view/forgetpassword/RecoverPassword.vue";
+import InfoCompany from "../../view/user/info/InfoCompany.vue";
 
 const routes = [
   {
@@ -101,6 +102,10 @@ const routes = [
       {
         path: "invoice",
         component: UserInvoice,
+      },
+      {
+        path: "info",
+        component: InfoCompany,
       },
     ],
   },

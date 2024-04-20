@@ -27,10 +27,10 @@ namespace QLBanHang.API.Controllers
         /// 500: Nếu có exception
         /// </returns>
         /// CreatedBy: NVTruc(31/3/2024)
-        [HttpGet]
-        public IActionResult GetAll()
+        [HttpGet("getAll/{status}")]
+        public IActionResult GetAll(int status)
         {
-            var entities = _baseRepository.GetAll();
+            var entities = _baseRepository.GetAll(status);
             return StatusCode(200, entities);
         }
 
@@ -103,10 +103,10 @@ namespace QLBanHang.API.Controllers
         /// 500: Nếu có exception
         /// </returns>
         /// CreatedBy: NVTruc(31/3/2024)
-        [HttpDelete("delete/{id}")]
-        public IActionResult Delete(Guid id)
+        [HttpDelete("delete/{status}/{id}")]
+        public IActionResult Delete(Guid id, int status)
         {
-            var entity = _baseRepository.Delete(id);
+            var entity = _baseRepository.Delete(id, status);
             return StatusCode(200, entity);
         }
 
@@ -120,10 +120,10 @@ namespace QLBanHang.API.Controllers
         /// 500: Nếu có exception
         /// </returns>
         /// CreatedBy: NVTruc(31/3/2024)
-        [HttpDelete("delete/multipleDelete/")]
-        public IActionResult MultipleDelete(List<Guid> ids)
+        [HttpDelete("delete/{status}/multipleDelete/")]
+        public IActionResult MultipleDelete(List<Guid> ids, int status)
         {
-            var repository = _baseRepository.MultipleDelete(ids);
+            var repository = _baseRepository.MultipleDelete(ids, status);
             return StatusCode(200, repository);
         }
 
@@ -156,14 +156,14 @@ namespace QLBanHang.API.Controllers
         /// 500: Nếu có exception
         ///</returns>
         /// CreatedBy: NVTruc(24/12/2023)
-        [HttpGet("paging")]
-        public IActionResult Paging(int pageSize, int pageIndex, string text = "")
+        [HttpGet("paging/{status}")]
+        public IActionResult Paging(int pageSize, int pageIndex, string text = "", int status = 1)
         {
             var validatePage = _baseService.GetPaging(pageSize, pageIndex, text);
-            var entities = _baseRepository.GetPaging(pageSize, pageIndex, text);
+            var entities = _baseRepository.GetPaging(pageSize, pageIndex, text, status);
 
             // Lấy ra tổng số bản ghi theo phân trang
-            var total = _baseRepository.GetByText(text).Count();
+            var total = _baseRepository.GetByText(text, status).Count();
 
             var result = new
             {

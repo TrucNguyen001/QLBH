@@ -3,25 +3,14 @@
     <div class="content-header">
       <div class="content-title">Quản lý phản hồi</div>
       <div>
-        <button v-on:click="addRecord" class="btn btn-success">
-          Thêm phản hồi
+        <button v-on:click="feedbacked" class="btn btn-success">
+          Bình luận đã phản hồi
         </button>
       </div>
     </div>
     <div class="content-main">
       <div class="header-table">
-        <div class="header-table-left">
-          <div class="table-left" v-if="listRecordId.length !== 0">
-            <div>
-              Số phản hồi đã chọn:
-              <strong>{{ listRecordId.length }}</strong>
-            </div>
-            <div>Bỏ chọn</div>
-            <button @click="deleteRecords" type="button" class="btn btn-danger">
-              Xoá hết
-            </button>
-          </div>
-        </div>
+        <div></div>
         <div style="width: 29%" class="header-table-right">
           <div class="input-icon">
             <input
@@ -44,16 +33,7 @@
         <table class="m-table tbl">
           <thead>
             <tr>
-              <th @click="selectAllRecord(filterObject.pageNumber)">
-                <input
-                  :checked="
-                    listPageSelectAllRecord.includes(filterObject.pageNumber)
-                  "
-                  class="input-checkbox th fixed-column-left"
-                  type="checkbox"
-                />
-              </th>
-              <th>Mã phản hồi</th>
+              <th style="width: 160px">Mã phản hồi</th>
               <th>Người phản hồi</th>
               <th>Ngày phản hồi</th>
               <th>Phản hồi</th>
@@ -64,22 +44,9 @@
               :class="{
                 selected: this.checkRowSelected(record),
               }"
-              v-for="(record, index) in listRecord"
+              v-for="record in listRecord"
               :key="record.CommentId"
             >
-              <td
-                :class="{
-                  selected: this.checkRowSelected(record),
-                  background_default: !this.checkRowSelected(record),
-                }"
-                @click="selectedRecord(record.CommentId, index)"
-              >
-                <input
-                  :checked="this.checkRowSelected(record)"
-                  class="input-checkbox td fixed-column-left"
-                  type="checkbox"
-                />
-              </td>
               <td>{{ record.CommentCode }}</td>
               <td>{{ record.CommentName }}</td>
               <td>{{ this.common.changeDisplayDate(record.CreatedDate) }}</td>
@@ -138,9 +105,14 @@ export default {
       listPageSelectAllRecord: [],
       text: "",
       resultRecordIdList: [],
+      status: 1,
     };
   },
   methods: {
+    feedbacked() {
+      this.status = 0;
+      this.loadData();
+    },
     /**
      * Làm mới lại recordId khi con trỏ chuột chỉ ra ngoài
      * @author: Nguyễn Văn Trúc(3/3/2024)
@@ -203,33 +175,13 @@ export default {
           "Comment",
           me.filterObject.pageSize,
           me.filterObject.pageNumber,
-          me.InfoSearch
+          me.InfoSearch,
+          me.status
         );
         me.text = me.InfoSearch;
         me.listRecord = result.ListRecord;
         me.totalRecord = result.ToTalRecord;
         me.resultRecordIdList = [];
-
-        if (Object.keys(this.listRecord).length !== 0) {
-          // Duyệt qua từng đối tượng trong result và thu thập RecordId
-          for (let i = 0; i < me.listRecord.length; i++) {
-            me.resultRecordIdList.push(me.listRecord[i].CommentId);
-          }
-
-          // Kiểm tra xem tất cả các recordId của bạn có tồn tại trong danh sách resultRecordIdList không
-          let allExist = me.resultRecordIdList.every((recordId) =>
-            this.listRecordId.includes(recordId)
-          );
-
-          if (allExist) {
-            this.listPageSelectAllRecord.push(this.filterObject.pageNumber);
-          } else {
-            // Nếu bỏ chọn 1 trong tất cả các dòng khi chọn tất cả thì xoá bỏ dấu tích chọn tất cả
-            this.listPageSelectAllRecord = this.listPageSelectAllRecord.filter(
-              (i) => i !== this.filterObject.pageNumber
-            );
-          }
-        }
 
         me.common.showLoading(false);
       } catch (error) {
@@ -253,7 +205,7 @@ export default {
      */
     async detailInfoRecord(id) {
       try {
-        let result = await this.apiService.getByInfo("Comment", id);
+        let result = await this.apiService.getByInfo("Comment/getById", id);
         this.isShow = true;
         // Gắn khách hàng gửi đi là khách hàng click chọn
         this.recordSelected = result;

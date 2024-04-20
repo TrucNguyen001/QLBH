@@ -1,196 +1,155 @@
 <template>
-  <div class="content">
-    <div class="content-header">
-      <div class="content-title">Quản lý sản phẩm</div>
-      <div>
-        <button
-          v-on:click="addEmployee"
-          class="m-button m-button-success btn-add"
-        >
-          Thêm mới sản phẩm
-        </button>
-      </div>
+  <div class="h-100 w-100">
+    <div class="d-flex justify-content-center mt-4">
+      <select @change="handleChangeOption" v-model="yearSelect">
+        <option :value="item" v-for="(item, index) in year" :key="index">
+          Năm {{ item }}
+        </option>
+      </select>
     </div>
-    <div class="content-main">
-      <div class="header-table">
-        <div class="header-table-left">
-          <div>Số sản phẩm đã chọn: <strong>10</strong></div>
-          <div>Bỏ chọn</div>
-          <button type="button" class="btn btn-danger">Xoá hết</button>
-        </div>
-        <div class="header-table-right">
-          <div class="input-icon">
-            <input type="text" class="m-input m-input-icon" />
-            <div class="icon-search">
-              <i class="bi bi-search"></i>
-            </div>
-          </div>
-          <div class="icon">
-            <i class="bi bi-file-earmark-arrow-down"></i>
-          </div>
-          <div class="icon">
-            <i class="bi bi-file-earmark-arrow-up"></i>
-          </div>
-        </div>
-      </div>
-      <div class="table">
-        <table style="min-width: 1400px" class="m-table tbl">
-          <thead>
-            <tr>
-              <th @click="selectAllRecord(filterObject.pageNumber)">
-                <input
-                  :checked="
-                    listPageSelectAllRecord.includes(filterObject.pageNumber)
-                  "
-                  class="input-checkbox th fixed-column-left"
-                  type="checkbox"
-                />
-              </th>
-              <th>Mã sản phẩm</th>
-              <th>Tên sản phẩm</th>
-              <th>Hình ảnh</th>
-              <th>Đơn giá</th>
-              <th>Số lượng</th>
-              <th>Số lượng mua</th>
-              <th>Trạng thái</th>
-              <th>Chức năng</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr
-              :class="{
-                selected: this.checkRowSelected(employee),
-              }"
-              v-for="(employee, index) in listEmployee"
-              :key="employee.EmployeeId"
-              @mouseover="getEmployeeIdWhenMove(employee)"
-              @mouseleave="handleMouseLeave"
-            >
-              <td
-                :class="{
-                  selected: this.checkRowSelected(employee),
-                  background_default: !this.checkRowSelected(employee),
-                }"
-                @click="selectedEmployee(employee.EmployeeId, index)"
-              >
-                <input
-                  :checked="this.checkRowSelected(employee)"
-                  class="input-checkbox td fixed-column-left"
-                  type="checkbox"
-                />
-              </td>
-              <td>{{ employee.EmployeeCode }}</td>
-              <td>{{ employee.FullName }}</td>
-              <td>{{ this.common.changeDisplayGender(employee.Gender) }}</td>
-              <td style="text-align: center; padding-left: 0">
-                {{ this.common.changeDisplayDate(employee.DateOfBirth) }}
-              </td>
-              <td>{{ employee.IdentificationCard }}</td>
-              <td>
-                {{ employee.PositionName }}
-              </td>
-              <td>
-                {{ employee.DepartmentName }}
-              </td>
-              <td>{{ employee.BankAccount }}</td>
-              <td>{{ employee.BankName }}</td>
-              <td>{{ employee.Branch }}</td>
-              <td
-                @mouseleave="closeFormDuplicate"
-                @click="showUpdate(employee)"
-                class="function-update"
-                style="text-align: center"
-              >
-                <div class="parent">
-                  <div
-                    style="cursor: pointer"
-                    @click="detailEmployee(employee)"
-                  >
-                    {{ resource.MEmployeeList.Update }}
-                  </div>
-                  <div
-                    @click="whenMove(employee)"
-                    class="icon icon-caret-down-small"
-                  ></div>
-                </div>
-                <div
-                  v-show="
-                    employee.EmployeeId === employeeSelected.EmployeeId &&
-                    showChildUpdate === true
-                  "
-                  class="child-update"
-                >
-                  <div @click="replicationEmployee(employee)">
-                    {{ resource.MEmployeeList.Replication }}
-                  </div>
-                  <div @click="deleteEmployee">
-                    {{ resource.MEmployeeList.Delete }}
-                  </div>
-                  <div>{{ resource.MEmployeeList.Stop }}</div>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <MISAPagination
-        v-model:pageNumber="filterObject.pageNumber"
-        v-model:pageSize="filterObject.pageSize"
-        :totalRecord="totalRecord"
-      ></MISAPagination>
+    <div class="chart h-75 w-75">
+      <canvas id="myChart" width="800" height="400"></canvas>
     </div>
+    <h2 class="d-flex justify-content-center mt-4">
+      Thống kê doanh thu năm {{ yearSelect }}
+    </h2>
   </div>
 </template>
+
 <script>
+import Chart from "chart.js/auto";
 export default {
-  // eslint-disable-next-line vue/multi-word-component-names
-  name: "Product",
+  name: "OverView",
   data() {
     return {
-      InfoSearch: "",
-      isShow: false,
-      listEmployee: {},
-      employeeSelected: {},
-      employeeId: "",
-      employeeCode: "",
-      listEmployeeId: [],
-      listIndexSelected: [],
-      indexSelected: null,
-      statusCode: this.helper.Status.Insert,
-      totalRecord: 0,
-      filterObject: {
-        pageNumber: 1,
-        pageSize: 20,
-      },
-      isDelete: true,
-      employeeCodeBiggest: "",
-      showChildUpdate: false,
-      listPageSelectAllRecord: [],
-      text: "",
+      listInvoice: {},
+      data: [],
+      year: [],
+      yearSelect: "",
     };
+  },
+  methods: {
+    async handleChangeOption(event) {
+      this.yearSelect = await event.target.value;
+      this.getInvoice();
+    },
+    loadChart() {
+      let ctx = document.getElementById("myChart");
+
+      // Kiểm tra xem có biểu đồ nào đã được tạo trên canvas không
+      if (ctx) {
+        // Nếu có, hủy bỏ biểu đồ cũ (nếu tồn tại)
+        if (ctx.myChart) {
+          ctx.myChart.destroy();
+        }
+      }
+
+      // Tạo biểu đồ mới
+      ctx.myChart = new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: [
+            "Tháng 1",
+            "Tháng 2",
+            "Tháng 3",
+            "Tháng 4",
+            "Tháng 5",
+            "Tháng 6",
+            "Tháng 7",
+            "Tháng 8",
+            "Tháng 9",
+            "Tháng 10",
+            "Tháng 11",
+            "Tháng 12",
+          ],
+          datasets: [
+            {
+              label: "Doanh thu từng tháng",
+              data: this.data,
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+    },
+
+    async getInvoice() {
+      this.listInvoice = await this.apiService.get(
+        "Invoice/getAll/" + this.yearSelect
+      );
+      this.data = await this.getTotalByMonth(this.listInvoice);
+      this.loadChart();
+    },
+    async getTotalByMonth(invoices) {
+      // Khởi tạo mảng lưu tổng tiền của từng tháng với giá trị mặc định là 0
+      let totalByMonth = new Array(12).fill(0);
+
+      // Duyệt qua mảng hóa đơn
+      invoices.forEach((invoice) => {
+        // Kiểm tra nếu CreatedDate là một chuỗi, chuyển đổi thành đối tượng Date
+        let createdDate =
+          typeof invoice.CreatedDate === "string"
+            ? new Date(invoice.CreatedDate)
+            : invoice.CreatedDate;
+
+        // Lấy chỉ số tháng của hóa đơn (từ 0 đến 11)
+        let monthIndex = createdDate.getMonth();
+
+        // Cộng thêm số tiền của hóa đơn vào tổng tiền của tháng tương ứng
+        totalByMonth[monthIndex] += invoice.Total;
+      });
+
+      return totalByMonth;
+    },
+    async getUniqueYears(invoices) {
+      let uniqueYears = [];
+
+      // Duyệt qua danh sách các hóa đơn
+      invoices.forEach((invoice) => {
+        // Trích xuất năm từ hóa đơn
+        let year = new Date(invoice.CreatedDate).getFullYear();
+
+        // Nếu năm chưa được thêm vào mảng uniqueYears, thêm vào
+        if (!uniqueYears.includes(year)) {
+          uniqueYears.push(year);
+        }
+      });
+
+      // Sắp xếp các năm theo thứ tự giảm dần
+      uniqueYears.sort((a, b) => b - a);
+
+      return uniqueYears;
+    },
+  },
+  async mounted() {
+    this.yearSelect = await new Date().getFullYear();
+    this.year = await this.getUniqueYears(
+      await this.apiService.get("Invoice/getAll/0")
+    );
+    await this.getInvoice();
   },
 };
 </script>
 <style scoped>
-@import url("../../../css/pages/product.css");
-.selected {
-  background: #eeeeee;
+.chart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 12%;
 }
-.background_default {
-  background: white;
-}
-.delete {
-  display: none;
-}
-.isSuccess {
-  background: rgb(206, 234, 217);
-}
-
-.isError {
-  background: #facccc;
-}
-.icon-file {
-  right: 24px;
-  position: absolute;
+select {
+  height: 36px;
+  width: 200px;
+  border-radius: 4px;
+  border: 1px solid #e0e0e0;
+  outline: none;
+  margin-left: 40%;
 }
 </style>

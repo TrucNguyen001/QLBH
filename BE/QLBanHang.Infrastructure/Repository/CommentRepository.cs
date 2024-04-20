@@ -66,7 +66,7 @@ namespace QLBanHang.Infrastructure.Repository
 
         public IEnumerable<Comment> SortDecrease()
         {
-            var sqlCommand = $"SELECT * FROM Comment";
+            var sqlCommand = "SELECT * FROM Comment";
             var entities = _dbContext.Connection.Query<Comment>(sql: sqlCommand);
             return entities.OrderByDescending(comment => Convert.ToInt64(comment.CommentCode.Substring(3)));
         }
@@ -80,6 +80,19 @@ namespace QLBanHang.Infrastructure.Repository
             paramet.Add("commentId", id);
 
             var entity = _dbContext.Connection.Query<FeedbackDTOs>(sql: sqlCommand, param: paramet, commandType: System.Data.CommandType.StoredProcedure);
+
+            return entity;
+        }
+
+        public Comment GetByIdComment(Guid id)
+        {
+            var sqlCommand = $"SELECT * FROM Comment WHERE CommentId = @entityId";
+
+            DynamicParameters paramet = new DynamicParameters();
+
+            paramet.Add("@entityId", id);
+
+            var entity = _dbContext.Connection.QueryFirstOrDefault<Comment>(sql: sqlCommand, param: paramet);
 
             return entity;
         }

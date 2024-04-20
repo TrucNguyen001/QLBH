@@ -215,7 +215,8 @@
           <div
             v-if="
               recordSelect.ProductTypeId !==
-              'c655d547-f06f-4ba7-a5f3-a615213fcae7'
+                'c655d547-f06f-4ba7-a5f3-a615213fcae7' &&
+              this.type === 'product'
             "
           >
             <h3 class="mt-4">Cấu hình sản phẩm:</h3>
@@ -471,6 +472,7 @@ export default {
     show: Boolean,
     record: Object,
     statusCode: Number,
+    type: String,
   },
   data() {
     return {

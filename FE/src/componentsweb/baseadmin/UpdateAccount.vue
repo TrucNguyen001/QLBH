@@ -145,6 +145,9 @@ export default {
             this.recordSelect
           );
           console.log(result);
+          if (this.recordSelect.FullName !== "") {
+            localStorage.setItem("FullName", this.recordSelect.FullName);
+          }
         }
       } catch (error) {
         console.log(error);

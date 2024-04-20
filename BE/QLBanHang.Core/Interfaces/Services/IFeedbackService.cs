@@ -9,5 +9,6 @@ namespace QLBanHang.Core.Interfaces.Services
 {
     public interface IFeedbackService : IBaseService<Feedback>
     {
+       // int updateStatusComment(Guid Id);
     }
 }

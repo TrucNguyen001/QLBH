@@ -25,7 +25,7 @@ namespace QLBanHang.Core.Service
         {
             var invoices = _invoiceRepository.SortDecrease();
             var invoiceCode = "";
-            if (invoices == null)
+            if (invoices.FirstOrDefault() == null)
             {
                 invoiceCode = "HD-00001";
             }
@@ -33,11 +33,11 @@ namespace QLBanHang.Core.Service
             {
                 Invoice invoice = invoices.FirstOrDefault();
                 invoiceCode = invoice.InvoiceCode;
+                var numberCode = invoiceCode.Substring(3);
+                var numberCodeBiggest = Convert.ToInt64(numberCode) + 1;
+                numberCode = PadLeftCustom(Convert.ToString(numberCodeBiggest), numberCode.Length, '0');
+                invoiceCode = invoiceCode.Substring(0, 3) + numberCode;
             }
-            var numberCode = invoiceCode.Substring(3);
-            var numberCodeBiggest = Convert.ToInt64(numberCode) + 1;
-            numberCode = PadLeftCustom(Convert.ToString(numberCodeBiggest), numberCode.Length, '0');
-            invoiceCode = invoiceCode.Substring(0, 3) + numberCode;
             return invoiceCode;
         }
 

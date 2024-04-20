@@ -2,158 +2,117 @@
   <div class="content">
     <div class="content-header">
       <div class="content-title">Quản lý nhân viên</div>
-      <div>
-        <button
-          v-on:click="addEmployee"
-          class="m-button m-button-success btn-add"
-        >
-          Thêm mới nhân viên
-        </button>
-      </div>
     </div>
     <div class="content-main">
       <div class="header-table">
-        <div class="header-table-left">
-          <div>Số nhân viên đã chọn: <strong>10</strong></div>
-          <div>Bỏ chọn</div>
-          <button type="button" class="btn btn-danger">Xoá hết</button>
-        </div>
-        <div class="header-table-right">
+        <div class="header-table-left"></div>
+        <div style="width: 29%" class="header-table-right">
           <div class="input-icon">
-            <input type="text" class="m-input m-input-icon" />
-            <div class="icon-search">
+            <input
+              placeholder="Tìm kiếm theo tên"
+              type="text"
+              class="m-input m-input-icon"
+              v-model="InfoSearch"
+              @keydown.enter="searchRecord"
+            />
+            <div @click="searchRecord" class="icon-search">
               <i class="bi bi-search"></i>
             </div>
           </div>
-          <div class="icon">
-            <i class="bi bi-file-earmark-arrow-down"></i>
-          </div>
-          <div class="icon">
+          <div @click="downloadFile" class="icon">
             <i class="bi bi-file-earmark-arrow-up"></i>
           </div>
         </div>
       </div>
       <div class="table">
-        <table style="min-width: 1400px" class="m-table tbl">
+        <table class="m-table tbl">
           <thead>
             <tr>
-              <th @click="selectAllRecord(filterObject.pageNumber)">
-                <input
-                  :checked="
-                    listPageSelectAllRecord.includes(filterObject.pageNumber)
-                  "
-                  class="input-checkbox th fixed-column-left"
-                  type="checkbox"
-                />
-              </th>
-              <th>Mã nhân viên</th>
-              <th>Họ và tên</th>
-              <th>Email</th>
+              <th style="width: 150px">Mã nhân viên</th>
+              <th>Tên nhân viên</th>
               <th>Số điện thoại</th>
-              <th>Vai trò</th>
-              <th>Ngày bắt đầu làm việc</th>
+              <th>Giới tính</th>
               <th>Trạng thái</th>
-              <th>Chức năng</th>
+              <th>Xem</th>
+              <th>Khoá</th>
             </tr>
           </thead>
           <tbody>
             <tr
-              :class="{
-                selected: this.checkRowSelected(employee),
-              }"
-              v-for="(employee, index) in listEmployee"
-              :key="employee.EmployeeId"
-              @mouseover="getEmployeeIdWhenMove(employee)"
+              v-for="record in listRecord"
+              :key="record.AccountId"
+              @mouseover="getRecordIdWhenMove(record)"
               @mouseleave="handleMouseLeave"
             >
-              <td
-                :class="{
-                  selected: this.checkRowSelected(employee),
-                  background_default: !this.checkRowSelected(employee),
-                }"
-                @click="selectedEmployee(employee.EmployeeId, index)"
-              >
-                <input
-                  :checked="this.checkRowSelected(employee)"
-                  class="input-checkbox td fixed-column-left"
-                  type="checkbox"
-                />
+              <td>{{ record.AccountCode }}</td>
+              <td>{{ record.FullName }}</td>
+              <td>{{ record.PhoneNumber }}</td>
+              <td>{{ this.common.changeDisplayGender(record.Gender) }}</td>
+              <td v-if="record.Status === 0">
+                <span class="text-danger">Ngưng hoạt động</span>
               </td>
-              <td>{{ employee.EmployeeCode }}</td>
-              <td>{{ employee.FullName }}</td>
-              <td>{{ this.common.changeDisplayGender(employee.Gender) }}</td>
-              <td style="text-align: center; padding-left: 0">
-                {{ this.common.changeDisplayDate(employee.DateOfBirth) }}
-              </td>
-              <td>{{ employee.IdentificationCard }}</td>
-              <td>
-                {{ employee.PositionName }}
+              <td v-else>
+                <span class="text-success">Đang hoạt động</span>
               </td>
               <td>
-                {{ employee.DepartmentName }}
-              </td>
-              <td>{{ employee.BankAccount }}</td>
-              <td>{{ employee.BankName }}</td>
-              <td>{{ employee.Branch }}</td>
-              <td
-                @mouseleave="closeFormDuplicate"
-                @click="showUpdate(employee)"
-                class="function-update"
-                style="text-align: center"
-              >
-                <div class="parent">
-                  <div
-                    style="cursor: pointer"
-                    @click="detailEmployee(employee)"
-                  >
-                    {{ resource.MEmployeeList.Update }}
-                  </div>
-                  <div
-                    @click="whenMove(employee)"
-                    class="icon icon-caret-down-small"
-                  ></div>
-                </div>
-                <div
-                  v-show="
-                    employee.EmployeeId === employeeSelected.EmployeeId &&
-                    showChildUpdate === true
-                  "
-                  class="child-update"
+                <button
+                  @click="detailInfoRecord(record)"
+                  class="btn btn-primary px-4"
                 >
-                  <div @click="replicationEmployee(employee)">
-                    {{ resource.MEmployeeList.Replication }}
-                  </div>
-                  <div @click="deleteEmployee">
-                    {{ resource.MEmployeeList.Delete }}
-                  </div>
-                  <div>{{ resource.MEmployeeList.Stop }}</div>
-                </div>
+                  Xem
+                </button>
+              </td>
+              <td>
+                <button
+                  v-if="record.Status === 0"
+                  @click="activatedRecord(record)"
+                  class="btn btn-success px-4"
+                >
+                  Kích hoạt
+                </button>
+                <button
+                  v-else
+                  @click="deleteRecord(record)"
+                  class="btn btn-danger px-4"
+                >
+                  Vô hiệu hoá
+                </button>
               </td>
             </tr>
           </tbody>
         </table>
       </div>
-      <MISAPagination
+      <MPagination
         v-model:pageNumber="filterObject.pageNumber"
         v-model:pageSize="filterObject.pageSize"
         :totalRecord="totalRecord"
-      ></MISAPagination>
+      ></MPagination>
     </div>
   </div>
+  <user-detail
+    :show="isShow"
+    :record="recordSelected"
+    :statusCode="statusCode"
+    @loadData="loadData"
+    @hideDetailRecord="hideDetailRecord"
+  ></user-detail>
 </template>
 <script>
+import UserDetail from "../user/UserDetail.vue";
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
-  name: "Product",
+  name: "User",
+  // eslint-disable-next-line vue/no-unused-components
+  components: { UserDetail },
   data() {
     return {
       InfoSearch: "",
       isShow: false,
-      listEmployee: {},
-      employeeSelected: {},
-      employeeId: "",
-      employeeCode: "",
-      listEmployeeId: [],
+      listRecord: {},
+      recordSelected: {},
+      recordId: "",
+      recordCode: "",
+      listRecordId: [],
       listIndexSelected: [],
       indexSelected: null,
       statusCode: this.helper.Status.Insert,
@@ -162,17 +121,227 @@ export default {
         pageNumber: 1,
         pageSize: 20,
       },
-      isDelete: true,
-      employeeCodeBiggest: "",
-      showChildUpdate: false,
+      recordCodeBiggest: "",
       listPageSelectAllRecord: [],
       text: "",
+      resultRecordIdList: [],
     };
+  },
+  methods: {
+    /**
+     * Làm mới lại recordId khi con trỏ chuột chỉ ra ngoài
+     * @author: Nguyễn Văn Trúc(3/3/2024)
+     */
+    handleMouseLeave() {
+      this.recordCode = "";
+    },
+
+    /**
+     * Lấy id nhân viên khi con trỏ chuột ở dòng nhân viên ấy
+     * @param {nhân viên} record
+     * @author: Nguyễn Văn Trúc(3/3/2024)
+     */
+    getRecordIdWhenMove(record) {
+      this.recordId = record.AccountId;
+      this.recordCode = record.AccountCode;
+      this.recordSelected = record;
+    },
+
+    /**
+     * Hàm Thực hiện tự động download file excel về
+     * @author: Nguyễn Văn Trúc (21/1/2024)
+     */
+    async downloadFile() {
+      let me = this;
+      try {
+        me.common.showLoading();
+        await me.apiService.downloadFileExcel("Account/ExportFile");
+        me.common.showLoading(false);
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    /**
+     * Hàm Thực hiện khi nhấn tìm kiếm
+     * @author: Nguyễn Văn Trúc (21/1/2024)
+     */
+    searchRecord: function () {
+      try {
+        this.common.showLoading();
+        this.getFilterRecord();
+        this.filterObject.pageNumber = 1;
+        this.listPageSelectAllRecord = [];
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    /**
+     * Hàm Thực hiện khi nhấn enter
+     * @author: Nguyễn Văn Trúc (21/1/2024)
+     */
+    enterSearchInput: function () {
+      try {
+        this.common.showLoading();
+        this.getFilterRecord();
+        this.filterObject.pageNumber = 1;
+        this.listPageSelectAllRecord = [];
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
+    /**
+     * Hàm Thực hiện gọi api phân trang
+     * @author: Nguyễn Văn Trúc (21/1/2024)
+     */
+    async getFilterRecord() {
+      try {
+        let me = this;
+        let result = await me.apiService.loadFilter(
+          "Account",
+          me.filterObject.pageSize,
+          me.filterObject.pageNumber,
+          me.InfoSearch,
+          "Employee"
+        );
+        me.text = me.InfoSearch;
+        me.listRecord = result.ListRecord;
+        me.totalRecord = result.ToTalRecord;
+
+        me.common.showLoading(false);
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
+    /**
+     * Hàm Thực hiện khi huỷ hoặc thoát form chi tiết
+     * @author: Nguyễn Văn Trúc (9/12/2023)
+     */
+    hideDetailRecord: function () {
+      this.isShow = false;
+      this.indexSelected = null;
+    },
+
+    /**
+     * Thông tin chi tiết bản ghi(Xem)
+     * @param {bản ghi} record
+     * @author: Nguyễn Văn Trúc (2/4/2024)
+     */
+    detailInfoRecord(record) {
+      try {
+        this.statusCode = this.helper.Status.See;
+        // Hiển thị form chi tiết khách hàng
+        this.isShow = true;
+        // Gắn khách hàng gửi đi là khách hàng click chọn
+        this.recordSelected = record;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
+    /**
+     * Hàm Thực hiện lấy recordId
+     * @param {*nhân viên muốn lấy Id} record
+     * @author: Nguyễn Văn Trúc (21/1/2024)
+     */
+    whenMove: function (record) {
+      this.recordId = record.AccountId;
+      this.recordCode = record.AccountCode;
+    },
+
+    /**
+     * Hàm Thực hiện khi chọn xoá khách hàng
+     * @author: Nguyễn Văn Trúc (9/12/2023)
+     */
+    async deleteRecord(record) {
+      try {
+        record.Status = 0;
+        await this.apiService.update("Account/put", record.AccountId, record);
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
+    /**
+     * Hàm Thực hiện khi kích hoạt khách hàng
+     * @author: Nguyễn Văn Trúc (9/12/2023)
+     */
+    async activatedRecord(record) {
+      try {
+        record.Status = 1;
+        await this.apiService.update("Account/put", record.AccountId, record);
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
+    /**
+     * Hàm Thực hiện load dữ liệu lên bảng
+     * @author: Nguyễn Văn Trúc (9/12/2023)
+     */
+    loadData: function () {
+      try {
+        this.common.showLoading();
+        this.getFilterRecord();
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
+    /**
+     * Bôi đen ô input search khi click vào
+     * @author: Nguyễn Văn Trúc (22/1/2024)
+     */
+    blackenInputSearch() {
+      try {
+        this.common.blackenInput(this.helper.Ref.InputSearch);
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  },
+  /**
+   * Hàm Thực hiện load lại dữ liệu khi tạo ra
+   * @author: Nguyễn Văn Trúc (22/1/2024)
+   */
+  created() {
+    this.loadData();
+  },
+  /**
+   * Hàm thực hiện nhận sự kiện bấm nút
+   * @author: Nguyễn Văn Trúc (3/3/2024)
+   */
+  mounted() {
+    let me = this;
+    // Nhận dữ liệu từ sự kiện bấm nút
+    me.emitter.on(me.helper.Emitter.SendEvent, (value) => {
+      // CTRL + D: Xoá
+      if (value === me.helper.Status.Delete && me.recordCode !== "") {
+        me.deleteRecord();
+      }
+    });
+  },
+  watch: {
+    /**
+     * Hàm Thực hiện khi phân trang
+     * @author: Nguyễn Văn Trúc (21/1/2024)
+     */
+    filterObject: {
+      handler: function hange() {
+        // Khi thông tin tìm kiếm bị thay đổi mà phân trang chuyển về trang 1
+        if (this.InfoSearch !== this.text) {
+          this.filterObject.pageNumber = 1;
+        }
+        this.common.showLoading();
+        this.getFilterRecord();
+      },
+      deep: true,
+    },
   },
 };
 </script>
 <style scoped>
-@import url("../../../css/pages/product.css");
 .selected {
   background: #eeeeee;
 }

@@ -107,7 +107,7 @@
   },
   {
     "ContainingType": "QLBanHang.API.Controllers.AccountController",
-    "Method": "GetById",
+    "Method": "GetByRole",
     "RelativePath": "api/v1/Account/getByRole/{role}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -262,7 +262,7 @@
     "Parameters": [
       {
         "Name": "id",
-        "Type": "System.String",
+        "Type": "System.Guid",
         "IsRequired": true
       },
       {
@@ -329,24 +329,14 @@
   {
     "ContainingType": "QLBanHang.API.Controllers.CommentController",
     "Method": "GetAll",
-    "RelativePath": "api/v1/Comment",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "QLBanHang.API.Controllers.CommentController",
-    "Method": "GetById",
-    "RelativePath": "api/v1/Comment/{id}",
+    "RelativePath": "api/v1/Comment/{status}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
-        "Type": "System.Guid",
+        "Name": "status",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -380,8 +370,24 @@
   },
   {
     "ContainingType": "QLBanHang.API.Controllers.CommentController",
+    "Method": "GetById",
+    "RelativePath": "api/v1/Comment/getById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QLBanHang.API.Controllers.CommentController",
     "Method": "Paging",
-    "RelativePath": "api/v1/Comment/paging",
+    "RelativePath": "api/v1/Comment/paging/{status}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -400,6 +406,11 @@
         "Name": "text",
         "Type": "System.String",
         "IsRequired": false
+      },
+      {
+        "Name": "status",
+        "Type": "System.Int32",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -418,16 +429,6 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "QLBanHang.API.Controllers.BaseController\u00601[[QLBanHang.Core.Entities.Discount, QLBanHang.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-    "Method": "GetAll",
-    "RelativePath": "api/v1/Discount",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -459,7 +460,7 @@
   {
     "ContainingType": "QLBanHang.API.Controllers.BaseController\u00601[[QLBanHang.Core.Entities.Discount, QLBanHang.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "Delete",
-    "RelativePath": "api/v1/Discount/delete/{id}",
+    "RelativePath": "api/v1/Discount/delete/{status}/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -468,6 +469,11 @@
         "Name": "id",
         "Type": "System.Guid",
         "IsRequired": true
+      },
+      {
+        "Name": "status",
+        "Type": "System.Int32",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -475,7 +481,7 @@
   {
     "ContainingType": "QLBanHang.API.Controllers.BaseController\u00601[[QLBanHang.Core.Entities.Discount, QLBanHang.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "MultipleDelete",
-    "RelativePath": "api/v1/Discount/delete/multipleDelete",
+    "RelativePath": "api/v1/Discount/delete/{status}/multipleDelete",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -483,6 +489,11 @@
       {
         "Name": "ids",
         "Type": "System.Collections.Generic.List\u00601[[System.Guid, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      },
+      {
+        "Name": "status",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -516,6 +527,22 @@
   },
   {
     "ContainingType": "QLBanHang.API.Controllers.BaseController\u00601[[QLBanHang.Core.Entities.Discount, QLBanHang.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetAll",
+    "RelativePath": "api/v1/Discount/getAll/{status}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "status",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QLBanHang.API.Controllers.BaseController\u00601[[QLBanHang.Core.Entities.Discount, QLBanHang.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "MultiplePost",
     "RelativePath": "api/v1/Discount/multiplePost",
     "HttpMethod": "POST",
@@ -533,7 +560,7 @@
   {
     "ContainingType": "QLBanHang.API.Controllers.BaseController\u00601[[QLBanHang.Core.Entities.Discount, QLBanHang.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "Paging",
-    "RelativePath": "api/v1/Discount/paging",
+    "RelativePath": "api/v1/Discount/paging/{status}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -552,6 +579,11 @@
         "Name": "text",
         "Type": "System.String",
         "IsRequired": false
+      },
+      {
+        "Name": "status",
+        "Type": "System.Int32",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -594,117 +626,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "QLBanHang.API.Controllers.BaseController\u00601[[QLBanHang.Core.Entities.Feedback, QLBanHang.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-    "Method": "GetAll",
-    "RelativePath": "api/v1/Feedback",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "QLBanHang.API.Controllers.BaseController\u00601[[QLBanHang.Core.Entities.Feedback, QLBanHang.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-    "Method": "GetById",
-    "RelativePath": "api/v1/Feedback/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Guid",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "QLBanHang.API.Controllers.BaseController\u00601[[QLBanHang.Core.Entities.Feedback, QLBanHang.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-    "Method": "Delete",
-    "RelativePath": "api/v1/Feedback/delete/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Guid",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "QLBanHang.API.Controllers.BaseController\u00601[[QLBanHang.Core.Entities.Feedback, QLBanHang.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-    "Method": "MultipleDelete",
-    "RelativePath": "api/v1/Feedback/delete/multipleDelete",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "ids",
-        "Type": "System.Collections.Generic.List\u00601[[System.Guid, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "QLBanHang.API.Controllers.BaseController\u00601[[QLBanHang.Core.Entities.Feedback, QLBanHang.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-    "Method": "ExportExcel",
-    "RelativePath": "api/v1/Feedback/ExportFile",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "QLBanHang.API.Controllers.BaseController\u00601[[QLBanHang.Core.Entities.Feedback, QLBanHang.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-    "Method": "MultiplePost",
-    "RelativePath": "api/v1/Feedback/multiplePost",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "records",
-        "Type": "System.Collections.Generic.List\u00601[[QLBanHang.Core.Entities.Feedback, QLBanHang.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "QLBanHang.API.Controllers.BaseController\u00601[[QLBanHang.Core.Entities.Feedback, QLBanHang.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-    "Method": "Paging",
-    "RelativePath": "api/v1/Feedback/paging",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "pageSize",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "pageIndex",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "text",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "QLBanHang.API.Controllers.BaseController\u00601[[QLBanHang.Core.Entities.Feedback, QLBanHang.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "ContainingType": "QLBanHang.API.Controllers.FeedbackController",
     "Method": "Post",
     "RelativePath": "api/v1/Feedback/post",
     "HttpMethod": "POST",
@@ -714,27 +636,6 @@
       {
         "Name": "entity",
         "Type": "QLBanHang.Core.Entities.Feedback",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "QLBanHang.API.Controllers.BaseController\u00601[[QLBanHang.Core.Entities.Feedback, QLBanHang.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-    "Method": "Put",
-    "RelativePath": "api/v1/Feedback/put/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "entity",
-        "Type": "QLBanHang.Core.Entities.Feedback",
-        "IsRequired": true
-      },
-      {
-        "Name": "id",
-        "Type": "System.Guid",
         "IsRequired": true
       }
     ],
@@ -758,17 +659,28 @@
   },
   {
     "ContainingType": "QLBanHang.API.Controllers.InvoiceController",
-    "Method": "GetInvoiceById",
-    "RelativePath": "api/v1/Invoice/invoice/{accountId}/{invoiceId}",
+    "Method": "GetAll",
+    "RelativePath": "api/v1/Invoice/getAll/{year}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "accountId",
-        "Type": "System.Guid",
+        "Name": "year",
+        "Type": "System.Int32",
         "IsRequired": true
-      },
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QLBanHang.API.Controllers.InvoiceController",
+    "Method": "GetInvoiceById",
+    "RelativePath": "api/v1/Invoice/invoice/{invoiceId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
       {
         "Name": "invoiceId",
         "Type": "System.Guid",
@@ -895,7 +807,7 @@
   {
     "ContainingType": "QLBanHang.API.Controllers.InvoiceController",
     "Method": "GetByUserId",
-    "RelativePath": "api/v1/Invoice/user/{id}",
+    "RelativePath": "api/v1/Invoice/user/{id}/{status}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -904,18 +816,13 @@
         "Name": "id",
         "Type": "System.Guid",
         "IsRequired": true
+      },
+      {
+        "Name": "status",
+        "Type": "System.Int32",
+        "IsRequired": true
       }
     ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "QLBanHang.API.Controllers.BaseController\u00601[[QLBanHang.Core.Entities.News, QLBanHang.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-    "Method": "GetAll",
-    "RelativePath": "api/v1/News",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -937,7 +844,7 @@
   {
     "ContainingType": "QLBanHang.API.Controllers.BaseController\u00601[[QLBanHang.Core.Entities.News, QLBanHang.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "Delete",
-    "RelativePath": "api/v1/News/delete/{id}",
+    "RelativePath": "api/v1/News/delete/{status}/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -946,6 +853,11 @@
         "Name": "id",
         "Type": "System.Guid",
         "IsRequired": true
+      },
+      {
+        "Name": "status",
+        "Type": "System.Int32",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -953,7 +865,7 @@
   {
     "ContainingType": "QLBanHang.API.Controllers.BaseController\u00601[[QLBanHang.Core.Entities.News, QLBanHang.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "MultipleDelete",
-    "RelativePath": "api/v1/News/delete/multipleDelete",
+    "RelativePath": "api/v1/News/delete/{status}/multipleDelete",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -961,6 +873,11 @@
       {
         "Name": "ids",
         "Type": "System.Collections.Generic.List\u00601[[System.Guid, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      },
+      {
+        "Name": "status",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -974,6 +891,22 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QLBanHang.API.Controllers.BaseController\u00601[[QLBanHang.Core.Entities.News, QLBanHang.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetAll",
+    "RelativePath": "api/v1/News/getAll/{status}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "status",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -995,7 +928,7 @@
   {
     "ContainingType": "QLBanHang.API.Controllers.BaseController\u00601[[QLBanHang.Core.Entities.News, QLBanHang.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "Paging",
-    "RelativePath": "api/v1/News/paging",
+    "RelativePath": "api/v1/News/paging/{status}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -1014,6 +947,11 @@
         "Name": "text",
         "Type": "System.String",
         "IsRequired": false
+      },
+      {
+        "Name": "status",
+        "Type": "System.Int32",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -1110,7 +1048,7 @@
   {
     "ContainingType": "QLBanHang.API.Controllers.ProductController",
     "Method": "MultipleDelete",
-    "RelativePath": "api/v1/Product/delete/multipleDelete",
+    "RelativePath": "api/v1/Product/delete/{status}/multipleDelete",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -1118,6 +1056,11 @@
       {
         "Name": "ids",
         "Type": "System.Collections.Generic.List\u00601[[System.Guid, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      },
+      {
+        "Name": "status",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -1151,32 +1094,6 @@
   },
   {
     "ContainingType": "QLBanHang.API.Controllers.ProductController",
-    "Method": "Paging",
-    "RelativePath": "api/v1/Product/paging",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "pageSize",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "pageIndex",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "text",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "QLBanHang.API.Controllers.ProductController",
     "Method": "PagingUser",
     "RelativePath": "api/v1/Product/paging-user",
     "HttpMethod": "GET",
@@ -1202,6 +1119,37 @@
         "Name": "productTypeId",
         "Type": "System.String",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QLBanHang.API.Controllers.ProductController",
+    "Method": "Paging",
+    "RelativePath": "api/v1/Product/paging/{status}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageIndex",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "text",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "status",
+        "Type": "System.Int32",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -1245,16 +1193,6 @@
   },
   {
     "ContainingType": "QLBanHang.API.Controllers.BaseController\u00601[[QLBanHang.Core.Entities.ProductType, QLBanHang.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-    "Method": "GetAll",
-    "RelativePath": "api/v1/ProductType",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "QLBanHang.API.Controllers.BaseController\u00601[[QLBanHang.Core.Entities.ProductType, QLBanHang.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "GetById",
     "RelativePath": "api/v1/ProductType/{id}",
     "HttpMethod": "GET",
@@ -1282,7 +1220,7 @@
   {
     "ContainingType": "QLBanHang.API.Controllers.BaseController\u00601[[QLBanHang.Core.Entities.ProductType, QLBanHang.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "Delete",
-    "RelativePath": "api/v1/ProductType/delete/{id}",
+    "RelativePath": "api/v1/ProductType/delete/{status}/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -1291,6 +1229,11 @@
         "Name": "id",
         "Type": "System.Guid",
         "IsRequired": true
+      },
+      {
+        "Name": "status",
+        "Type": "System.Int32",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -1298,7 +1241,7 @@
   {
     "ContainingType": "QLBanHang.API.Controllers.BaseController\u00601[[QLBanHang.Core.Entities.ProductType, QLBanHang.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "MultipleDelete",
-    "RelativePath": "api/v1/ProductType/delete/multipleDelete",
+    "RelativePath": "api/v1/ProductType/delete/{status}/multipleDelete",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -1306,6 +1249,11 @@
       {
         "Name": "ids",
         "Type": "System.Collections.Generic.List\u00601[[System.Guid, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      },
+      {
+        "Name": "status",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -1319,6 +1267,22 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QLBanHang.API.Controllers.BaseController\u00601[[QLBanHang.Core.Entities.ProductType, QLBanHang.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetAll",
+    "RelativePath": "api/v1/ProductType/getAll/{status}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "status",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -1340,7 +1304,7 @@
   {
     "ContainingType": "QLBanHang.API.Controllers.BaseController\u00601[[QLBanHang.Core.Entities.ProductType, QLBanHang.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "Paging",
-    "RelativePath": "api/v1/ProductType/paging",
+    "RelativePath": "api/v1/ProductType/paging/{status}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -1359,6 +1323,11 @@
         "Name": "text",
         "Type": "System.String",
         "IsRequired": false
+      },
+      {
+        "Name": "status",
+        "Type": "System.Int32",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -1402,16 +1371,6 @@
   },
   {
     "ContainingType": "QLBanHang.API.Controllers.BaseController\u00601[[QLBanHang.Core.Entities.Supplier, QLBanHang.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-    "Method": "GetAll",
-    "RelativePath": "api/v1/Supplier",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "QLBanHang.API.Controllers.BaseController\u00601[[QLBanHang.Core.Entities.Supplier, QLBanHang.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "GetById",
     "RelativePath": "api/v1/Supplier/{id}",
     "HttpMethod": "GET",
@@ -1439,7 +1398,7 @@
   {
     "ContainingType": "QLBanHang.API.Controllers.BaseController\u00601[[QLBanHang.Core.Entities.Supplier, QLBanHang.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "Delete",
-    "RelativePath": "api/v1/Supplier/delete/{id}",
+    "RelativePath": "api/v1/Supplier/delete/{status}/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -1448,6 +1407,11 @@
         "Name": "id",
         "Type": "System.Guid",
         "IsRequired": true
+      },
+      {
+        "Name": "status",
+        "Type": "System.Int32",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -1455,7 +1419,7 @@
   {
     "ContainingType": "QLBanHang.API.Controllers.BaseController\u00601[[QLBanHang.Core.Entities.Supplier, QLBanHang.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "MultipleDelete",
-    "RelativePath": "api/v1/Supplier/delete/multipleDelete",
+    "RelativePath": "api/v1/Supplier/delete/{status}/multipleDelete",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -1463,6 +1427,11 @@
       {
         "Name": "ids",
         "Type": "System.Collections.Generic.List\u00601[[System.Guid, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      },
+      {
+        "Name": "status",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -1476,6 +1445,22 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QLBanHang.API.Controllers.BaseController\u00601[[QLBanHang.Core.Entities.Supplier, QLBanHang.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetAll",
+    "RelativePath": "api/v1/Supplier/getAll/{status}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "status",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -1497,7 +1482,7 @@
   {
     "ContainingType": "QLBanHang.API.Controllers.BaseController\u00601[[QLBanHang.Core.Entities.Supplier, QLBanHang.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "Paging",
-    "RelativePath": "api/v1/Supplier/paging",
+    "RelativePath": "api/v1/Supplier/paging/{status}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -1516,6 +1501,11 @@
         "Name": "text",
         "Type": "System.String",
         "IsRequired": false
+      },
+      {
+        "Name": "status",
+        "Type": "System.Int32",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []

@@ -3,6 +3,9 @@
     <div class="content-header">
       <div class="content-title">Quản lý sản phẩm</div>
       <div>
+        <button v-on:click="addRecordAccessory" class="btn btn-success mx-3">
+          Thêm phụ kiện
+        </button>
         <button v-on:click="addRecord" class="btn btn-success">
           Thêm sản phẩm
         </button>
@@ -17,12 +20,20 @@
               <strong>{{ listRecordId.length }}</strong>
             </div>
             <div>Bỏ chọn</div>
-            <button @click="deleteRecords" type="button" class="btn btn-danger">
+            <button
+              v-if="this.status === 1"
+              @click="deleteRecords"
+              type="button"
+              class="btn btn-danger"
+            >
               Xoá hết
+            </button>
+            <button v-else @click="restoreProducts" class="btn btn-danger">
+              Khôi phục hết
             </button>
           </div>
         </div>
-        <div style="width: 29%" class="header-table-right">
+        <div style="width: 42%" class="header-table-right">
           <div class="input-icon">
             <input
               placeholder="Tìm kiếm theo tên"
@@ -37,6 +48,24 @@
           </div>
           <div @click="downloadFile" class="icon">
             <i class="bi bi-file-earmark-arrow-up"></i>
+          </div>
+          <div>
+            <button
+              v-if="this.status === 1"
+              @click="restore"
+              class="btn btn-danger"
+              style="width: 160px"
+            >
+              Khôi phục sản phẩm
+            </button>
+            <button
+              style="width: 160px"
+              v-else
+              @click="back"
+              class="btn btn-primary"
+            >
+              Quay lại
+            </button>
           </div>
         </div>
       </div>
@@ -114,10 +143,18 @@
               </td>
               <td>
                 <button
+                  v-if="status === 1"
                   @click="deleteRecord(record.ProductId)"
                   class="btn btn-danger px-4"
                 >
                   Xoá
+                </button>
+                <button
+                  v-else
+                  @click="restoreProduct(record)"
+                  class="btn btn-success px-4"
+                >
+                  Khôi phục
                 </button>
               </td>
             </tr>
@@ -137,6 +174,7 @@
     :statusCode="statusCode"
     @loadData="loadData"
     @hideDetailRecord="hideDetailRecord"
+    :type="type"
   ></product-detail>
 </template>
 <script>
@@ -167,9 +205,50 @@ export default {
       listPageSelectAllRecord: [],
       text: "",
       resultRecordIdList: [],
+      status: 1,
+      type: "",
     };
   },
   methods: {
+    reset() {
+      this.listRecordId = [];
+      this.listIndexSelected = [];
+      this.listPageSelectAllRecord = [];
+      this.filterObject.pageNumber = 1;
+    },
+    restore() {
+      this.status = 0;
+      this.loadData();
+      this.reset();
+    },
+    back() {
+      this.status = 1;
+      this.loadData();
+      this.reset();
+    },
+    async restoreProduct(record) {
+      record.Status = 1;
+      let result = await this.apiService.update(
+        "Product/put",
+        record.ProductId,
+        record
+      );
+      console.log(result);
+      this.loadData();
+    },
+    restoreProducts() {
+      try {
+        this.common.showDialog(
+          "Bạn có muốn khôi phục lại những sản phẩm này không?",
+          this.resource.ConfirmDeleteRecord.Title,
+          this.helper.Status.DeleteMultiple,
+          "Product/delete/1",
+          this.listRecordId
+        );
+      } catch (error) {
+        console.log(error);
+      }
+    },
     /**
      * Làm mới lại recordId khi con trỏ chuột chỉ ra ngoài
      * @author: Nguyễn Văn Trúc(3/3/2024)
@@ -243,7 +322,8 @@ export default {
           "Product",
           me.filterObject.pageSize,
           me.filterObject.pageNumber,
-          me.InfoSearch
+          me.InfoSearch,
+          this.status
         );
         console.log(result.ListRecord);
         me.text = me.InfoSearch;
@@ -292,6 +372,22 @@ export default {
      */
     async addRecord() {
       try {
+        this.type = "product";
+        await this.getRecordCodeBiggest();
+        this.statusCode = this.helper.Status.Insert;
+        // Hiển thị form chi tiết khách hàng
+        this.isShow = true;
+        // Gắn khách hàng gửi đi là khách hàng rỗng
+        this.recordSelected = {};
+        this.recordSelected.ProductCode = this.recordCodeBiggest;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
+    async addRecordAccessory() {
+      try {
+        this.type = "accessory";
         await this.getRecordCodeBiggest();
         this.statusCode = this.helper.Status.Insert;
         // Hiển thị form chi tiết khách hàng
@@ -311,6 +407,7 @@ export default {
      */
     detailRecord: function (record) {
       try {
+        this.type = "product";
         this.statusCode = this.helper.Status.Update;
         // Hiển thị form chi tiết khách hàng
         this.isShow = true;
@@ -328,6 +425,7 @@ export default {
      */
     detailInfoRecord(record) {
       try {
+        this.type = "product";
         this.statusCode = this.helper.Status.See;
         // Hiển thị form chi tiết khách hàng
         this.isShow = true;
@@ -512,7 +610,7 @@ export default {
           this.resource.ConfirmDeleteRecord.ContentDeleteAll,
           this.resource.ConfirmDeleteRecord.Title,
           this.helper.Status.DeleteMultiple,
-          "Product/delete",
+          "Product/delete/0",
           this.listRecordId
         );
       } catch (error) {

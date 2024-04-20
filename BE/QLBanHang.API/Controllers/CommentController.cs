@@ -64,10 +64,10 @@ namespace QLBanHang.API.Controllers
         /// 500: Nếu có exception
         /// </returns>
         /// CreatedBy: NVTruc(31/3/2024)
-        [HttpGet]
-        public IActionResult GetAll()
+        [HttpGet("{status}")]
+        public IActionResult GetAll(int status)
         {
-            var entities = _commentRepository.GetAll();
+            var entities = _commentRepository.GetAll(status);
             return StatusCode(200, entities);
         }
 
@@ -83,14 +83,14 @@ namespace QLBanHang.API.Controllers
         /// 500: Nếu có exception
         ///</returns>
         /// CreatedBy: NVTruc(24/12/2023)
-        [HttpGet("paging")]
-        public IActionResult Paging(int pageSize, int pageIndex, string text = "")
+        [HttpGet("paging/{status}")]
+        public IActionResult Paging(int pageSize, int pageIndex, string text = "", int status = 1)
         {
             var validatePage = _commentService.GetPaging(pageSize, pageIndex, text);
-            var entities = _commentRepository.GetPaging(pageSize, pageIndex, text);
+            var entities = _commentRepository.GetPaging(pageSize, pageIndex, text, status);
 
             // Lấy ra tổng số bản ghi theo phân trang
-            var total = _commentRepository.GetByText(text).Count();
+            var total = _commentRepository.GetByText(text, status).Count();
 
             var result = new
             {
@@ -111,7 +111,7 @@ namespace QLBanHang.API.Controllers
         /// 500: Nếu có exception
         /// </returns>
         /// CreatedBy: NVTruc(31/3/2024)
-        [HttpGet("{id}")]
+        [HttpGet("getById/{id}")]
         public IActionResult GetById(Guid id)
         {
             var entity = _commentRepository.GetById(id);

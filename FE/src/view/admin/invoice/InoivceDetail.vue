@@ -66,9 +66,9 @@
         </div>
         <div style="font-size: 16px">25.000 đ</div>
         <div>{{ this.common.changeDisplayDebitAmount(invoice[0].Total) }}</div>
-        <a class="btn text-white bg-primary px-4 my-4" href="/user/invoice"
-          >Trở lại</a
-        >
+        <button class="btn text-white btn-primary px-4 my-4" @click="goBack">
+          Trở lại
+        </button>
       </div>
     </div>
   </div>
@@ -82,17 +82,23 @@ export default {
       invoice: {},
       ReducedAmount: 0,
       total: 0,
+      role: "",
     };
   },
   methods: {
+    goBack() {
+      this.role === "User"
+        ? this.$router.push("/user/invoice")
+        : this.$router.push("/admin/invoice");
+    },
     /**
      * Lấy hoá đơn
      */
     async getInvoice() {
-      let productId = await this.$route.params.id;
+      let invoiceId = await this.$route.params.id;
       let result = await this.apiService.getByInfo(
         "Invoice/invoice",
-        localStorage.getItem("AccountId") + "/" + productId
+        invoiceId
       );
       this.invoice = result;
 
@@ -106,21 +112,23 @@ export default {
           discountCode.ReducedAmount === undefined
             ? 0
             : discountCode.ReducedAmount;
-
-        this.total = 0;
-        // Duyệt qua danh sách bản ghi và tính tổng số tiền
-        result.forEach((record) => {
-          // Kiểm tra nếu record có tồn tại Price và Quantity
-          if (record.PriceBuy && record.QuantityPurchased) {
-            // Tính thành tiền của mỗi bản ghi và cộng vào tổng số tiền
-            this.total += record.PriceBuy * record.QuantityPurchased;
-          }
-        });
       }
+      this.total = 0;
+      // Duyệt qua danh sách bản ghi và tính tổng số tiền
+      result.forEach((record) => {
+        // Kiểm tra nếu record có tồn tại Price và Quantity
+        if (record.PriceBuy && record.QuantityPurchased) {
+          // Tính thành tiền của mỗi bản ghi và cộng vào tổng số tiền
+          this.total += record.PriceBuy * record.QuantityPurchased;
+        }
+      });
     },
   },
   created() {
     this.getInvoice();
+    if (localStorage.getItem("Role")) {
+      this.role = localStorage.getItem("Role");
+    }
   },
 };
 </script>

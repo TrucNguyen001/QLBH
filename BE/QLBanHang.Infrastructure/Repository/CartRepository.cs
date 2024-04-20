@@ -26,7 +26,7 @@ namespace QLBanHang.Infrastructure.Repository
         public int Delete(Guid id, Guid accountId)
         {
             // Kiểm tra giỏ hàng còn sản phẩm nào không. Nếu còn 1 sản phẩm nào thì xoá hoá đơn
-            var recordCart = GetAllById(accountId.ToString(), "");
+            var recordCart = GetAllById(accountId, "");
             Guid invoiceId = (Guid)recordCart.FirstOrDefault().InvoiceId;
 
             var sqlCommand = $"DELETE FROM Cart WHERE CartId = @entityId AND AccountId = @accountId AND Status = 1";
@@ -41,7 +41,7 @@ namespace QLBanHang.Infrastructure.Repository
 
             if(recordCart.Count() == 1)
             {
-                var sqlDelete = "DELETE FROM Invoice WHERE InvoiceId = @InvoiceId AND Status = 0";
+                var sqlDelete = "DELETE FROM Invoice WHERE InvoiceId = @InvoiceId AND StatusInvoice = 0";
                 DynamicParameters parametDelete = new DynamicParameters();
 
                 parametDelete.Add("@InvoiceId", invoiceId);
@@ -52,7 +52,7 @@ namespace QLBanHang.Infrastructure.Repository
             return 1;
         }
 
-        public IEnumerable<CartDTOs> GetAllById(string id, string text)
+        public IEnumerable<CartDTOs> GetAllById(Guid id, string text)
         {
             var sqlCommand = "Proc_CartInvoiceUser";
             DynamicParameters paramt = new DynamicParameters();
@@ -68,7 +68,7 @@ namespace QLBanHang.Infrastructure.Repository
         public int Insert(Cart cart)
         {
             Guid invoiceId = Guid.NewGuid();
-            List<CartDTOs> records = (List<CartDTOs>)GetAllById(cart.AccountId.ToString(), "");
+            List<CartDTOs> records = (List<CartDTOs>)GetAllById(cart.AccountId, "");
             if(records.Count() > 0)
             {
                 invoiceId = (Guid)records[0].InvoiceId;

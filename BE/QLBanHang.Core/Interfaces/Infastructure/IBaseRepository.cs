@@ -14,7 +14,7 @@ namespace QLBanHang.Core.Interfaces.Infastructure
         /// </summary>
         /// <returns>Trả về toàn bộ bản ghi</returns>
         /// CreatedBy: NVTruc(31/3/2024)
-        IEnumerable<T> GetAll();
+        IEnumerable<T> GetAll(int status);
 
         /// <summary>
         /// Lấy dữ liệu theo Id
@@ -49,7 +49,7 @@ namespace QLBanHang.Core.Interfaces.Infastructure
         /// <param name="id">Id Entity muốn xoá</param>
         /// <returns>Trả về 1 nếu xoá thành công</returns>
         /// CreatedBy: NVTruc(31/3/2024)
-        int Delete(Guid id);
+        int Delete(Guid id, int status);
 
         /// <summary>
         /// Xoá nhiều bản ghi
@@ -57,7 +57,7 @@ namespace QLBanHang.Core.Interfaces.Infastructure
         /// <param name="ids">Id của những bản ghi muốn xoá</param>
         /// <returns>Trả về 1 nếu xoá thành công</returns>
         /// CreatedBy: NVTruc(31/3/2024)
-        int MultipleDelete(List<Guid> ids);
+        int MultipleDelete(List<Guid> ids, int status);
 
         /// <summary>
         /// Thêm nhiều bản ghi
@@ -94,7 +94,7 @@ namespace QLBanHang.Core.Interfaces.Infastructure
         /// <param name="text">Tìm kiểm theo Mã, Họ tên, Số điện thoại</param>
         /// <returns>Trả về số lượng bản ghi</returns>
         /// CreatedBy: NVTruc(1/4/2024)
-        IEnumerable<T> GetPaging(int pageSize, int pageIndex, string text);
+        IEnumerable<T> GetPaging(int pageSize, int pageIndex, string text, int status);
 
         /// <summary>
         /// Lấy bản ghi theo text
@@ -102,6 +102,6 @@ namespace QLBanHang.Core.Interfaces.Infastructure
         /// <param name="text">nội dung tìm kiếm</param>
         /// <returns>Danh sách tìm kiêm</returns>
         /// CreatedBy: NVTruc(1/4/2024)
-        IEnumerable<T> GetByText(string text);
+        IEnumerable<T> GetByText(string text, int status);
     }
 }

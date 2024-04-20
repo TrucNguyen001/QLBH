@@ -22,7 +22,7 @@ namespace QLBanHang.API.Controllers
         }
 
         [HttpGet("{id}/{text?}")]
-        public IActionResult GetByIdUser(string id, string text = "")
+        public IActionResult GetByIdUser(Guid id, string text = "")
         {
             var result = _cartRepository.GetAllById(id, text);
             return StatusCode(200, result);

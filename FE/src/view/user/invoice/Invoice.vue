@@ -8,11 +8,48 @@
       <div class="col-md-12">
         <h2 class="mx-2 my-2">Thông tin đơn hàng</h2>
         <hr />
-        <div v-if="this.listRecord.length > 0" class="content-main">
+        <div class="content-main">
           <div class="header-table d-flex justify-content-end">
-            <div class="">
-              <button @click="getInvoiceBuySuccess" class="btn btn-primary">
-                Danh sách đơn hàng đã mua
+            <div>
+              <button
+                :class="{
+                  'btn-info': status === 1,
+                  'btn-outline-info': status !== 1,
+                }"
+                v-on:click="confirmInvoiceWait"
+                class="mx-2 btn"
+              >
+                Đơn chờ xử lý
+              </button>
+              <button
+                :class="{
+                  'btn-primary': status === 2,
+                  'btn-outline-primary': status !== 2,
+                }"
+                v-on:click="delivering"
+                class="btn"
+              >
+                Đơn hàng đang giao
+              </button>
+              <button
+                :class="{
+                  'btn-danger': status === 3,
+                  'btn-outline-danger': status !== 3,
+                }"
+                v-on:click="invoiceFalse"
+                class="btn mx-2"
+              >
+                Đơn giao thất bại
+              </button>
+              <button
+                :class="{
+                  'btn-success': status === 4,
+                  'btn-outline-success': status !== 4,
+                }"
+                v-on:click="invoiceSuccess"
+                class="btn"
+              >
+                Đơn giao thành công
               </button>
             </div>
           </div>
@@ -30,6 +67,20 @@
                   <th>Xoá</th>
                 </tr>
               </thead>
+              <!-- <div
+                class="d-flex justify-content-center align-items-center"
+                v-if="
+                  this.listRecord.length <= 0 ||
+                  this.listRecord.length === undefined
+                "
+              >
+                <a href="/user/list-product"
+                  ><img
+                    src="../../../assets/img/empty_invoice.webp"
+                    alt="Không có đơn hàng nào"
+                    style="height: 300px; width: 800px"
+                /></a>
+              </div> -->
               <tbody>
                 <tr
                   v-for="record in listRecord"
@@ -63,19 +114,6 @@
             </table>
           </div>
         </div>
-        <div
-          class="d-flex justify-content-center align-items-center"
-          v-if="
-            this.listRecord.length <= 0 || this.listRecord.length === undefined
-          "
-        >
-          <a href="/user/list-product"
-            ><img
-              src="../../../assets/img/empty_invoice.webp"
-              alt="Không có đơn hàng nào"
-              style="height: 300px"
-          /></a>
-        </div>
         <div v-if="this.listRecord.length > 0" class="my-2">
           <a
             href="/user/list-product"
@@ -104,10 +142,47 @@ export default {
       },
       total: 0,
       isLogin: false,
-      status: "",
+      status: 1,
     };
   },
   methods: {
+    confirmInvoiceWait() {
+      this.status = 1;
+      this.getInvoices();
+    },
+    /**
+     * Đơn hàng đang giao
+     */
+    delivering() {
+      this.status = 2;
+      this.getInvoices();
+    },
+    invoiceSuccess() {
+      this.status = 4;
+      this.getInvoices();
+    },
+    invoiceFalse() {
+      this.status = 3;
+      this.getInvoices();
+    },
+    /**
+     * Hiển thị trạng thái dạng chữ
+     * @param {trạng thái đơn hàng} status
+     */
+    getStatus(status) {
+      return status === 1
+        ? "Chờ xác nhận"
+        : status === 2
+        ? "Đang giao hàng"
+        : status === 3
+        ? "Giao hàng thất bại"
+        : "Giao hàng thành công";
+    },
+
+    changeButtonDisplayStatus(status) {
+      return status === 1 ? "Xác nhận đơn" : status === 2 ? "Huỷ đơn hàng" : "";
+    },
+
     /**
      * Chi tiết hoá đơn
      */
@@ -168,22 +243,12 @@ export default {
       this.common.showLoading();
       this.listRecord = await this.apiService.getByInfo(
         "Invoice/user",
-        localStorage.getItem("AccountId")
+        localStorage.getItem("AccountId") + "/" + this.status
       );
-      console.log(this.listRecord);
+      this.listRecord = this.filterUniqueInvoice(this.listRecord);
       this.common.showLoading(false);
     },
 
-    /**
-     * Hiển thị trạng thái đơn hàng
-     * @param {trạng thái} status
-     */
-    getStatus(status) {
-      if (status === 1) {
-        return "Chờ xác nhận";
-      }
-      return "Đang giao hàng";
-    },
     filterUniqueInvoice(data) {
       // Tạo một đối tượng dùng để lưu trữ các bản ghi không trùng CommentId
       let uniqueComments = {};
@@ -202,7 +267,6 @@ export default {
   async created() {
     if (localStorage.getItem("AccountId")) {
       await this.getInvoices();
-      this.listRecord = this.filterUniqueInvoice(this.listRecord);
       this.isLogin = true;
     }
   },

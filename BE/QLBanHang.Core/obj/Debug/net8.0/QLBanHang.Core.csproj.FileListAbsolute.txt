@@ -235,3 +235,4 @@ D:\QLBanHang\BE\QLBanHang.Core\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.D
 D:\QLBanHang\BE\QLBanHang.Core\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Runtime.Caching.dll
 D:\QLBanHang\BE\QLBanHang.Core\obj\Debug\net8.0\QLBanHan.F89BDACC.Up2Date
 D:\QLBanHang\BE\QLBanHang.Core\obj\Debug\net8.0\QLBanHang.Core.genruntimeconfig.cache
+D:\QLBanHang\BE\QLBanHang.Core\obj\Debug\net8.0\QLBanHang.Core.sourcelink.json

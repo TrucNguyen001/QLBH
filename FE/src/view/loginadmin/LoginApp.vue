@@ -178,7 +178,8 @@ export default {
           localStorage.setItem("account", this.accountLogin.Account);
           localStorage.setItem("FullName", response.FullName);
           localStorage.setItem("AccountId", response.AccountId);
-          localStorage.setItem("Email", response.Email);
+          let email = response.Email === null ? "" : response.Email;
+          localStorage.setItem("Email", email);
 
           // Phân tích AccessToken thành các phần tử
           let tokenParts = localStorage.getItem("token").split(".");
@@ -186,10 +187,11 @@ export default {
 
           // Truy cập thông tin từ payload của token
           let userName = payload.UserName;
-          //let role = payload.Roles;
+          let role = payload.Roles;
           let accountCode = payload.AccountCode;
           localStorage.setItem("userName", userName);
           localStorage.setItem("AccountCode", accountCode);
+          localStorage.setItem("Role", role);
 
           this.$router.push("/admin/overview");
         }

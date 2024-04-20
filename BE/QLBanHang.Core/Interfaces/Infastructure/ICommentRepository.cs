@@ -29,5 +29,7 @@ namespace QLBanHang.Core.Interfaces.Infastructure
         public int Insert(Comment comment);
 
         IEnumerable<FeedbackDTOs> GetById(Guid id);
+
+        Comment GetByIdComment(Guid id);
     }
 }

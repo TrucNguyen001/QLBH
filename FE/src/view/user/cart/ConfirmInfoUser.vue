@@ -106,6 +106,7 @@ export default {
         this.invoice.Address = this.record.Address;
         this.invoice.Email = this.record.Email;
         this.invoice.Total = sessionStorage.getItem("total");
+        this.invoice.Total = sessionStorage.getItem("total") - 25000;
         if (this.discountCode.length > 0) {
           let resultDiscount = await this.apiService.getByInfo(
             "Discount/discountCode",
@@ -113,9 +114,7 @@ export default {
           );
           this.invoice.DiscountId = resultDiscount.DiscountId;
           this.invoice.Total =
-            sessionStorage.getItem("total") -
-            25000 -
-            resultDiscount.ReducedAmount;
+            this.invoice.Total - resultDiscount.ReducedAmount;
         }
 
         this.invoice.InvoiceId = sessionStorage.getItem("invoiceId");

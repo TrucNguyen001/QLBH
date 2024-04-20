@@ -20,7 +20,7 @@ namespace QLBanHang.Core.Service
         public string GetCommentCodeBiggest()
         {
             var comments = _commentRepository.SortDecrease();
-            if(string.IsNullOrEmpty(comments.ToString())) {
+            if(comments.FirstOrDefault() == null) {
                 return "BL-00001";
             }
             else

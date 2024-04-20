@@ -211,20 +211,48 @@ const common = {
    * @param {icon} icon
    * @author: Nguyễn Văn Trúc(13/3/2024)
    */
-  showToast(content, icon = helper.TypeIcon.Success) {
-    $("body").append(`<div class="m-show-toast">
+  showToast(content) {
+    $("body").append(`<div style="width: 480px" class="m-show-toast">
     <div class="m-toast load-data-success">
       <div class="m-toast-left">
-        <div class="icon-status icon"></div>
-        <div class="m-toast-content">${content}</div>
+        <div><i class="bi bi-check-lg text-success"></i></div>
+        <div class="m-toast-content"><strong class="mx-2" style="color: #50B83C">Thành công!</strong>${content}</div>
       </div>
       <div class="m-toast-right">
-        <div class="icon icon-close close-toast-load-data"></div>
+      <div class="close-toast-load-data"><i class="bi bi-x-lg text-danger"></i></div>
       </div>
     </div>
   </div>`);
-    // Add class cho icon
-    $(".icon-status").addClass(icon);
+
+    // Đóng form
+    $(".close-toast-load-data").on("click", function () {
+      $(".m-show-toast").remove();
+    });
+
+    // Đóng form sau 1 giây
+    setTimeout(function () {
+      $(".m-show-toast").remove();
+    }, 1600);
+  },
+
+  /**
+   * Hàm hiển thị toast
+   * @param {nội dung} content
+   * @param {icon} icon
+   * @author: Nguyễn Văn Trúc(13/3/2024)
+   */
+  showToastError(content) {
+    $("body").append(`<div class="m-show-toast">
+    <div class="m-toast load-data-success">
+      <div class="m-toast-left">
+        <div><i class="bi bi-exclamation-triangle text-danger"></i></div>
+        <div class="m-toast-content"><strong style="color: Red" class="mx-2">Thất bại!</strong>${content}</div>
+      </div>
+      <div class="m-toast-right">
+        <div class="close-toast-load-data"><i class="bi bi-x-lg text-danger"></i></div>
+      </div>
+    </div>
+  </div>`);
 
     // Đóng form
     $(".close-toast-load-data").on("click", function () {

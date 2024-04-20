@@ -17,12 +17,20 @@
               <strong>{{ listRecordId.length }}</strong>
             </div>
             <div>Bỏ chọn</div>
-            <button @click="deleteRecords" type="button" class="btn btn-danger">
+            <button
+              v-if="this.status === 1"
+              @click="deleteRecords"
+              type="button"
+              class="btn btn-danger"
+            >
               Xoá hết
+            </button>
+            <button v-else @click="restoreDiscounts" class="btn btn-danger">
+              Khôi phục hết
             </button>
           </div>
         </div>
-        <div style="width: 29%" class="header-table-right">
+        <div style="width: 48%" class="header-table-right">
           <div class="input-icon">
             <input
               placeholder="Tìm kiếm theo tên"
@@ -37,6 +45,24 @@
           </div>
           <div @click="downloadFile" class="icon">
             <i class="bi bi-file-earmark-arrow-up"></i>
+          </div>
+          <div>
+            <button
+              v-if="this.status === 1"
+              @click="restore"
+              class="btn btn-danger"
+              style="width: 220px"
+            >
+              Khôi phục mã giảm giá
+            </button>
+            <button
+              style="width: 220px"
+              v-else
+              @click="back"
+              class="btn btn-primary"
+            >
+              Quay lại
+            </button>
           </div>
         </div>
       </div>
@@ -96,7 +122,7 @@
                 {{ this.common.changeDisplayDate(record.ExpirationDate) }}
               </td>
               <td>{{ record.Minimum }}</td>
-              <td>{{ record.Status }}</td>
+              <td>{{ this.changeDisplayStatus(record.Status) }}</td>
               <td>
                 <button
                   @click="detailInfoRecord(record)"
@@ -112,10 +138,18 @@
               </td>
               <td>
                 <button
+                  v-if="status === 1"
                   @click="deleteRecord(record.DiscountId)"
                   class="btn btn-danger px-4"
                 >
                   Xoá
+                </button>
+                <button
+                  v-else
+                  @click="restoreDiscount(record)"
+                  class="btn btn-success px-4"
+                >
+                  Khôi phục
                 </button>
               </td>
             </tr>
@@ -165,9 +199,32 @@ export default {
       listPageSelectAllRecord: [],
       text: "",
       resultRecordIdList: [],
+      status: 1,
     };
   },
   methods: {
+    reset() {
+      this.listRecordId = [];
+      this.listIndexSelected = [];
+      this.listPageSelectAllRecord = [];
+      this.filterObject.pageNumber = 1;
+    },
+    restore() {
+      this.status = 0;
+      this.loadData();
+      this.reset();
+    },
+    back() {
+      this.status = 1;
+      this.loadData();
+      this.reset();
+    },
+    /**
+     * Hiển thị trạng thái mã giảm giá
+     */
+    changeDisplayStatus(status) {
+      return status === 1 ? "Đang hoạt động" : "Hết hạn";
+    },
     /**
      * Làm mới lại recordId khi con trỏ chuột chỉ ra ngoài
      * @author: Nguyễn Văn Trúc(3/3/2024)
@@ -241,7 +298,8 @@ export default {
           "Discount",
           me.filterObject.pageSize,
           me.filterObject.pageNumber,
-          me.InfoSearch
+          me.InfoSearch,
+          this.status
         );
         me.text = me.InfoSearch;
         me.listRecord = result.ListRecord;
@@ -458,12 +516,27 @@ export default {
           `${this.resource.ConfirmDeleteRecord.ContentDelete} [${this.recordCode}] ${this.resource.Question.Content}`,
           this.resource.ConfirmDeleteRecord.Title,
           this.helper.Status.Delete,
-          "Discount/delete",
+          "Discount/delete/0",
           recordId
         );
       } catch (error) {
         console.log(error);
       }
+    },
+
+    /**
+     * Khôi phục 1 bản ghi
+     * @param {bản ghi} record
+     */
+    async restoreDiscount(record) {
+      record.Status = 1;
+      let result = await this.apiService.update(
+        "Discount/put",
+        record.DiscountId,
+        record
+      );
+      console.log(result);
+      this.loadData();
     },
 
     /**
@@ -518,13 +591,29 @@ export default {
      * @author: Nguyễn Văn Trúc (22/1/2024)
      */
     deleteRecords() {
-      console.log(this.listRecordId);
       try {
         this.common.showDialog(
           this.resource.ConfirmDeleteRecord.ContentDeleteAll,
           this.resource.ConfirmDeleteRecord.Title,
           this.helper.Status.DeleteMultiple,
-          "Discount/delete",
+          "Discount/delete/0",
+          this.listRecordId
+        );
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
+    /**
+     * Khôi phục hết bản ghi
+     */
+    restoreDiscounts() {
+      try {
+        this.common.showDialog(
+          "Bạn có muốn khôi phục lại những mã giảm giá này không?",
+          this.resource.ConfirmDeleteRecord.Title,
+          this.helper.Status.DeleteMultiple,
+          "Discount/delete/1",
           this.listRecordId
         );
       } catch (error) {

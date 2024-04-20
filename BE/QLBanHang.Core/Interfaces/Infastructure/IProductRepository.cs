@@ -67,7 +67,7 @@ namespace QLBanHang.Core.Interfaces.Infastructure
         /// <param name="ids">Id của những bản ghi muốn xoá</param>
         /// <returns>Trả về 1 nếu xoá thành công</returns>
         /// CreatedBy: NVTruc(31/3/2024)
-        int MultipleDelete(List<Guid> ids);
+        int MultipleDelete(List<Guid> ids, int status);
 
         /// <summary>
         /// Thêm nhiều bản ghi
@@ -96,7 +96,7 @@ namespace QLBanHang.Core.Interfaces.Infastructure
         /// <param name="text">Tìm kiểm theo Mã, Họ tên, Số điện thoại</param>
         /// <returns>Trả về số lượng bản ghi</returns>
         /// CreatedBy: NVTruc(1/4/2024)
-        IEnumerable<ProductDTOs> GetPaging(int pageSize, int pageIndex, string text);
+        IEnumerable<ProductDTOs> GetPaging(int pageSize, int pageIndex, string text, int status);
 
         /// <summary>
         /// Phân trang
@@ -117,6 +117,6 @@ namespace QLBanHang.Core.Interfaces.Infastructure
         /// <param name="text">nội dung tìm kiếm</param>
         /// <returns>Danh sách tìm kiêm</returns>
         /// CreatedBy: NVTruc(1/4/2024)
-        IEnumerable<Product> GetByText(string text);
+        IEnumerable<Product> GetByText(string text, int status);
     }
 }

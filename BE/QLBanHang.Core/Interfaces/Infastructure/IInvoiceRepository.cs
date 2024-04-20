@@ -43,7 +43,7 @@ namespace QLBanHang.Core.Interfaces.Infastructure
         /// <param name="id">Id User muốn lấy</param>
         /// <returns>Trả về bản nghi tìm</returns>
         /// CreatedBy: NVTruc(31/3/2024)
-        IEnumerable<CartDTOs> GetByUserId(Guid id);
+        IEnumerable<CartDTOs> GetByUserId(Guid id, int status);
 
         /// <summary>
         /// Lấy dữ liệu theo Id
@@ -59,7 +59,7 @@ namespace QLBanHang.Core.Interfaces.Infastructure
         /// <param name="accountId">id tài khoản</param>
         /// <param name="invoiceId">id hoá đơn</param>
         /// <returns>trả về bản ghi</returns>
-        IEnumerable<CartDTOs> GetInvoiceById(Guid accountId, Guid invoiceId);
+        IEnumerable<CartDTOs> GetInvoiceById(Guid invoiceId);
 
         InvoiceDiscountDTOs getInvoiceDiscountId(Guid invoiceId);
 
@@ -80,5 +80,14 @@ namespace QLBanHang.Core.Interfaces.Infastructure
         /// <returns>Danh sách tìm kiêm</returns>
         /// CreatedBy: NVTruc(1/4/2024)
         IEnumerable<Invoice> GetByText(string text, int status);
+
+        /// <summary>
+        /// Lấy toàn bộ dữ liệu
+        /// </summary>
+        /// <returns>Trả về toàn bộ bản ghi</returns>
+        /// CreatedBy: NVTruc(31/3/2024)
+        IEnumerable<Invoice> GetAll(int year);
+
+
     }
 }

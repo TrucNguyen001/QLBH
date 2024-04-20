@@ -234,7 +234,7 @@ namespace QLBanHang.Core.Service
         /// Created by: Nguyễn Văn Trúc(4/4/2024)
         public int RevokeAll()
         {
-            var accounts = _accountRepository.GetAll();
+            var accounts = _accountRepository.GetAll(1);
             if(accounts == null)
             {
                 throw new ValidateException.ValidateExceptionError(MISAResourceVN.ListAccountEmpty);

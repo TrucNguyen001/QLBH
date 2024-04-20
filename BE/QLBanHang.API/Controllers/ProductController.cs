@@ -124,10 +124,10 @@ namespace QLBanHang.API.Controllers
         /// 500: Nếu có exception
         /// </returns>
         /// CreatedBy: NVTruc(31/3/2024)
-        [HttpDelete("delete/multipleDelete/")]
-        public IActionResult MultipleDelete(List<Guid> ids)
+        [HttpDelete("delete/{status}/multipleDelete/")]
+        public IActionResult MultipleDelete(List<Guid> ids, int status)
         {
-            var repository = _productRespository.MultipleDelete(ids);
+            var repository = _productRespository.MultipleDelete(ids, status);
             return StatusCode(200, repository);
         }
 
@@ -160,14 +160,14 @@ namespace QLBanHang.API.Controllers
         /// 500: Nếu có exception
         ///</returns>
         /// CreatedBy: NVTruc(24/12/2023)
-        [HttpGet("paging")]
-        public IActionResult Paging(int pageSize, int pageIndex, string text = "")
+        [HttpGet("paging/{status}")]
+        public IActionResult Paging(int pageSize, int pageIndex, string text = "", int status = 1)
         {
             var validatePage = _productService.GetPaging(pageSize, pageIndex, text);
-            var entities = _productRespository.GetPaging(pageSize, pageIndex, text);
+            var entities = _productRespository.GetPaging(pageSize, pageIndex, text, status);
 
             // Lấy ra tổng số bản ghi theo phân trang
-            var total = _productRespository.GetByText(text).Count();
+            var total = _productRespository.GetByText(text, status).Count();
 
             var result = new
             {

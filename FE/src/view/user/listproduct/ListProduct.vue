@@ -264,12 +264,18 @@ export default {
     },
 
     async getListProductType() {
-      this.listProductType = await this.apiService.get("ProductType");
+      this.listProductType = await this.apiService.get("ProductType/getAll/1");
     },
   },
   created() {
     this.getListProductType();
     this.loadData();
+  },
+  mounted() {
+    this.emitter.on("Search", (value) => {
+      this.infoSearch = value;
+      this.loadData();
+    });
   },
 };
 </script>

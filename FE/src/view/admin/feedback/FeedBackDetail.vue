@@ -85,7 +85,6 @@
             <div style="width: 100%">
               <label>Nội dung phản hồi</label>
               <textarea
-                readonly
                 v-model="feedbackUser"
                 class="w-100 m-input mt-2"
                 style="height: 100px"
@@ -132,7 +131,15 @@ export default {
       if (this.feedbackUser === "") {
         this.errorFeedback = "Nỗi dung phản hồi không được phép bỏ trống";
       } else {
-        var result = this.apiService.post("Feedback", this.feedbackUser);
+        let recordInsert = {
+          FeedbackContent: this.feedbackUser,
+          CommentId: this.recordSelectUnique.CommentId,
+          Status: 1,
+          CreatedDateFeedback: new Date(),
+          CreatedBy: localStorage.getItem("FullName"),
+          FeedbackFor: this.recordSelectUnique.CommentName,
+        };
+        let result = await this.apiService.post("Feedback/post", recordInsert);
         console.log(result);
       }
     },

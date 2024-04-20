@@ -26,7 +26,7 @@
         >
       </div>
       <div style="font-size: 17px; margin-top: 8px">
-        <i>Email: support@gmail.com</i>
+        <i>Email: nguyenvantruc539@gmail.com</i>
       </div>
       <div
         class="icon_x"
