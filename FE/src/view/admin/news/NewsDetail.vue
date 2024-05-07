@@ -5,126 +5,96 @@
       style="
         position: absolute;
         border: 1px solid darkgreen;
-        width: 800px;
+        width: 1300px;
+        height: 75%;
         z-index: 999;
+        overflow-y: auto;
       "
     >
       <div class="form">
         <div
           class="form-header d-flex align-items-center justify-content-between"
         >
-          <h2>Thông tin nhà cung cấp</h2>
+          <h2>Thông tin tin tức</h2>
           <button @click="hideDetailRecord" class="btn btn-close mx-4"></button>
         </div>
         <div class="form-body mx-5">
-          <div class="d-flex justify-content-between">
+          <div class="d-flex justify-content-between align-items-center">
             <div style="width: 45%">
-              <label class="mb-2 mt-3" for="">Mã tài khoản</label>
-              <input
-                readonly
-                class="m-input"
-                v-model="recordSelect.AccountCode"
-                type="text"
-              />
+              <MInput
+                :inputErrorFirst="nameInputErrorFirst"
+                nameInput="NewsCode"
+                v-model="recordSelect.NewsCode"
+                label="Mã tin tức"
+                :required="true"
+                :isError="this.errors.NewsCode"
+                @removeClassErrorInput="this.errors.NewsCode = null"
+              ></MInput>
             </div>
             <div style="width: 45%">
-              <label class="mb-2 mt-3" for="">Họ và tên</label>
-              <input
-                readonly
-                class="m-input"
-                v-model="recordSelect.FullName"
-                type="text"
-              />
-            </div>
-          </div>
-          <div class="d-flex justify-content-between">
-            <div style="width: 45%">
-              <label class="mb-2 mt-3" for="">Tài khoản</label>
-              <input
-                readonly
-                class="m-input"
-                v-model="recordSelect.UserName"
-                type="text"
-              />
-            </div>
-            <div style="width: 45%">
-              <label class="mb-2 mt-3" for="">Mật khẩu</label>
-              <input
-                readonly
-                class="m-input"
-                v-model="recordSelect.Password"
-                type="text"
-              />
-            </div>
-          </div>
-          <div class="d-flex justify-content-between">
-            <div style="width: 45%">
-              <label class="mb-2 mt-3" for="">Email</label>
-              <input
-                readonly
-                class="m-input"
-                v-model="recordSelect.Email"
-                type="text"
-              />
-            </div>
-            <div style="width: 45%">
-              <label class="mb-2 mt-3" for="">Số điện thoại</label>
-              <input
-                readonly
-                class="m-input"
-                v-model="recordSelect.PhoneNumber"
-                type="text"
-              />
+              <div style="width: 22%; margin-bottom: -18px">
+                <label style="font-weight: 600; color: #1f1f1f" for="img"
+                  >Hình ảnh<i class="text-danger">*</i></label
+                >
+                <input
+                  @change="changeImg"
+                  class="mt-2"
+                  name="img"
+                  type="file"
+                  style="height: 36px"
+                />
+                <div
+                  v-if="
+                    recordSelect.Image !== undefined &&
+                    isImageFileName(recordSelect.Image)
+                  "
+                  class="mt-3"
+                >
+                  <img
+                    style="height: 100px"
+                    :src="require('@/assets/img/new/' + recordSelect.Image)"
+                  />
+                </div>
+                <div
+                  class="position-absolute"
+                  style="color: red; font-size: 12px"
+                >
+                  {{ errors.Image }}
+                </div>
+              </div>
             </div>
           </div>
           <div class="d-flex justify-content-between">
-            <div style="width: 45%">
-              <label class="mb-2 mt-3" for="">Giới tính</label>
-              <input
-                readonly
-                class="m-input"
-                v-model="recordSelect.Gender"
-                type="text"
-              />
-            </div>
-            <div style="width: 45%">
-              <label class="mb-2 mt-3" for="">Trạng thái</label>
-              <input
-                readonly
-                class="m-input"
-                v-model="recordSelect.Status"
-                type="text"
-              />
+            <div class="w-100">
+              <MInput
+                nameInput="NewsName"
+                v-model="recordSelect.NewsName"
+                label="Tiêu đề"
+                :required="true"
+                :isError="this.errors.NewsName"
+                @removeClassErrorInput="this.errors.NewsName = null"
+              ></MInput>
             </div>
           </div>
           <div class="d-flex justify-content-between">
-            <div style="width: 45%">
-              <label class="mb-2 mt-3" for="">Ngày tạo</label>
-              <input
-                readonly
-                class="m-input"
-                v-model="recordSelect.CreatedDate"
-                type="text"
-              />
+            <div class="w-100 my-2">
+              <label
+                class="mt-3 mb-2"
+                style="font-weight: 600; color: #1f1f1f"
+                for="img"
+                >Mô tả<i class="text-danger">*</i></label
+              >
+              <ckeditor
+                :editor="editor"
+                v-model="recordSelect.Content"
+              ></ckeditor>
+              <div
+                class="position-absolute"
+                style="color: red; font-size: 12px"
+              >
+                {{ errors.Content }}
+              </div>
             </div>
-            <div style="width: 45%">
-              <label class="mb-2 mt-3" for="">Ngày sửa</label>
-              <input
-                readonly
-                class="m-input"
-                v-model="recordSelect.ModifiedDate"
-                type="text"
-              />
-            </div>
-          </div>
-          <div>
-            <label class="mb-2 mt-3" for="">Địa chỉ</label>
-            <input
-              readonly
-              class="m-input"
-              v-model="recordSelect.Address"
-              type="text"
-            />
           </div>
         </div>
         <div
@@ -148,6 +118,7 @@
   </div>
 </template>
 <script>
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 export default {
   components: {},
   props: {
@@ -157,17 +128,35 @@ export default {
   },
   data() {
     return {
+      editor: ClassicEditor,
+      editorData: "<h1>Content of the editor.</h1>",
       recordSelect: {},
       errors: {
-        UserCode: "",
-        UserName: "",
-        Email: "",
-        PhoneNumber: "",
-        Address: "",
+        NewsCode: "",
+        NewsName: "",
+        Image: "",
+        Content: "",
       },
     };
   },
   methods: {
+    /**
+     * Kiểm tra xem có phải ảnh không
+     * @param {tên file} fileName
+     * @returns: true: Đúng, false: Sai
+     * @author: Nguyễn Văn Trúc(4/4/2024)
+     */
+    isImageFileName(fileName) {
+      const imageExtensions = /\.(jpg|jpeg|png|gif)$/i; // Danh sách các phần mở rộng ảnh phổ biến
+      return imageExtensions.test(fileName);
+    },
+    changeImg() {
+      try {
+        this.recordSelect.Image = event.target.files[0].name;
+      } catch (error) {
+        console.log(error);
+      }
+    },
     /**
      * Hàm ẩn form chi tiết
      * @author: Nguyễn Văn Trúc (9/12/2023)
@@ -186,32 +175,26 @@ export default {
         let checkError = true;
         me.errors = {};
         // Kiểm tra record code
-        if (me.common.validateInput(me.recordSelect.UserCode)) {
-          me.errors.UserCode = "Mã nhà cung cấp không được phép bỏ trống";
+        if (me.common.validateInput(me.recordSelect.NewsCode)) {
+          me.errors.NewsCode = "Mã tin tức không được phép bỏ trống";
           checkError = false;
         }
 
         // Kiểm tra fullname
-        if (me.common.validateInput(me.recordSelect.UserName)) {
-          me.errors.UserName = "Tên nhà cung cấp không được phép bỏ trống";
+        if (me.common.validateInput(me.recordSelect.NewsName)) {
+          me.errors.NewsName = "Tiêu đề không được phép bỏ trống";
           checkError = false;
         }
 
-        // Kiểm tra email
-        if (!me.common.checkEmail(me.recordSelect.Email)) {
-          me.errors.Email = "Email không đúng định dạng";
+        // Kiểm tra hình ảnh
+        if (me.common.validateInput(me.recordSelect.Image)) {
+          me.errors.Image = "Hình ảnh không được phép bỏ trống";
           checkError = false;
         }
 
-        // Kiểm tra số điện thoại
-        if (me.common.validateInput(me.recordSelect.PhoneNumber)) {
-          me.errors.PhoneNumber = "Số điện thoại không được phép bỏ trống";
-          checkError = false;
-        }
-
-        // Kiểm tra địa chỉ
-        if (me.common.validateInput(me.recordSelect.PhoneNumber)) {
-          me.errors.Address = "Địa chỉ không được phép bỏ trống";
+        // Kiểm tra mô tả
+        if (me.common.validateInput(me.recordSelect.Content)) {
+          me.errors.Content = "Nội dung không được phép bỏ trống";
           checkError = false;
         }
 
@@ -232,12 +215,13 @@ export default {
         if (this.validateData()) {
           if (this.statusCode === this.helper.Status.Insert) {
             this.recordSelect.CreatedDate = new Date();
-            result = await this.apiService.post("User/post", this.recordSelect);
+            this.recordSelect.Status = 1;
+            result = await this.apiService.post("News/post", this.recordSelect);
           } else if (this.statusCode === this.helper.Status.Update) {
             this.recordSelect.ModifiedDate = new Date();
             result = await this.apiService.update(
-              "User/put",
-              this.recordSelect.UserId,
+              "News/put",
+              this.recordSelect.NewsId,
               this.recordSelect
             );
           }

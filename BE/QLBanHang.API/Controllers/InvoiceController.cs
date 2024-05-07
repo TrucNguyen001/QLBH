@@ -16,13 +16,15 @@ namespace QLBanHang.API.Controllers
         IInvoiceService _invoiceService;
         ICartRepository _cartRepository;
         IDiscountService _discountService;
+        IProductRepository _productRepository;
 
-        public InvoiceController(IInvoiceRepository invoiceRepository, IInvoiceService invoiceService, ICartRepository cartRepository, IDiscountService discountService)
+        public InvoiceController(IInvoiceRepository invoiceRepository, IInvoiceService invoiceService, ICartRepository cartRepository, IDiscountService discountService, IProductRepository productRepository)
         {
             _invoiceRepository = invoiceRepository;
             _invoiceService = invoiceService;
             _cartRepository = cartRepository;
             _discountService = discountService;
+            _productRepository = productRepository;
         }
 
         /// <summary>
@@ -58,14 +60,26 @@ namespace QLBanHang.API.Controllers
         {
             var service = _invoiceService.Update(id, entity);
 
-            var respository = _invoiceRepository.Update(entity, id, accountId);
+            var respository = _invoiceRepository.Update(entity, id);
 
-            _cartRepository.Update(id, accountId);
-            if(service != null)
+            if(entity.StatusInvoice == 1)
             {
-                _discountService.UpdateInputNumber((Guid)service.DiscountId, service.InputNumber - 1);
+                _cartRepository.Update(id, accountId);
+                if(service != null)
+                {
+                    _discountService.UpdateInputNumber((Guid)service.DiscountId, service.InputNumber - 1);
+                }
             }
 
+            if(entity.StatusInvoice == 4) {
+                var result = _cartRepository.UpdateQuantityProducts(entity.InvoiceId);
+                foreach(var item in result)
+                {
+                    var product = _productRepository.GetById(item.ProductId);
+                    product.QuantityBuy = product.QuantityBuy + item.QuantityPurchased;
+                    _productRepository.Update(product, item.ProductId);
+                }
+            }
             return StatusCode(200, respository);
         }
 
@@ -188,9 +202,43 @@ namespace QLBanHang.API.Controllers
         [HttpGet("getAll/{year}")]
         public IActionResult GetAll(int year)
         {
-            var entities = _invoiceRepository.GetAll(year);
+            var revenue = _invoiceRepository.GetAll(year);
+            var productType = _invoiceRepository.GetAllByYear(year);
+            var product = _invoiceRepository.GetProductTop10(year);
+            // Lấy ra những năm mua hàng
+            var fullYear = _invoiceRepository.GetFullYear();
+
+            var result = new
+            {
+                Revenue = revenue,
+                ProductType = productType,
+                Product = product,
+                FullYear = fullYear
+            };
+            return StatusCode(200, result);
+        }
+
+        /// <summary>
+        /// Lấy toàn bộ bản ghi by status
+        /// </summary>
+        /// <returns>
+        /// 200: Nếu có dữ liệu
+        /// 400: Lỗi nghiệp vụ
+        /// 500: Nếu có exception
+        /// </returns>
+        /// CreatedBy: NVTruc(31/3/2024)
+        [HttpGet("GetAllByYear/{year}")]
+        public IActionResult GetAllByYear(int year)
+        {
+            var entities = _invoiceRepository.GetAllByYear(year);
             return StatusCode(200, entities);
         }
 
+        [HttpGet("update-product-false/{id}")]
+        public IActionResult UpdateProudctInvoiceFalse(Guid id)
+        {
+            var result = _invoiceRepository.UpdateProudctInvoiceFalse(id);
+            return StatusCode(200, result);
+        }
     }
 }

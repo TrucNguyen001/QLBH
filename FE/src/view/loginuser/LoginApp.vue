@@ -1,26 +1,12 @@
 <template>
   <div class="img-background">
-    <div class="language-nation">
-      <div @click="showLanguage" class="change-language">
-        <div
-          :class="{
-            icon_vn: resource.MLogin.VN === 'VN',
-            icon_en: resource.MLogin.VN === 'EN',
-          }"
-          class="icon-nation"
-        ></div>
-        <div class="language">{{ resource.MLogin.Language }}</div>
-      </div>
-      <div v-show="showChangeLanguage" class="select-language">
-        <div @click="changeLanguageVN">Tiếng Việt</div>
-        <div @click="changeLanguageEN">English</div>
-      </div>
-    </div>
+    <div class="language-nation"></div>
     <div>
       <div v-if="type === 'login'" class="form-login">
         <div class="d-flex justify-content-center mb-4" style="font-size: 36px">
           Đăng nhập
         </div>
+        <CKEditor></CKEditor>
         <div class="form-login-body">
           <div class="login-account">
             <input
@@ -81,12 +67,18 @@
         <div class="form-login-footer">
           <div class="login-with">
             <div class="line-right"></div>
-            <div class="form-login-footer-title">Đăng nhập với</div>
+            <div class="form-login-footer-title">Hoặc</div>
             <div class="line-right"></div>
           </div>
           <div class="icon-logo-login">
-            <i style="font-size: 28px" class="bi bi-facebook mx-2"></i>
-            <i style="font-size: 28px" class="bi bi-google mx-2"></i>
+            <button
+              style="height: 40px"
+              class="btn btn-light d-flex align-items-center px-5"
+              @click="loginWithGoogle"
+            >
+              <i style="font-size: 24px" class="bi bi-google mx-2"></i>
+              <p class="mt-3">Đăng nhập với Google</p>
+            </button>
           </div>
         </div>
       </div>
@@ -205,6 +197,7 @@
 </template>
 
 <script>
+//import passwordHash from "pbkdf2-password-hash";
 export default {
   name: "LoginApp",
   data() {
@@ -233,6 +226,63 @@ export default {
     };
   },
   methods: {
+    async loginWithGoogle() {
+      try {
+        // Đăng nhập bằng Google
+        const user = await this.$gAuth.signIn();
+
+        this.common.showLoading();
+        const idUser = user.Ca;
+
+        // Ví dụ: lấy email của người dùng
+        const userEmail = user.getBasicProfile().getEmail();
+
+        this.password = await this.apiService.getByInfo(
+          "Account/GetByUserName",
+          idUser
+        );
+
+        localStorage.setItem("FullName", userEmail);
+
+        if (this.password !== "") {
+          console.log(this.password);
+          this.accountLogin = {
+            Account: idUser,
+            Password: this.password,
+          };
+          this.callApiLogin();
+        } else {
+          this.accountRegister = {
+            UserName: idUser,
+            Password: userEmail,
+            Email: userEmail,
+          };
+
+          let register = await this.apiService.post(
+            "Account/register",
+            this.accountRegister
+          );
+
+          if (register === 1) {
+            this.accountLogin = {
+              Account: idUser,
+              Password: userEmail,
+            };
+            this.callApiLogin();
+          }
+        }
+
+        this.common.showLoading(false);
+        this.$router.push("/");
+      } catch (error) {
+        // Xảy ra lỗi trong quá trình đăng nhập
+        console.error("Đăng nhập thất bại:", error);
+      }
+    },
+
+    callback(response) {
+      console.log("Handle the response", response);
+    },
     async register() {
       if (this.checkAccountRegister()) {
         let result = await this.apiService.post(
@@ -357,6 +407,35 @@ export default {
     showLanguage() {
       this.showChangeLanguage = !this.showChangeLanguage;
     },
+    async callApiLogin() {
+      let me = this;
+      let response = await me.apiService.post(
+        "Account/login/User",
+        me.accountLogin
+      );
+      localStorage.setItem("token", response.Model.AccessToken);
+      localStorage.setItem("refreshToken", response.Model.RefreshToken);
+      localStorage.setItem("expiration", response.Model.Expiration);
+      localStorage.setItem("isLogin", true);
+      localStorage.setItem("account", this.accountLogin.Account);
+      localStorage.setItem("FullName", response.FullName);
+      localStorage.setItem("AccountId", response.AccountId);
+      localStorage.setItem("Email", response.Email);
+
+      // Phân tích AccessToken thành các phần tử
+      let tokenParts = localStorage.getItem("token").split(".");
+      let payload = JSON.parse(atob(tokenParts[1]));
+
+      // Truy cập thông tin từ payload của token
+      let userName = payload.UserName;
+      let role = payload.Roles;
+      let accountCode = payload.AccountCode;
+      localStorage.setItem("userName", userName);
+      localStorage.setItem("AccountCode", accountCode);
+      localStorage.setItem("Role", role);
+
+      this.$router.push("/");
+    },
     /**
      * Hàm đăng nhập
      * @author Nguyễn Văn Trúc (17/2/2024)
@@ -367,32 +446,7 @@ export default {
         me.common.showLoading();
         me.checkAccount();
         if (me.checkAccount() === true) {
-          let response = await me.apiService.post(
-            "Account/login/User",
-            me.accountLogin
-          );
-          localStorage.setItem("token", response.Model.AccessToken);
-          localStorage.setItem("refreshToken", response.Model.RefreshToken);
-          localStorage.setItem("expiration", response.Model.Expiration);
-          localStorage.setItem("isLogin", true);
-          localStorage.setItem("account", this.accountLogin.Account);
-          localStorage.setItem("FullName", response.FullName);
-          localStorage.setItem("AccountId", response.AccountId);
-          localStorage.setItem("Email", response.Email);
-
-          // Phân tích AccessToken thành các phần tử
-          let tokenParts = localStorage.getItem("token").split(".");
-          let payload = JSON.parse(atob(tokenParts[1]));
-
-          // Truy cập thông tin từ payload của token
-          let userName = payload.UserName;
-          let role = payload.Roles;
-          let accountCode = payload.AccountCode;
-          localStorage.setItem("userName", userName);
-          localStorage.setItem("AccountCode", accountCode);
-          localStorage.setItem("Role", role);
-
-          this.$router.push("/user/home");
+          me.callApiLogin();
         }
         me.common.showLoading(false);
       } catch (error) {
@@ -418,6 +472,10 @@ export default {
    * @author Nguyễn Văn Trúc (18/2/2024)
    */
   created() {
+    // passwordHash.hash("password").then((hash) => {
+    //   console.log(hash);
+    // });
+
     this.accountLogin = {
       Account: "",
       PassWord: "",

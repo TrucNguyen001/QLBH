@@ -118,16 +118,82 @@
         >
           Danh sách đơn hàng
         </div>
-        <div class="d-flex mx-1" style="height: 80px">
-          <h4 class="my-auto">Tổng tiền:</h4>
-          <h3 class="my-auto text-danger mx-2">
+        <div v-if="total !== 0" class="w-100 mb-2">
+          <label>Nhập mã giảm giá nếu có</label>
+          <div
+            class="d-flex justify-content-between mt-2"
+            style="margin-left: 4px"
+          >
+            <input
+              class="m-input"
+              style="width: 72%"
+              placeholder="Mã giảm giá"
+              type="text"
+              v-model="discountCode"
+            />
+            <button @click="findDiscountCode" class="btn btn-primary">
+              Áp dụng
+            </button>
+          </div>
+        </div>
+        <div class="mb-2">
+          <label>Hình thức thanh toán</label>
+          <div class="mt-2 pay" style="margin-left: 4px">
+            <input checked @click="payOff" type="radio" name="pay" />
+            Thanh toán khi nhận hàng
+          </div>
+          <div class="mt-2 pay" style="margin-left: 4px">
+            <input @click="payOn" type="radio" name="pay" />
+            Thanh toán qua PayPal
+          </div>
+        </div>
+        <p>
+          Thanh toán online để được free ship
+          <i class="bi bi-heart-fill text-danger mx-2"></i>
+          <i class="bi bi-heart-fill text-danger"></i>
+        </p>
+        <div
+          v-if="total !== 0"
+          class="d-flex mx-1 justify-content-end"
+          style="height: 50px"
+        >
+          <h3 class="text-danger mx-2">
             {{ this.common.changeDisplayDebitAmount(total) }}
           </h3>
         </div>
-        <p>
-          Mua hàng tại shop để có thể nhận được nhiều ưu đãi
-          <i class="fa fa-heart"></i>
-        </p>
+        <div
+          v-if="total !== 0"
+          class="d-flex mx-1 justify-content-end"
+          style="height: 40px"
+        >
+          <h3 title="Phí ship">
+            + {{ this.common.changeDisplayDebitAmount(this.priceShip) }}
+          </h3>
+        </div>
+        <div
+          v-if="total !== 0"
+          class="d-flex mx-1 justify-content-end"
+          style="height: 40px"
+        >
+          <h3 title="Giảm giá">
+            - {{ this.common.changeDisplayDebitAmount(this.priceReduced) }}
+          </h3>
+        </div>
+        <hr />
+        <div
+          v-if="total !== 0"
+          class="d-flex justify-content-end"
+          style="height: 50px"
+        >
+          <h4 class="my-auto">Tổng tiền:</h4>
+          <h3 class="my-auto text-danger mx-2">
+            {{
+              this.common.changeDisplayDebitAmount(
+                total + this.priceShip - this.priceReduced
+              )
+            }}
+          </h3>
+        </div>
         <button
           v-if="total !== 0"
           class="w-100 btn btn-primary"
@@ -161,13 +227,51 @@ export default {
       },
       total: 0,
       isLogin: false,
+      discountCode: "",
+      priceReduced: 0,
+      priceShip: 25000,
+      pay: 1,
+      totalInvoice: 0,
     };
   },
   methods: {
+    payOff() {
+      this.pay = 1;
+      this.priceShip = 25000;
+      sessionStorage.setItem("pay", 1);
+    },
+    payOn() {
+      this.pay = 2;
+      this.priceShip = 0;
+      sessionStorage.setItem("pay", 2);
+    },
+    async findDiscountCode() {
+      if (this.discountCode.length > 0) {
+        let resultDiscount = await this.apiService.getByInfo(
+          "Discount/discountCode",
+          this.discountCode
+        );
+        if (resultDiscount) {
+          sessionStorage.setItem("DiscountId", resultDiscount.DiscountId);
+          this.priceReduced = resultDiscount.ReducedAmount;
+          this.common.showToast("Áp dụng mã giảm giá thành công");
+        } else {
+          this.common.showToastError("Mã giảm giá không thể áp dụng");
+          sessionStorage.setItem("DiscountId", null);
+        }
+      } else {
+        this.common.showToastError("Nhập mã giảm giá để có thể áp dụng");
+        sessionStorage.setItem("DiscountId", null);
+      }
+    },
     /**
      * Xác nhận hoá đơn
      */
     confirmInvoice() {
+      sessionStorage.setItem(
+        "total",
+        this.total + this.priceShip - this.priceReduced
+      );
       this.$router.push("/confirm-info-user");
     },
     /**
@@ -266,9 +370,7 @@ export default {
       });
 
       if (this.listRecord.length > 0) {
-        sessionStorage.setItem("total", this.total);
         sessionStorage.setItem("invoiceId", this.listRecord[0].InvoiceId);
-        console.log(this.listRecord[0].InvoiceId);
         sessionStorage.setItem("invoiceCode", this.listRecord[0].InvoiceCode);
       }
 
@@ -280,6 +382,8 @@ export default {
       this.getProductByUserId();
       this.isLogin = true;
     }
+    sessionStorage.setItem("pay", 1);
+    sessionStorage.setItem("DiscountId", null);
   },
   mounted() {
     this.emitter.on("Status", (value) => {
@@ -294,4 +398,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+label {
+  font-size: 16px;
+}
+</style>

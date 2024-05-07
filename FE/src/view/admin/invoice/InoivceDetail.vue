@@ -64,7 +64,9 @@
         <div>
           {{ this.common.changeDisplayDebitAmount(ReducedAmount) }}
         </div>
-        <div style="font-size: 16px">25.000 đ</div>
+        <div style="font-size: 16px">
+          {{ this.common.changeDisplayDebitAmount(priceShip) }}
+        </div>
         <div>{{ this.common.changeDisplayDebitAmount(invoice[0].Total) }}</div>
         <button class="btn text-white btn-primary px-4 my-4" @click="goBack">
           Trở lại
@@ -83,6 +85,7 @@ export default {
       ReducedAmount: 0,
       total: 0,
       role: "",
+      priceShip: 25000,
     };
   },
   methods: {
@@ -102,6 +105,7 @@ export default {
       );
       this.invoice = result;
 
+      // Lấy thông tin mã giảm giá
       if (result[0].DiscountId !== null) {
         let discountCode = await this.apiService.getByInfo(
           "Discount",
@@ -112,6 +116,11 @@ export default {
           discountCode.ReducedAmount === undefined
             ? 0
             : discountCode.ReducedAmount;
+      }
+
+      // Kiểm tra xem thanh toán on hay off
+      if (result[0].pay === 2) {
+        this.priceShip = 0;
       }
       this.total = 0;
       // Duyệt qua danh sách bản ghi và tính tổng số tiền

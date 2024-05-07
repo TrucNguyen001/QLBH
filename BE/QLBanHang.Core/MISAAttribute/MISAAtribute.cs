@@ -54,44 +54,13 @@ namespace QLBanHang.Core.MISAAttribute
         }
     }
 
-    ///// <summary>
-    ///// Dùng để lấy ra các atribute không cho nhập quá 25 kí tự
-    ///// CreatedBy: Nguyễn Văn Trúc(20/3/2024)
-    ///// </summary>
-    //[AttributeUsage(AttributeTargets.Property)]
-    //public class MaxLength25 : Attribute
-    //{
-
-    //}
-
-    ///// <summary>
-    ///// Dùng để lấy ra các atribute không cho nhập quá 50 kí tự
-    ///// CreatedBy: Nguyễn Văn Trúc(20/3/2024)
-    ///// </summary>
-    //[AttributeUsage(AttributeTargets.Property)]
-    //public class MaxLength50 : Attribute
-    //{
-
-    //}
-
-    ///// <summary>
-    ///// Dùng để lấy ra các atribute không cho nhập quá 100 kí tự
-    ///// CreatedBy: Nguyễn Văn Trúc(20/3/2024)
-    ///// </summary>
-    //[AttributeUsage(AttributeTargets.Property)]
-    //public class MaxLength100 : Attribute
-    //{
-
-    //}
-
-    ///// <summary>
-    ///// Dùng để lấy ra các atribute không cho nhập quá 255 kí tự
-    ///// CreatedBy: Nguyễn Văn Trúc(20/3/2024)
-    ///// </summary>
-    //[AttributeUsage(AttributeTargets.Property)]
-    //public class MaxLength255 : Attribute
-    //{
-
-    //}
+    /// <summary>
+    /// Dùng để lấy ra các atribute xuất file
+    /// CreatedBy: Nguyễn Văn Trúc(5/5/2024)
+    /// </summary>
+    [AttributeUsage(AttributeTargets.Property)]
+    public class ExportFile : Attribute
+    {
+    }
 }
 

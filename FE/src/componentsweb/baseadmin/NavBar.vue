@@ -8,20 +8,6 @@
         <router-link to="/admin/overview">Tổng quan</router-link>
       </div>
     </div>
-    <div v-if="role === 'Admin'" :class="{ 'is-active': status === 1 }">
-      <div>
-        <i class="bi bi-person-gear"></i>
-      </div>
-      <div @click="this.status = 1" class="navbar-title">
-        <router-link to="/admin/employee">Nhân viên</router-link>
-      </div>
-    </div>
-    <div v-else>
-      <div>
-        <i class="bi bi-person-gear"></i>
-      </div>
-      <div @click="messageNotAlow" class="navbar-title">Nhân viên</div>
-    </div>
     <div :class="{ 'is-active': status === 2 }">
       <div>
         <i class="bi bi-phone"></i>

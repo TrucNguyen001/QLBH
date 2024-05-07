@@ -38,5 +38,11 @@ namespace QLBanHang.Core.DTOs
         public string? PhoneNumber { get; set; }
 
         public string? Address { get; set; }
+
+        public int? pay {  get; set; }
+
+        public int IsSuccess { get; set; }
+
+        public Guid ProductTypeId { get; set; }
     }
 }

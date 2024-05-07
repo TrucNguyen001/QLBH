@@ -4,7 +4,6 @@ import Product from "../../view/admin/product/Product.vue";
 import ProductType from "../../view/admin/producttype/ProductType.vue";
 import ManageUser from "../../view/admin/user/User.vue";
 import DiscountCode from "../../view/admin/discountcode/DiscountCode.vue";
-import Employee from "../../view/admin/employee/Employee.vue";
 import Invoice from "../../view/admin/invoice/Invoice.vue";
 import News from "../../view/admin/news/News.vue";
 import Supplier from "../../view/admin/supplier/Supplier.vue";
@@ -27,16 +26,17 @@ import LoginAdmin from "../../view/loginadmin/LoginApp.vue";
 
 import Forget from "../../view/forgetpassword/RecoverPassword.vue";
 import InfoCompany from "../../view/user/info/InfoCompany.vue";
+import UserNews from "../../view/user/news/News.vue";
+import UserNewsDetail from "../../view/user/news/NewsDetail.vue";
+
+import notfound from "../../view/notfound/NotFound.vue";
 
 const routes = [
   {
     path: "/admin",
     component: Admin,
+    meta: { requiresAuth: true },
     children: [
-      {
-        path: "login-admin",
-        component: LoginAdmin,
-      },
       {
         path: "overview",
         component: OverView,
@@ -56,10 +56,6 @@ const routes = [
       {
         path: "discount-code",
         component: DiscountCode,
-      },
-      {
-        path: "employee",
-        component: Employee,
       },
       {
         path: "invoice",
@@ -84,7 +80,7 @@ const routes = [
     component: User,
     children: [
       {
-        path: "home",
+        path: "/",
         component: Home,
       },
       {
@@ -106,6 +102,14 @@ const routes = [
       {
         path: "info",
         component: InfoCompany,
+      },
+      {
+        path: "news",
+        component: UserNews,
+      },
+      {
+        path: "news-detail/:id",
+        component: UserNewsDetail,
       },
     ],
   },
@@ -129,6 +133,10 @@ const routes = [
     path: "/invoice-detail/:id",
     component: InvoiceDetail,
   },
+  {
+    path: "/:pathMatch(.*)*",
+    component: notfound,
+  },
 ];
 
 const router = createRouter({
@@ -136,18 +144,22 @@ const router = createRouter({
   routes,
 });
 
-// Kiểm tra trạng thái đăng nhập trước mỗi lần chuyển route
-// router.beforeEach((to, from, next) => {
-//   let loggedIn = localStorage.getItem("isLogin"); // Kiểm tra trạng thái đăng nhập từ local storage
+//Kiểm tra trạng thái đăng nhập trước mỗi lần chuyển route
+router.beforeEach((to, from, next) => {
+  let loggedIn = localStorage.getItem("isLogin"); // Kiểm tra trạng thái đăng nhập từ local storage
 
-//   if (
-//     to.matched.some((record) => record.meta.requiresAuth) &&
-//     loggedIn !== "true"
-//   ) {
-//     next("/login"); // Nếu cần đăng nhập và chưa đăng nhập, chuyển hướng đến trang đăng nhập
-//   } else {
-//     next(); // Nếu đã đăng nhập hoặc không yêu cầu đăng nhập, cho phép truy cập
-//   }
-// });
+  if (
+    to.matched.some((record) => record.meta.requiresAuth) &&
+    loggedIn !== "true"
+  ) {
+    if (to.path.includes("/admin")) {
+      next("/login-admin");
+    } else {
+      next("/login-user");
+    }
+  } else {
+    next(); // Nếu đã đăng nhập hoặc không yêu cầu đăng nhập, cho phép truy cập
+  }
+});
 
 export default router;

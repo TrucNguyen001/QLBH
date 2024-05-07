@@ -1,11 +1,10 @@
 <template>
   <router-view />
-  <div
-    onclick="window.location.href='https://m.me/308650905658557'"
-    class="message btn btn-primary"
+  <a href="https://m.me/308650905658557" target="_blank"
+    ><div class="message btn btn-primary">
+      <i class="bi bi-chat-dots-fill"></i>Trợ giúp
+    </div></a
   >
-    <i class="bi bi-chat-dots-fill"></i>Trợ giúp
-  </div>
 </template>
 <script>
 export default {

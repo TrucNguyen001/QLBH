@@ -675,6 +675,22 @@
   },
   {
     "ContainingType": "QLBanHang.API.Controllers.InvoiceController",
+    "Method": "GetAllByYear",
+    "RelativePath": "api/v1/Invoice/GetAllByYear/{year}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "year",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QLBanHang.API.Controllers.InvoiceController",
     "Method": "GetInvoiceById",
     "RelativePath": "api/v1/Invoice/invoice/{invoiceId}",
     "HttpMethod": "GET",

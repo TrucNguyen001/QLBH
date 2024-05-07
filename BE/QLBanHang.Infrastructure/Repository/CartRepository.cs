@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using Microsoft.Identity.Client;
 using QLBanHang.Core.DTOs;
 using QLBanHang.Core.Entities;
 using QLBanHang.Core.Interfaces.DBContext;
@@ -16,15 +17,34 @@ namespace QLBanHang.Infrastructure.Repository
     {
         IDbContext _dbContext;
         IInvoiceService _invoiceService;
+        IProductRepository _productRepository;
 
-        public CartRepository(IDbContext dbContext, IInvoiceService invoiceService)
+        public CartRepository(IDbContext dbContext, IInvoiceService invoiceService, IProductRepository productRepository)
         {
             _dbContext = dbContext;
             _invoiceService = invoiceService;
+            _productRepository = productRepository;
         }
 
         public int Delete(Guid id, Guid accountId)
         {
+            // Cập nhật lại số lượng sản phẩm
+            var sqlSelect = "SELECT ProductId, QuantityPurchased FROM Cart WHERE CartId = @idCart";
+            DynamicParameters parametSelect = new DynamicParameters();
+
+            parametSelect.Add("@idCart", id);
+            var cart = _dbContext.Connection.QueryFirstOrDefault<UpdateQuantityProduct>(sql: sqlSelect, param: parametSelect);
+
+            var sqlSelectProduct = "SELECT * FROM Product WHERE ProductId = @idProduct";
+            DynamicParameters parametSelectProduct = new DynamicParameters();
+
+            parametSelectProduct.Add("@idProduct", cart.ProductId);
+
+            var product = _dbContext.Connection.QueryFirstOrDefault<ProductDTOs>(sql: sqlSelectProduct, param: parametSelectProduct);
+            product.Quantity = product.Quantity + cart.QuantityPurchased;
+            _productRepository.Update(product, cart.ProductId);
+
+
             // Kiểm tra giỏ hàng còn sản phẩm nào không. Nếu còn 1 sản phẩm nào thì xoá hoá đơn
             var recordCart = GetAllById(accountId, "");
             Guid invoiceId = (Guid)recordCart.FirstOrDefault().InvoiceId;
@@ -48,7 +68,7 @@ namespace QLBanHang.Infrastructure.Repository
 
                 _dbContext.Connection.Execute(sql: sqlDelete, param: parametDelete);
             }
-            
+
             return 1;
         }
 
@@ -154,6 +174,17 @@ namespace QLBanHang.Infrastructure.Repository
 
             var result = _dbContext.Connection.Query<Cart>(sqlCommand, paramt);
             return 1;
+        }
+
+        public IEnumerable<UpdateQuantityProduct> UpdateQuantityProducts(Guid invoiceId)
+        {
+            var sqlCommand = "SELECT ProductId, QuantityPurchased FROM cart WHERE InvoiceId = @id";
+            DynamicParameters paramt = new DynamicParameters();
+
+            paramt.Add("@id", invoiceId);
+
+            var result = _dbContext.Connection.Query<UpdateQuantityProduct>(sqlCommand, paramt);
+            return result;
         }
     }
 }

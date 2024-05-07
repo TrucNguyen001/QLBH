@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using Microsoft.Data.SqlClient;
 using Microsoft.Identity.Client;
 using QLBanHang.Core.DTOs;
 using QLBanHang.Core.Entities;
@@ -16,9 +17,11 @@ namespace QLBanHang.Infrastructure.Repository
     public class InvoiceRepository : BaseRepository<Invoice>, IInvoiceRepository
     {
         IDbContext _dbContext;
-        public InvoiceRepository(IDbContext dbContext) : base(dbContext)
+        IProductRepository _productRepository;
+        public InvoiceRepository(IDbContext dbContext, IProductRepository productRepository) : base(dbContext)
         {
             _dbContext = dbContext;
+            _productRepository = productRepository;
         }
 
         public Invoice GetById(Guid id)
@@ -91,7 +94,7 @@ namespace QLBanHang.Infrastructure.Repository
             return entities.OrderByDescending(invoice => Convert.ToInt64(invoice.InvoiceCode.Substring(3)));
         }
 
-        public int Update(Invoice entity, Guid id, Guid userId)
+        public int Update(Invoice entity, Guid id)
         {
             string stringUpdate = "";
 
@@ -120,6 +123,10 @@ namespace QLBanHang.Infrastructure.Repository
         public IEnumerable<Invoice> GetPaging(int pageSize, int pageIndex, string text, int status)
         {
             var sqlCommand = $"SELECT * FROM Invoice WHERE (InvoiceCode LIKE @text OR UserName LIKE @text) AND StatusInvoice = @status ORDER BY COALESCE(CreatedDate) DESC";
+            if(status == 3 || status == 4)
+            {
+                sqlCommand = $"SELECT * FROM Invoice WHERE (InvoiceCode LIKE @text OR UserName LIKE @text) AND IsSuccess = @status ORDER BY COALESCE(CreatedDate) DESC";
+            }
             DynamicParameters paramet = new DynamicParameters();
             paramet.Add("@text", "%" + text + "%", System.Data.DbType.String);
             paramet.Add("@status", status);
@@ -132,6 +139,10 @@ namespace QLBanHang.Infrastructure.Repository
         public IEnumerable<Invoice> GetByText(string text, int status)
         {
             var sqlCommand = $"SELECT * FROM Invoice WHERE (InvoiceCode LIKE @text OR UserName LIKE @text) AND StatusInvoice = @status";
+            if (status == 3 || status == 4)
+            {
+                sqlCommand = $"SELECT * FROM Invoice WHERE (InvoiceCode LIKE @text OR UserName LIKE @text) AND IsSuccess = @status";
+            }
             DynamicParameters paramet = new DynamicParameters();
             paramet.Add("@text", "%" + text + "%", System.Data.DbType.String);
             paramet.Add("@status", status);
@@ -141,18 +152,61 @@ namespace QLBanHang.Infrastructure.Repository
             return entities;
         }
 
-        public IEnumerable<Invoice> GetAll(int year)
+        public IEnumerable<Total> GetAll(int year)
         {
-            var sqlCommand = "";
-            sqlCommand = $"SELECT * FROM Invoice Where StatusInvoice = 4";
-            if (year > 0)
-            {
-                sqlCommand = $"SELECT * FROM Invoice Where StatusInvoice = 4 AND YEAR(CreatedDate) = @year";
-            }
+            var sqlCommand = "Proc_GetTotalInvoiceSuccessByYear";
             DynamicParameters paramet = new DynamicParameters();
             paramet.Add("@year", year);
-            var entities = _dbContext.Connection.Query<Invoice>(sql: sqlCommand, param: paramet);
+            var entities = _dbContext.Connection.Query<Total>(sql: sqlCommand, param: paramet);
             return entities;
+        }
+
+        /// <summary>
+        /// Join cart vs invoice vs product: Dùng để thống kê loại sp
+        /// </summary>
+        /// <param name="status"></param>
+        /// <param name="year"></param>
+        /// <returns></returns>
+        public IEnumerable<CartProduct> GetAllByYear(int year)
+        {
+            var sqlCommand = "Proc_GetAllInvoiceCartProductSuccess";
+            DynamicParameters paramet = new DynamicParameters();
+            paramet.Add("@year", year);
+            var entities = _dbContext.Connection.Query<CartProduct>(sql: sqlCommand, param: paramet);
+            return entities;
+        }
+
+        public IEnumerable<ProductTop> GetProductTop10(int year)
+        {
+            var sqlCommand = "Proc_GetTop10Product";
+            DynamicParameters paramet = new DynamicParameters();
+            paramet.Add("@year", year);
+            var entities = _dbContext.Connection.Query<ProductTop>(sql: sqlCommand, param: paramet);
+            return entities;
+        }
+
+        public IEnumerable<Year> GetFullYear()
+        {
+            var sqlCommand = "Proc_GetFullYear";
+            var entities = _dbContext.Connection.Query<Year>(sql: sqlCommand);
+            return entities;
+        }
+
+        public int UpdateProudctInvoiceFalse(Guid id)
+        {
+            var sqlCommand = "SELECT ProductId, QuantityPurchased FROM Cart WHERE InvoiceId = @id";
+            DynamicParameters parametSelect = new DynamicParameters();
+
+            parametSelect.Add("@id", id);
+            var cart = _dbContext.Connection.Query<UpdateQuantityProduct>(sql: sqlCommand, param: parametSelect);
+
+            foreach( var entity in cart)
+            {
+                var product = _productRepository.GetById(entity.ProductId);
+                product.Quantity = product.Quantity + entity.QuantityPurchased;
+                _productRepository.Update(product, entity.ProductId);
+            }
+            return 1;
         }
     }
 }

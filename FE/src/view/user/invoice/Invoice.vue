@@ -64,6 +64,7 @@
                   <th>Ngày đặt</th>
                   <th>Trạng thái</th>
                   <th>Xem</th>
+                  <th v-if="this.status === 2">Xác nhận</th>
                   <th>Xoá</th>
                 </tr>
               </thead>
@@ -101,12 +102,20 @@
                   <td @click="detailInvoice(record.InvoiceId)">
                     <button class="btn btn-primary">Xem</button>
                   </td>
+                  <td v-if="this.status === 2">
+                    <button
+                      @click="receiveInvoiceSuccess(record)"
+                      class="btn btn-success"
+                    >
+                      Nhận hàng
+                    </button>
+                  </td>
                   <td>
                     <button
-                      @click="deleteRecord(record.CartId)"
+                      @click="deleteRecord(record)"
                       class="btn btn-danger px-4"
                     >
-                      Xoá
+                      {{ getValueButton(record.StatusInvoice) }}
                     </button>
                   </td>
                 </tr>
@@ -143,6 +152,7 @@ export default {
       total: 0,
       isLogin: false,
       status: 1,
+      invoiceId: "",
     };
   },
   methods: {
@@ -179,6 +189,17 @@ export default {
         : "Giao hàng thành công";
     },
 
+    getValueButton(status) {
+      return status === 1
+        ? "Huỷ đơn hàng"
+        : status === 2
+        ? "Huỷ đơn hàng"
+        : status === 3
+        ? "Xoá đơn  hàng"
+        : status === 4
+        ? "Xoá đơn hàng"
+        : "";
+    },
     changeButtonDisplayStatus(status) {
       return status === 1 ? "Xác nhận đơn" : status === 2 ? "Huỷ đơn hàng" : "";
     },
@@ -222,18 +243,45 @@ export default {
      * Hàm Thực hiện khi chọn xoá khách hàng
      * @author: Nguyễn Văn Trúc (9/12/2023)
      */
-    deleteRecord(recordId) {
+    deleteRecord(record) {
       try {
+        this.invoiceId = "";
+        if (this.status === 1 || this.status === 2) {
+          record.StatusInvoice = 3;
+          record.IsSuccess = 3;
+          this.invoiceId = record.InvoiceId;
+        } else if (this.status === 3) {
+          record.IsSuccess = 3;
+          record.StatusInvoice = 5;
+        } else if (this.status === 4) {
+          record.IsSuccess = 4;
+          record.StatusInvoice = 5;
+        }
+        let str =
+          this.status === 1 || this.status === 2
+            ? "huỷ đơn hàng"
+            : "xoá đơn hàng";
         this.common.showDialog(
-          `${this.resource.ConfirmDeleteRecord.ContentDelete} [${this.recordCode}] ${this.resource.Question.Content}`,
+          `Bạn có muốn ${str} [${record.InvoiceCode}] không?`,
           this.resource.ConfirmDeleteRecord.Title,
-          this.helper.Status.Delete,
-          "Invoice/delete",
-          recordId + "/" + localStorage.getItem("AccountId")
+          this.helper.Status.Update,
+          "Invoice/put",
+          record.InvoiceId,
+          record
         );
       } catch (error) {
         console.log(error);
       }
+    },
+    async receiveInvoiceSuccess(record) {
+      record.StatusInvoice = 4;
+      record.IsSuccess = 4;
+      await this.apiService.update(
+        "Invoice/put",
+        record.InvoiceId + "/" + localStorage.getItem("AccountId"),
+        record
+      );
+      this.getInvoices();
     },
 
     /**
@@ -272,11 +320,14 @@ export default {
   },
   mounted() {
     this.emitter.on("Status", (value) => {
-      if (
-        value === this.helper.Status.Delete ||
-        value === this.helper.Status.DeleteMultiple
-      ) {
+      if (value === this.helper.Status.Update) {
         this.getInvoices();
+        if (this.invoiceId !== "") {
+          this.apiService.getByInfo(
+            "Invoice/update-product-false",
+            this.invoiceId
+          );
+        }
       }
     });
   },

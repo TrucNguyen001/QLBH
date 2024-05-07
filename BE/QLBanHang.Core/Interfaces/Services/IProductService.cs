@@ -1,4 +1,5 @@
 ﻿using MISA.AMISDemo.Core.Entities;
+using QLBanHang.Core.DTOs;
 using QLBanHang.Core.Entities;
 using System;
 using System.Collections.Generic;
@@ -25,7 +26,7 @@ namespace QLBanHang.Core.Interfaces.Services
         /// <param name="entity">bản ghi thêm</param>
         /// <returns>Trả về 1 nếu thêm thành công</returns>
         /// CreatedBy: NVTruc(31/3/2024)
-        int Insert(Product entity);
+        int Insert(ProductDTOs entity);
 
         /// <summary>
         /// Sửa dữ liệu
@@ -34,7 +35,7 @@ namespace QLBanHang.Core.Interfaces.Services
         /// <param name="id">Entity Id</param>
         /// <returns>Trả về 1 nếu sửa thành công</returns>
         /// CreatedBy: NVTruc(31/3/2024)
-        int Update(Product entity, Guid id);
+        int Update(ProductDTOs entity, Guid id);
 
         /// <summary>
         /// Phân trang
@@ -64,6 +65,6 @@ namespace QLBanHang.Core.Interfaces.Services
         /// Trả về danh sách nhân viên file excel
         /// </returns>
         /// CreatedBy: NVTruc (26/1/2024)
-        FileExport ExportExcel<Product>();
+        FileExport ExportExcel();
     }
 }

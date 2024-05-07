@@ -3,360 +3,172 @@
   "WorkspaceRootPath": "D:\\QLBanHang\\BE\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{36586649-28DE-45F0-8C53-BC58EF0807E1}|QLBanHang.API\\QLBanHang.API.csproj|d:\\qlbanhang\\be\\qlbanhang.api\\controllers\\invoicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{36586649-28DE-45F0-8C53-BC58EF0807E1}|QLBanHang.API\\QLBanHang.API.csproj|solutionrelative:qlbanhang.api\\controllers\\invoicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\interfaces\\infastructure\\iinvoicerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\interfaces\\infastructure\\iinvoicerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{45832ACB-44F3-46B5-9FBE-536983A50C18}|QLBanHang.Infrastructure\\QLBanHang.Infrastructure.csproj|d:\\qlbanhang\\be\\qlbanhang.infrastructure\\repository\\invoicerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{45832ACB-44F3-46B5-9FBE-536983A50C18}|QLBanHang.Infrastructure\\QLBanHang.Infrastructure.csproj|solutionrelative:qlbanhang.infrastructure\\repository\\invoicerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{36586649-28DE-45F0-8C53-BC58EF0807E1}|QLBanHang.API\\QLBanHang.API.csproj|d:\\qlbanhang\\be\\qlbanhang.api\\controllers\\feedbackcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{36586649-28DE-45F0-8C53-BC58EF0807E1}|QLBanHang.API\\QLBanHang.API.csproj|solutionrelative:qlbanhang.api\\controllers\\feedbackcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{36586649-28DE-45F0-8C53-BC58EF0807E1}|QLBanHang.API\\QLBanHang.API.csproj|d:\\qlbanhang\\be\\qlbanhang.api\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{36586649-28DE-45F0-8C53-BC58EF0807E1}|QLBanHang.API\\QLBanHang.API.csproj|solutionrelative:qlbanhang.api\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{36586649-28DE-45F0-8C53-BC58EF0807E1}|QLBanHang.API\\QLBanHang.API.csproj|d:\\qlbanhang\\be\\qlbanhang.api\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{36586649-28DE-45F0-8C53-BC58EF0807E1}|QLBanHang.API\\QLBanHang.API.csproj|solutionrelative:qlbanhang.api\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{36586649-28DE-45F0-8C53-BC58EF0807E1}|QLBanHang.API\\QLBanHang.API.csproj|d:\\qlbanhang\\be\\qlbanhang.api\\controllers\\commentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{36586649-28DE-45F0-8C53-BC58EF0807E1}|QLBanHang.API\\QLBanHang.API.csproj|solutionrelative:qlbanhang.api\\controllers\\commentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{36586649-28DE-45F0-8C53-BC58EF0807E1}|QLBanHang.API\\QLBanHang.API.csproj|d:\\qlbanhang\\be\\qlbanhang.api\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{36586649-28DE-45F0-8C53-BC58EF0807E1}|QLBanHang.API\\QLBanHang.API.csproj|solutionrelative:qlbanhang.api\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{36586649-28DE-45F0-8C53-BC58EF0807E1}|QLBanHang.API\\QLBanHang.API.csproj|d:\\qlbanhang\\be\\qlbanhang.api\\controllers\\basecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{36586649-28DE-45F0-8C53-BC58EF0807E1}|QLBanHang.API\\QLBanHang.API.csproj|solutionrelative:qlbanhang.api\\controllers\\basecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{45832ACB-44F3-46B5-9FBE-536983A50C18}|QLBanHang.Infrastructure\\QLBanHang.Infrastructure.csproj|d:\\qlbanhang\\be\\qlbanhang.infrastructure\\repository\\accountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{45832ACB-44F3-46B5-9FBE-536983A50C18}|QLBanHang.Infrastructure\\QLBanHang.Infrastructure.csproj|solutionrelative:qlbanhang.infrastructure\\repository\\accountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\service\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\service\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\interfaces\\services\\iaccountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\interfaces\\services\\iaccountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\service\\invoiceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\service\\invoiceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\service\\discountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\service\\discountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\interfaces\\services\\idiscountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\interfaces\\services\\idiscountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{45832ACB-44F3-46B5-9FBE-536983A50C18}|QLBanHang.Infrastructure\\QLBanHang.Infrastructure.csproj|d:\\qlbanhang\\be\\qlbanhang.infrastructure\\repository\\baserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{45832ACB-44F3-46B5-9FBE-536983A50C18}|QLBanHang.Infrastructure\\QLBanHang.Infrastructure.csproj|solutionrelative:qlbanhang.infrastructure\\repository\\baserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\interfaces\\services\\iinvoiceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\interfaces\\services\\iinvoiceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\service\\cartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\service\\cartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{45832ACB-44F3-46B5-9FBE-536983A50C18}|QLBanHang.Infrastructure\\QLBanHang.Infrastructure.csproj|d:\\qlbanhang\\be\\qlbanhang.infrastructure\\repository\\cartrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{45832ACB-44F3-46B5-9FBE-536983A50C18}|QLBanHang.Infrastructure\\QLBanHang.Infrastructure.csproj|solutionrelative:qlbanhang.infrastructure\\repository\\cartrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\interfaces\\infastructure\\icartrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\interfaces\\infastructure\\icartrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{45832ACB-44F3-46B5-9FBE-536983A50C18}|QLBanHang.Infrastructure\\QLBanHang.Infrastructure.csproj|d:\\qlbanhang\\be\\qlbanhang.infrastructure\\repository\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{45832ACB-44F3-46B5-9FBE-536983A50C18}|QLBanHang.Infrastructure\\QLBanHang.Infrastructure.csproj|solutionrelative:qlbanhang.infrastructure\\repository\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\interfaces\\infastructure\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\interfaces\\infastructure\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\interfaces\\infastructure\\ibaserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\interfaces\\infastructure\\ibaserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{36586649-28DE-45F0-8C53-BC58EF0807E1}|QLBanHang.API\\QLBanHang.API.csproj|d:\\qlbanhang\\be\\qlbanhang.api\\controllers\\producttypecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{36586649-28DE-45F0-8C53-BC58EF0807E1}|QLBanHang.API\\QLBanHang.API.csproj|solutionrelative:qlbanhang.api\\controllers\\producttypecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\interfaces\\services\\ibaseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\interfaces\\services\\ibaseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{36586649-28DE-45F0-8C53-BC58EF0807E1}|QLBanHang.API\\QLBanHang.API.csproj|d:\\qlbanhang\\be\\qlbanhang.api\\controllers\\discountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{36586649-28DE-45F0-8C53-BC58EF0807E1}|QLBanHang.API\\QLBanHang.API.csproj|solutionrelative:qlbanhang.api\\controllers\\discountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{36586649-28DE-45F0-8C53-BC58EF0807E1}|QLBanHang.API\\QLBanHang.API.csproj|d:\\qlbanhang\\be\\qlbanhang.api\\controllers\\suppliercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{36586649-28DE-45F0-8C53-BC58EF0807E1}|QLBanHang.API\\QLBanHang.API.csproj|solutionrelative:qlbanhang.api\\controllers\\suppliercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\interfaces\\services\\iproductservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\interfaces\\services\\iproductservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\service\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\service\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{45832ACB-44F3-46B5-9FBE-536983A50C18}|QLBanHang.Infrastructure\\QLBanHang.Infrastructure.csproj|d:\\qlbanhang\\be\\qlbanhang.infrastructure\\repository\\discountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{45832ACB-44F3-46B5-9FBE-536983A50C18}|QLBanHang.Infrastructure\\QLBanHang.Infrastructure.csproj|solutionrelative:qlbanhang.infrastructure\\repository\\discountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\interfaces\\infastructure\\idiscountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\interfaces\\infastructure\\idiscountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{36586649-28DE-45F0-8C53-BC58EF0807E1}|QLBanHang.API\\QLBanHang.API.csproj|d:\\qlbanhang\\be\\qlbanhang.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{36586649-28DE-45F0-8C53-BC58EF0807E1}|QLBanHang.API\\QLBanHang.API.csproj|solutionrelative:qlbanhang.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\interfaces\\infastructure\\icommentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\interfaces\\infastructure\\icommentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{45832ACB-44F3-46B5-9FBE-536983A50C18}|QLBanHang.Infrastructure\\QLBanHang.Infrastructure.csproj|d:\\qlbanhang\\be\\qlbanhang.infrastructure\\repository\\commentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{45832ACB-44F3-46B5-9FBE-536983A50C18}|QLBanHang.Infrastructure\\QLBanHang.Infrastructure.csproj|solutionrelative:qlbanhang.infrastructure\\repository\\commentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\service\\feedbackservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\service\\feedbackservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\interfaces\\services\\ifeedbackservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\interfaces\\services\\ifeedbackservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\interfaces\\infastructure\\ifeedbackrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\interfaces\\infastructure\\ifeedbackrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{45832ACB-44F3-46B5-9FBE-536983A50C18}|QLBanHang.Infrastructure\\QLBanHang.Infrastructure.csproj|d:\\qlbanhang\\be\\qlbanhang.infrastructure\\repository\\feedbackrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{45832ACB-44F3-46B5-9FBE-536983A50C18}|QLBanHang.Infrastructure\\QLBanHang.Infrastructure.csproj|solutionrelative:qlbanhang.infrastructure\\repository\\feedbackrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\service\\baseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\service\\baseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\service\\commentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\service\\commentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\interfaces\\services\\icommentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\interfaces\\services\\icommentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\dtos\\cartdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\dtos\\cartdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\entities\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\entities\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\interfaces\\infastructure\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\interfaces\\infastructure\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\entities\\feedback.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\entities\\feedback.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\dtos\\feedbackdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\dtos\\feedbackdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\entities\\comment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\entities\\comment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\dtos\\invoicediscountdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\dtos\\invoicediscountdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\entities\\discount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\entities\\discount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\entities\\invoice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\entities\\invoice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\entities\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\entities\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\service\\producttypeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\service\\producttypeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{45832ACB-44F3-46B5-9FBE-536983A50C18}|QLBanHang.Infrastructure\\QLBanHang.Infrastructure.csproj|d:\\qlbanhang\\be\\qlbanhang.infrastructure\\repository\\producttyperepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{45832ACB-44F3-46B5-9FBE-536983A50C18}|QLBanHang.Infrastructure\\QLBanHang.Infrastructure.csproj|solutionrelative:qlbanhang.infrastructure\\repository\\producttyperepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\interfaces\\services\\iproducttypeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\interfaces\\services\\iproducttypeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\interfaces\\infastructure\\iproducttyperepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\interfaces\\infastructure\\iproducttyperepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\auth\\registermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\auth\\registermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\interfaces\\services\\icartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\interfaces\\services\\icartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{36586649-28DE-45F0-8C53-BC58EF0807E1}|QLBanHang.API\\QLBanHang.API.csproj|d:\\qlbanhang\\be\\qlbanhang.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{36586649-28DE-45F0-8C53-BC58EF0807E1}|QLBanHang.API\\QLBanHang.API.csproj|solutionrelative:qlbanhang.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{36586649-28DE-45F0-8C53-BC58EF0807E1}|QLBanHang.API\\QLBanHang.API.csproj|d:\\qlbanhang\\be\\qlbanhang.api\\qlbanhang.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{36586649-28DE-45F0-8C53-BC58EF0807E1}|QLBanHang.API\\QLBanHang.API.csproj|solutionrelative:qlbanhang.api\\qlbanhang.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{45832ACB-44F3-46B5-9FBE-536983A50C18}|QLBanHang.Infrastructure\\QLBanHang.Infrastructure.csproj|d:\\qlbanhang\\be\\qlbanhang.infrastructure\\qlbanhang.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{45832ACB-44F3-46B5-9FBE-536983A50C18}|QLBanHang.Infrastructure\\QLBanHang.Infrastructure.csproj|solutionrelative:qlbanhang.infrastructure\\qlbanhang.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\qlbanhang.core.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\qlbanhang.core.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\auth\\tokenmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\auth\\tokenmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\auth\\response.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\auth\\response.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\auth\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\auth\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\auth\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\auth\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\auth\\userroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\auth\\userroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\misaserviceresult\\misaserviceresulterror.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\misaserviceresult\\misaserviceresulterror.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\misaserviceresult\\misaserviceresultauth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\misaserviceresult\\misaserviceresultauth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\misaenum\\misaenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\misaenum\\misaenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\misaattribute\\misaatribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\misaattribute\\misaatribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\interfaces\\dbcontext\\idbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\interfaces\\dbcontext\\idbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\dtos\\accountlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\dtos\\accountlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\automapper\\automapperprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\automapper\\automapperprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\const\\misaconst.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\const\\misaconst.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\dtos\\productdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|D:\\QLBanHang\\BE\\qlbanhang.core\\dtos\\productdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\dtos\\productdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\entities\\supplier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\entities\\supplier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|D:\\QLBanHang\\BE\\qlbanhang.core\\resource\\misaexportfileexcel.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
+      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\resource\\misaexportfileexcel.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\entities\\producttype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\entities\\producttype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|D:\\QLBanHang\\BE\\qlbanhang.core\\service\\baseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\service\\baseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\entities\\configuration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\entities\\configuration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{36586649-28DE-45F0-8C53-BC58EF0807E1}|QLBanHang.API\\QLBanHang.API.csproj|D:\\QLBanHang\\BE\\qlbanhang.api\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{36586649-28DE-45F0-8C53-BC58EF0807E1}|QLBanHang.API\\QLBanHang.API.csproj|solutionrelative:qlbanhang.api\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{45832ACB-44F3-46B5-9FBE-536983A50C18}|QLBanHang.Infrastructure\\QLBanHang.Infrastructure.csproj|d:\\qlbanhang\\be\\qlbanhang.infrastructure\\repository\\supplierrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{45832ACB-44F3-46B5-9FBE-536983A50C18}|QLBanHang.Infrastructure\\QLBanHang.Infrastructure.csproj|solutionrelative:qlbanhang.infrastructure\\repository\\supplierrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|D:\\QLBanHang\\BE\\qlbanhang.core\\interfaces\\infastructure\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\interfaces\\infastructure\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\interfaces\\infastructure\\isupplierrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\interfaces\\infastructure\\isupplierrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|D:\\QLBanHang\\BE\\qlbanhang.core\\interfaces\\services\\iproductservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\interfaces\\services\\iproductservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\service\\supplierservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\service\\supplierservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|D:\\QLBanHang\\BE\\qlbanhang.core\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\interfaces\\services\\isupplierservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\interfaces\\services\\isupplierservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{45832ACB-44F3-46B5-9FBE-536983A50C18}|QLBanHang.Infrastructure\\QLBanHang.Infrastructure.csproj|D:\\QLBanHang\\BE\\qlbanhang.infrastructure\\repository\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45832ACB-44F3-46B5-9FBE-536983A50C18}|QLBanHang.Infrastructure\\QLBanHang.Infrastructure.csproj|solutionrelative:qlbanhang.infrastructure\\repository\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{45832ACB-44F3-46B5-9FBE-536983A50C18}|QLBanHang.Infrastructure\\QLBanHang.Infrastructure.csproj|d:\\qlbanhang\\be\\qlbanhang.infrastructure\\repository\\newsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{45832ACB-44F3-46B5-9FBE-536983A50C18}|QLBanHang.Infrastructure\\QLBanHang.Infrastructure.csproj|solutionrelative:qlbanhang.infrastructure\\repository\\newsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|D:\\QLBanHang\\BE\\qlbanhang.core\\misaattribute\\misaatribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\misaattribute\\misaatribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\service\\newsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\service\\newsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|D:\\QLBanHang\\BE\\qlbanhang.core\\service\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\service\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\interfaces\\services\\inewsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\interfaces\\services\\inewsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{45832ACB-44F3-46B5-9FBE-536983A50C18}|QLBanHang.Infrastructure\\QLBanHang.Infrastructure.csproj|D:\\QLBanHang\\BE\\qlbanhang.infrastructure\\repository\\accountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45832ACB-44F3-46B5-9FBE-536983A50C18}|QLBanHang.Infrastructure\\QLBanHang.Infrastructure.csproj|solutionrelative:qlbanhang.infrastructure\\repository\\accountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\interfaces\\infastructure\\inewsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\interfaces\\infastructure\\inewsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{36586649-28DE-45F0-8C53-BC58EF0807E1}|QLBanHang.API\\QLBanHang.API.csproj|D:\\QLBanHang\\BE\\qlbanhang.api\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{36586649-28DE-45F0-8C53-BC58EF0807E1}|QLBanHang.API\\QLBanHang.API.csproj|solutionrelative:qlbanhang.api\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{36586649-28DE-45F0-8C53-BC58EF0807E1}|QLBanHang.API\\QLBanHang.API.csproj|d:\\qlbanhang\\be\\qlbanhang.api\\controllers\\newscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{36586649-28DE-45F0-8C53-BC58EF0807E1}|QLBanHang.API\\QLBanHang.API.csproj|solutionrelative:qlbanhang.api\\controllers\\newscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|d:\\qlbanhang\\be\\qlbanhang.core\\entities\\news.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|D:\\QLBanHang\\BE\\qlbanhang.core\\entities\\news.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\entities\\news.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{45832ACB-44F3-46B5-9FBE-536983A50C18}|QLBanHang.Infrastructure\\QLBanHang.Infrastructure.csproj|d:\\qlbanhang\\be\\qlbanhang.infrastructure\\databasecontext\\mysqldbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{45832ACB-44F3-46B5-9FBE-536983A50C18}|QLBanHang.Infrastructure\\QLBanHang.Infrastructure.csproj|solutionrelative:qlbanhang.infrastructure\\databasecontext\\mysqldbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{36586649-28DE-45F0-8C53-BC58EF0807E1}|QLBanHang.API\\QLBanHang.API.csproj|D:\\QLBanHang\\BE\\qlbanhang.api\\controllers\\newscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{36586649-28DE-45F0-8C53-BC58EF0807E1}|QLBanHang.API\\QLBanHang.API.csproj|solutionrelative:qlbanhang.api\\controllers\\newscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|D:\\QLBanHang\\BE\\qlbanhang.core\\interfaces\\infastructure\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\interfaces\\infastructure\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{36586649-28DE-45F0-8C53-BC58EF0807E1}|QLBanHang.API\\QLBanHang.API.csproj|D:\\QLBanHang\\BE\\qlbanhang.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{36586649-28DE-45F0-8C53-BC58EF0807E1}|QLBanHang.API\\QLBanHang.API.csproj|solutionrelative:qlbanhang.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|D:\\QLBanHang\\BE\\qlbanhang.core\\service\\newsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\service\\newsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|D:\\QLBanHang\\BE\\qlbanhang.core\\service\\cartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\service\\cartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|D:\\QLBanHang\\BE\\qlbanhang.core\\interfaces\\infastructure\\inewsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\interfaces\\infastructure\\inewsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{45832ACB-44F3-46B5-9FBE-536983A50C18}|QLBanHang.Infrastructure\\QLBanHang.Infrastructure.csproj|D:\\QLBanHang\\BE\\qlbanhang.infrastructure\\repository\\newsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45832ACB-44F3-46B5-9FBE-536983A50C18}|QLBanHang.Infrastructure\\QLBanHang.Infrastructure.csproj|solutionrelative:qlbanhang.infrastructure\\repository\\newsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|D:\\QLBanHang\\BE\\qlbanhang.core\\interfaces\\services\\inewsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\interfaces\\services\\inewsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|D:\\QLBanHang\\BE\\qlbanhang.core\\service\\commentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\service\\commentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|D:\\QLBanHang\\BE\\qlbanhang.core\\service\\supplierservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\service\\supplierservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{45832ACB-44F3-46B5-9FBE-536983A50C18}|QLBanHang.Infrastructure\\QLBanHang.Infrastructure.csproj|D:\\QLBanHang\\BE\\qlbanhang.infrastructure\\repository\\supplierrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45832ACB-44F3-46B5-9FBE-536983A50C18}|QLBanHang.Infrastructure\\QLBanHang.Infrastructure.csproj|solutionrelative:qlbanhang.infrastructure\\repository\\supplierrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|D:\\QLBanHang\\BE\\qlbanhang.core\\interfaces\\services\\isupplierservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\interfaces\\services\\isupplierservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|D:\\QLBanHang\\BE\\qlbanhang.core\\interfaces\\infastructure\\isupplierrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\interfaces\\infastructure\\isupplierrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{36586649-28DE-45F0-8C53-BC58EF0807E1}|QLBanHang.API\\QLBanHang.API.csproj|D:\\QLBanHang\\BE\\qlbanhang.api\\controllers\\suppliercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{36586649-28DE-45F0-8C53-BC58EF0807E1}|QLBanHang.API\\QLBanHang.API.csproj|solutionrelative:qlbanhang.api\\controllers\\suppliercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{36586649-28DE-45F0-8C53-BC58EF0807E1}|QLBanHang.API\\QLBanHang.API.csproj|D:\\QLBanHang\\BE\\qlbanhang.api\\controllers\\discountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{36586649-28DE-45F0-8C53-BC58EF0807E1}|QLBanHang.API\\QLBanHang.API.csproj|solutionrelative:qlbanhang.api\\controllers\\discountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{36586649-28DE-45F0-8C53-BC58EF0807E1}|QLBanHang.API\\QLBanHang.API.csproj|D:\\QLBanHang\\BE\\qlbanhang.api\\controllers\\invoicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{36586649-28DE-45F0-8C53-BC58EF0807E1}|QLBanHang.API\\QLBanHang.API.csproj|solutionrelative:qlbanhang.api\\controllers\\invoicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{45832ACB-44F3-46B5-9FBE-536983A50C18}|QLBanHang.Infrastructure\\QLBanHang.Infrastructure.csproj|D:\\QLBanHang\\BE\\qlbanhang.infrastructure\\repository\\invoicerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45832ACB-44F3-46B5-9FBE-536983A50C18}|QLBanHang.Infrastructure\\QLBanHang.Infrastructure.csproj|solutionrelative:qlbanhang.infrastructure\\repository\\invoicerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|D:\\QLBanHang\\BE\\qlbanhang.core\\interfaces\\infastructure\\iinvoicerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\interfaces\\infastructure\\iinvoicerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|D:\\QLBanHang\\BE\\qlbanhang.core\\interfaces\\infastructure\\icartrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\interfaces\\infastructure\\icartrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{45832ACB-44F3-46B5-9FBE-536983A50C18}|QLBanHang.Infrastructure\\QLBanHang.Infrastructure.csproj|D:\\QLBanHang\\BE\\qlbanhang.infrastructure\\repository\\cartrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45832ACB-44F3-46B5-9FBE-536983A50C18}|QLBanHang.Infrastructure\\QLBanHang.Infrastructure.csproj|solutionrelative:qlbanhang.infrastructure\\repository\\cartrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{36586649-28DE-45F0-8C53-BC58EF0807E1}|QLBanHang.API\\QLBanHang.API.csproj|D:\\QLBanHang\\BE\\qlbanhang.api\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{36586649-28DE-45F0-8C53-BC58EF0807E1}|QLBanHang.API\\QLBanHang.API.csproj|solutionrelative:qlbanhang.api\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|D:\\QLBanHang\\BE\\qlbanhang.core\\dtos\\updatequantityproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\dtos\\updatequantityproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|D:\\QLBanHang\\BE\\qlbanhang.core\\service\\invoiceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\service\\invoiceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|D:\\QLBanHang\\BE\\qlbanhang.core\\dtos\\cartproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\dtos\\cartproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|D:\\QLBanHang\\BE\\qlbanhang.core\\entities\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\entities\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|D:\\QLBanHang\\BE\\qlbanhang.core\\entities\\invoice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\entities\\invoice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|D:\\QLBanHang\\BE\\qlbanhang.core\\dtos\\cartdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\dtos\\cartdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|D:\\QLBanHang\\BE\\qlbanhang.core\\dtos\\invoicediscountdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C60CEFD-342E-40FD-8559-6F41DD3D471B}|QLBanHang.Core\\QLBanHang.Core.csproj|solutionrelative:qlbanhang.core\\dtos\\invoicediscountdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -366,31 +178,42 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "CartController.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.API\\Controllers\\CartController.cs",
-              "RelativeDocumentMoniker": "QLBanHang.API\\Controllers\\CartController.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.API\\Controllers\\CartController.cs",
-              "RelativeToolTip": "QLBanHang.API\\Controllers\\CartController.cs",
-              "ViewState": "AQIAADoAAAAAAAAAAAAhwCsAAAAsAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-10T16:25:33.913Z"
+              "DocumentIndex": 2,
+              "Title": "MISAExportFileExcel.resx",
+              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Resource\\MISAExportFileExcel.resx",
+              "RelativeDocumentMoniker": "QLBanHang.Core\\Resource\\MISAExportFileExcel.resx",
+              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Resource\\MISAExportFileExcel.resx",
+              "RelativeToolTip": "QLBanHang.Core\\Resource\\MISAExportFileExcel.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2024-05-06T15:54:15.065Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "CommentController.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.API\\Controllers\\CommentController.cs",
-              "RelativeDocumentMoniker": "QLBanHang.API\\Controllers\\CommentController.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.API\\Controllers\\CommentController.cs",
-              "RelativeToolTip": "QLBanHang.API\\Controllers\\CommentController.cs",
-              "ViewState": "AQIAAGwAAAAAAAAAAAAAAF4AAAAcAAAA",
+              "Title": "IProductService.cs",
+              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Services\\IProductService.cs",
+              "RelativeDocumentMoniker": "QLBanHang.Core\\Interfaces\\Services\\IProductService.cs",
+              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Services\\IProductService.cs",
+              "RelativeToolTip": "QLBanHang.Core\\Interfaces\\Services\\IProductService.cs",
+              "ViewState": "AQIAADEAAAAAAAAAAAAAAEMAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-01T10:05:54.061Z"
+              "WhenOpened": "2024-05-06T15:36:51.579Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IProductRepository.cs",
+              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Infastructure\\IProductRepository.cs",
+              "RelativeDocumentMoniker": "QLBanHang.Core\\Interfaces\\Infastructure\\IProductRepository.cs",
+              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Infastructure\\IProductRepository.cs",
+              "RelativeToolTip": "QLBanHang.Core\\Interfaces\\Infastructure\\IProductRepository.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABoAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-06T15:36:07.631Z"
             },
             {
               "$type": "Document",
@@ -400,97 +223,95 @@
               "RelativeDocumentMoniker": "QLBanHang.API\\Controllers\\ProductController.cs",
               "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.API\\Controllers\\ProductController.cs",
               "RelativeToolTip": "QLBanHang.API\\Controllers\\ProductController.cs",
-              "ViewState": "AQIAALUAAAAAAAAAAAAAAMUAAAA8AAAA",
+              "ViewState": "AQIAAM8AAAAAAAAAAADwv+YAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-01T09:34:53.221Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "InvoiceController.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.API\\Controllers\\InvoiceController.cs",
-              "RelativeDocumentMoniker": "QLBanHang.API\\Controllers\\InvoiceController.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.API\\Controllers\\InvoiceController.cs",
-              "RelativeToolTip": "QLBanHang.API\\Controllers\\InvoiceController.cs",
-              "ViewState": "AQIAAD8AAAAAAAAAAAAAAFEAAAAnAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-10T16:22:38.537Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "IInvoiceRepository.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Infastructure\\IInvoiceRepository.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\Interfaces\\Infastructure\\IInvoiceRepository.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Infastructure\\IInvoiceRepository.cs",
-              "RelativeToolTip": "QLBanHang.Core\\Interfaces\\Infastructure\\IInvoiceRepository.cs",
-              "ViewState": "AQIAAC0AAAAAAAAAAAAAAD0AAAAsAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-12T02:40:36.325Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "InvoiceRepository.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Infrastructure\\Repository\\InvoiceRepository.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Infrastructure\\Repository\\InvoiceRepository.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Infrastructure\\Repository\\InvoiceRepository.cs",
-              "RelativeToolTip": "QLBanHang.Infrastructure\\Repository\\InvoiceRepository.cs",
-              "ViewState": "AQIAABQAAAAAAAAAAAAAADMAAAAzAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-12T02:41:15.774Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-06T15:21:34.863Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "FeedbackController.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.API\\Controllers\\FeedbackController.cs",
-              "RelativeDocumentMoniker": "QLBanHang.API\\Controllers\\FeedbackController.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.API\\Controllers\\FeedbackController.cs",
-              "RelativeToolTip": "QLBanHang.API\\Controllers\\FeedbackController.cs",
-              "ViewState": "AQIAABgAAAAAAAAAAAAAADMAAAABAAAA",
+              "Title": "BaseService.cs",
+              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Service\\BaseService.cs",
+              "RelativeDocumentMoniker": "QLBanHang.Core\\Service\\BaseService.cs",
+              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Service\\BaseService.cs",
+              "RelativeToolTip": "QLBanHang.Core\\Service\\BaseService.cs",
+              "ViewState": "AQIAAJwAAAAAAAAAAADwv6gAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-11T16:53:35.813Z",
+              "WhenOpened": "2024-05-05T16:05:47.164Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ProductDTOs.cs",
+              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\DTOs\\ProductDTOs.cs",
+              "RelativeDocumentMoniker": "QLBanHang.Core\\DTOs\\ProductDTOs.cs",
+              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\DTOs\\ProductDTOs.cs",
+              "RelativeToolTip": "QLBanHang.Core\\DTOs\\ProductDTOs.cs",
+              "ViewState": "AQIAAJkAAAAAAAAAAAAAAKsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-05T16:31:29.18Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.API\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "QLBanHang.API\\Controllers\\AccountController.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.API\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "QLBanHang.API\\Controllers\\AccountController.cs",
-              "ViewState": "AQIAAG0AAAAAAAAAAAAAAHwAAAARAAAA",
+              "DocumentIndex": 0,
+              "Title": "ProductService.cs",
+              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Service\\ProductService.cs",
+              "RelativeDocumentMoniker": "QLBanHang.Core\\Service\\ProductService.cs",
+              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Service\\ProductService.cs",
+              "RelativeToolTip": "QLBanHang.Core\\Service\\ProductService.cs",
+              "ViewState": "AQIAAEsBAAAAAAAAAAAAwF0BAABNAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-01T10:07:43.812Z"
+              "WhenOpened": "2024-05-01T09:21:20.555Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Product.cs",
+              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Entities\\Product.cs",
+              "RelativeDocumentMoniker": "QLBanHang.Core\\Entities\\Product.cs",
+              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Entities\\Product.cs",
+              "RelativeToolTip": "QLBanHang.Core\\Entities\\Product.cs",
+              "ViewState": "AQIAADUAAAAAAAAAAAAAAD8AAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-27T14:58:44.508Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "BaseController.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.API\\Controllers\\BaseController.cs",
-              "RelativeDocumentMoniker": "QLBanHang.API\\Controllers\\BaseController.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.API\\Controllers\\BaseController.cs",
-              "RelativeToolTip": "QLBanHang.API\\Controllers\\BaseController.cs",
-              "ViewState": "AQIAAGwAAAAAAAAAAAAAABQAAAAVAAAA",
+              "Title": "ProductRepository.cs",
+              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Infrastructure\\Repository\\ProductRepository.cs",
+              "RelativeDocumentMoniker": "QLBanHang.Infrastructure\\Repository\\ProductRepository.cs",
+              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Infrastructure\\Repository\\ProductRepository.cs",
+              "RelativeToolTip": "QLBanHang.Infrastructure\\Repository\\ProductRepository.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAADwvxEAAAA3AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T11:14:55.732Z"
+              "WhenOpened": "2024-05-06T15:23:39.107Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 23,
+              "Title": "SupplierService.cs",
+              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Service\\SupplierService.cs",
+              "RelativeDocumentMoniker": "QLBanHang.Core\\Service\\SupplierService.cs",
+              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Service\\SupplierService.cs",
+              "RelativeToolTip": "QLBanHang.Core\\Service\\SupplierService.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAsAAABKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-01T09:07:41.249Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "AccountRepository.cs",
               "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Infrastructure\\Repository\\AccountRepository.cs",
               "RelativeDocumentMoniker": "QLBanHang.Infrastructure\\Repository\\AccountRepository.cs",
               "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Infrastructure\\Repository\\AccountRepository.cs",
               "RelativeToolTip": "QLBanHang.Infrastructure\\Repository\\AccountRepository.cs",
-              "ViewState": "AQIAAB0AAAAAAAAAAAAhwDMAAAAvAAAA",
+              "ViewState": "AQIAAE8AAAAAAAAAAADwv10AAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-08T13:41:28.078Z"
+              "WhenOpened": "2024-05-01T02:01:24.846Z"
             },
             {
               "$type": "Document",
@@ -500,945 +321,369 @@
               "RelativeDocumentMoniker": "QLBanHang.Core\\Service\\AccountService.cs",
               "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Service\\AccountService.cs",
               "RelativeToolTip": "QLBanHang.Core\\Service\\AccountService.cs",
-              "ViewState": "AQIAAF8AAAAAAAAAAAAhwHIAAAAvAAAA",
+              "ViewState": "AQIAAB0BAAAAAAAAAADwv0cBAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-08T13:09:05.46Z"
+              "WhenOpened": "2024-05-05T15:06:30.377Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "IAccountService.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Services\\IAccountService.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\Interfaces\\Services\\IAccountService.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Services\\IAccountService.cs",
-              "RelativeToolTip": "QLBanHang.Core\\Interfaces\\Services\\IAccountService.cs",
-              "ViewState": "AQIAAAIAAAAAAAAAAIAwwBQAAAAfAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-08T13:07:45.411Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "CartService.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Service\\CartService.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\Service\\CartService.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Service\\CartService.cs",
-              "RelativeToolTip": "QLBanHang.Core\\Service\\CartService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-09T07:10:46.808Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "DiscountService.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Service\\DiscountService.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\Service\\DiscountService.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Service\\DiscountService.cs",
-              "RelativeToolTip": "QLBanHang.Core\\Service\\DiscountService.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAB8AAAAkAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-05T10:30:14.803Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "IDiscountService.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Services\\IDiscountService.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\Interfaces\\Services\\IDiscountService.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Services\\IDiscountService.cs",
-              "RelativeToolTip": "QLBanHang.Core\\Interfaces\\Services\\IDiscountService.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAABoAAAAkAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-05T10:25:16.058Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "BaseRepository.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Infrastructure\\Repository\\BaseRepository.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Infrastructure\\Repository\\BaseRepository.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Infrastructure\\Repository\\BaseRepository.cs",
-              "RelativeToolTip": "QLBanHang.Infrastructure\\Repository\\BaseRepository.cs",
-              "ViewState": "AQIAAAUAAAAAAAAAAAAIwBQAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-09T08:10:50.182Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "IInvoiceService.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Services\\IInvoiceService.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\Interfaces\\Services\\IInvoiceService.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Services\\IInvoiceService.cs",
-              "RelativeToolTip": "QLBanHang.Core\\Interfaces\\Services\\IInvoiceService.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAmwBcAAAApAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-10T16:22:56.062Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "InvoiceService.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Service\\InvoiceService.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\Service\\InvoiceService.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Service\\InvoiceService.cs",
-              "RelativeToolTip": "QLBanHang.Core\\Service\\InvoiceService.cs",
-              "ViewState": "AQIAADIAAAAAAAAAAAAIwEIAAAApAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-11T07:01:40.774Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "CartRepository.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Infrastructure\\Repository\\CartRepository.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Infrastructure\\Repository\\CartRepository.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Infrastructure\\Repository\\CartRepository.cs",
-              "RelativeToolTip": "QLBanHang.Infrastructure\\Repository\\CartRepository.cs",
-              "ViewState": "AQIAAIoAAAAAAAAAAAAAAAEAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-09T07:11:06.195Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "ICartRepository.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Infastructure\\ICartRepository.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\Interfaces\\Infastructure\\ICartRepository.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Infastructure\\ICartRepository.cs",
-              "RelativeToolTip": "QLBanHang.Core\\Interfaces\\Infastructure\\ICartRepository.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAIAwwBgAAAASAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-09T07:09:45Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "ProductRepository.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Infrastructure\\Repository\\ProductRepository.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Infrastructure\\Repository\\ProductRepository.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Infrastructure\\Repository\\ProductRepository.cs",
-              "RelativeToolTip": "QLBanHang.Infrastructure\\Repository\\ProductRepository.cs",
-              "ViewState": "AQIAANcAAAAAAAAAAIAwwEEBAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-01T11:28:06.328Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "IProductRepository.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Infastructure\\IProductRepository.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\Interfaces\\Infastructure\\IProductRepository.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Infastructure\\IProductRepository.cs",
-              "RelativeToolTip": "QLBanHang.Core\\Interfaces\\Infastructure\\IProductRepository.cs",
-              "ViewState": "AQIAAFsAAAAAAAAAAIAwwG0AAAAqAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T07:50:58.223Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "IBaseRepository.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Infastructure\\IBaseRepository.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\Interfaces\\Infastructure\\IBaseRepository.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Infastructure\\IBaseRepository.cs",
-              "RelativeToolTip": "QLBanHang.Core\\Interfaces\\Infastructure\\IBaseRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAdAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T07:50:25.642Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "ProductTypeController.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.API\\Controllers\\ProductTypeController.cs",
-              "RelativeDocumentMoniker": "QLBanHang.API\\Controllers\\ProductTypeController.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.API\\Controllers\\ProductTypeController.cs",
-              "RelativeToolTip": "QLBanHang.API\\Controllers\\ProductTypeController.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAACQAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-01T02:03:15.455Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "IBaseService.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Services\\IBaseService.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\Interfaces\\Services\\IBaseService.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Services\\IBaseService.cs",
-              "RelativeToolTip": "QLBanHang.Core\\Interfaces\\Services\\IBaseService.cs",
-              "ViewState": "AQIAAB4AAAAAAAAAAAAAACQAAABAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T07:51:56.486Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "DiscountController.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.API\\Controllers\\DiscountController.cs",
-              "RelativeDocumentMoniker": "QLBanHang.API\\Controllers\\DiscountController.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.API\\Controllers\\DiscountController.cs",
-              "RelativeToolTip": "QLBanHang.API\\Controllers\\DiscountController.cs",
-              "ViewState": "AQIAABIAAAAAAAAAAAAAACEAAAA3AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-01T10:09:29.077Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "SupplierController.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.API\\Controllers\\SupplierController.cs",
-              "RelativeDocumentMoniker": "QLBanHang.API\\Controllers\\SupplierController.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.API\\Controllers\\SupplierController.cs",
-              "RelativeToolTip": "QLBanHang.API\\Controllers\\SupplierController.cs",
-              "ViewState": "AQIAABYAAAAAAAAAAAAAACQAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-01T10:10:27.804Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "IProductService.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Services\\IProductService.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\Interfaces\\Services\\IProductService.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Services\\IProductService.cs",
-              "RelativeToolTip": "QLBanHang.Core\\Interfaces\\Services\\IProductService.cs",
-              "ViewState": "AQIAAB4AAAAAAAAAAAAlwDkAAABeAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T07:52:26.532Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "ProductService.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Service\\ProductService.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\Service\\ProductService.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Service\\ProductService.cs",
-              "RelativeToolTip": "QLBanHang.Core\\Service\\ProductService.cs",
-              "ViewState": "AQIAAEEAAAAAAAAAAAAEwE4AAABUAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-01T11:25:33.434Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "DiscountRepository.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Infrastructure\\Repository\\DiscountRepository.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Infrastructure\\Repository\\DiscountRepository.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Infrastructure\\Repository\\DiscountRepository.cs",
-              "RelativeToolTip": "QLBanHang.Infrastructure\\Repository\\DiscountRepository.cs",
-              "ViewState": "AQIAAAQAAAAAAAAAAAAlwBQAAAApAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-10T08:56:02.832Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "IDiscountRepository.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Infastructure\\IDiscountRepository.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\Interfaces\\Infastructure\\IDiscountRepository.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Infastructure\\IDiscountRepository.cs",
-              "RelativeToolTip": "QLBanHang.Core\\Interfaces\\Infastructure\\IDiscountRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAlwBAAAAAiAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-05T10:24:04.295Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.API\\Program.cs",
-              "RelativeDocumentMoniker": "QLBanHang.API\\Program.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.API\\Program.cs",
-              "RelativeToolTip": "QLBanHang.API\\Program.cs",
-              "ViewState": "AQIAADYAAAAAAAAAAAAAAEsAAABGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-15T09:06:55.426Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "CommentRepository.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Infrastructure\\Repository\\CommentRepository.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Infrastructure\\Repository\\CommentRepository.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Infrastructure\\Repository\\CommentRepository.cs",
-              "RelativeToolTip": "QLBanHang.Infrastructure\\Repository\\CommentRepository.cs",
-              "ViewState": "AQIAAEcAAAAAAAAAAAAUwFsAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-01T11:28:37.79Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "FeedbackService.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Service\\FeedbackService.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\Service\\FeedbackService.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Service\\FeedbackService.cs",
-              "RelativeToolTip": "QLBanHang.Core\\Service\\FeedbackService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-01T11:26:46.165Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "ICommentRepository.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Infastructure\\ICommentRepository.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\Interfaces\\Infastructure\\ICommentRepository.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Infastructure\\ICommentRepository.cs",
-              "RelativeToolTip": "QLBanHang.Core\\Interfaces\\Infastructure\\ICommentRepository.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAACEAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-01T11:06:58.725Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "IFeedbackService.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Services\\IFeedbackService.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\Interfaces\\Services\\IFeedbackService.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Services\\IFeedbackService.cs",
-              "RelativeToolTip": "QLBanHang.Core\\Interfaces\\Services\\IFeedbackService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-01T11:17:18.302Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "IFeedbackRepository.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Infastructure\\IFeedbackRepository.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\Interfaces\\Infastructure\\IFeedbackRepository.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Infastructure\\IFeedbackRepository.cs",
-              "RelativeToolTip": "QLBanHang.Core\\Interfaces\\Infastructure\\IFeedbackRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-01T11:10:11.955Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 37,
-              "Title": "FeedbackRepository.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Infrastructure\\Repository\\FeedbackRepository.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Infrastructure\\Repository\\FeedbackRepository.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Infrastructure\\Repository\\FeedbackRepository.cs",
-              "RelativeToolTip": "QLBanHang.Infrastructure\\Repository\\FeedbackRepository.cs",
-              "ViewState": "AQIAAAUAAAAAAAAAAAAAAAwAAABTAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-01T11:29:15.3Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 38,
-              "Title": "BaseService.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Service\\BaseService.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\Service\\BaseService.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Service\\BaseService.cs",
-              "RelativeToolTip": "QLBanHang.Core\\Service\\BaseService.cs",
-              "ViewState": "AQIAAJkAAAAAAAAAAAAlwKkAAAAxAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T08:28:14.548Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 39,
-              "Title": "CommentService.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Service\\CommentService.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\Service\\CommentService.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Service\\CommentService.cs",
-              "RelativeToolTip": "QLBanHang.Core\\Service\\CommentService.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAwwBYAAAAzAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-01T11:26:29.688Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 40,
-              "Title": "ICommentService.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Services\\ICommentService.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\Interfaces\\Services\\ICommentService.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Services\\ICommentService.cs",
-              "RelativeToolTip": "QLBanHang.Core\\Interfaces\\Services\\ICommentService.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAABkAAAAdAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-01T11:16:32.246Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 41,
-              "Title": "CartDTOs.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\DTOs\\CartDTOs.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\DTOs\\CartDTOs.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\DTOs\\CartDTOs.cs",
-              "RelativeToolTip": "QLBanHang.Core\\DTOs\\CartDTOs.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAAA8AAAAVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-09T07:13:45.513Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 42,
-              "Title": "Account.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Entities\\Account.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\Entities\\Account.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Entities\\Account.cs",
-              "RelativeToolTip": "QLBanHang.Core\\Entities\\Account.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABUAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T13:46:47.807Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 43,
-              "Title": "IAccountRepository.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Infastructure\\IAccountRepository.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\Interfaces\\Infastructure\\IAccountRepository.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Infastructure\\IAccountRepository.cs",
-              "RelativeToolTip": "QLBanHang.Core\\Interfaces\\Infastructure\\IAccountRepository.cs",
-              "ViewState": "AQIAABwAAAAAAAAAAAAlwB0AAAAmAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-08T13:05:32.645Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 44,
-              "Title": "Feedback.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Entities\\Feedback.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\Entities\\Feedback.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Entities\\Feedback.cs",
-              "RelativeToolTip": "QLBanHang.Core\\Entities\\Feedback.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAoAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T12:58:19.842Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 45,
-              "Title": "FeedbackDTOs.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\DTOs\\FeedbackDTOs.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\DTOs\\FeedbackDTOs.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\DTOs\\FeedbackDTOs.cs",
-              "RelativeToolTip": "QLBanHang.Core\\DTOs\\FeedbackDTOs.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-07T10:50:24.299Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 46,
-              "Title": "Comment.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Entities\\Comment.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\Entities\\Comment.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Entities\\Comment.cs",
-              "RelativeToolTip": "QLBanHang.Core\\Entities\\Comment.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAzAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T12:52:43.958Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 47,
-              "Title": "InvoiceDiscountDTOs.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\DTOs\\InvoiceDiscountDTOs.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\DTOs\\InvoiceDiscountDTOs.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\DTOs\\InvoiceDiscountDTOs.cs",
-              "RelativeToolTip": "QLBanHang.Core\\DTOs\\InvoiceDiscountDTOs.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAgAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-12T16:06:57.193Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 48,
-              "Title": "Discount.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Entities\\Discount.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\Entities\\Discount.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Entities\\Discount.cs",
-              "RelativeToolTip": "QLBanHang.Core\\Entities\\Discount.cs",
-              "ViewState": "AQIAABIAAAAAAAAAAAAAACQAAAAnAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T13:22:11.526Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 49,
-              "Title": "Invoice.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Entities\\Invoice.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\Entities\\Invoice.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Entities\\Invoice.cs",
-              "RelativeToolTip": "QLBanHang.Core\\Entities\\Invoice.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAdAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T13:03:10.913Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 50,
-              "Title": "Cart.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Entities\\Cart.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\Entities\\Cart.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Entities\\Cart.cs",
-              "RelativeToolTip": "QLBanHang.Core\\Entities\\Cart.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAnAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-09T09:09:21.894Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 51,
-              "Title": "ProductTypeService.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Service\\ProductTypeService.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\Service\\ProductTypeService.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Service\\ProductTypeService.cs",
-              "RelativeToolTip": "QLBanHang.Core\\Service\\ProductTypeService.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAB0AAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-01T08:18:23.694Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 52,
-              "Title": "ProductTypeRepository.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Infrastructure\\Repository\\ProductTypeRepository.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Infrastructure\\Repository\\ProductTypeRepository.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Infrastructure\\Repository\\ProductTypeRepository.cs",
-              "RelativeToolTip": "QLBanHang.Infrastructure\\Repository\\ProductTypeRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-01T08:48:20.312Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 53,
-              "Title": "IProductTypeService.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Services\\IProductTypeService.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\Interfaces\\Services\\IProductTypeService.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Services\\IProductTypeService.cs",
-              "RelativeToolTip": "QLBanHang.Core\\Interfaces\\Services\\IProductTypeService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAgwBIAAAAyAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T07:53:28.106Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 54,
-              "Title": "IProductTypeRepository.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Infastructure\\IProductTypeRepository.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\Interfaces\\Infastructure\\IProductTypeRepository.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Infastructure\\IProductTypeRepository.cs",
-              "RelativeToolTip": "QLBanHang.Core\\Interfaces\\Infastructure\\IProductTypeRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAA3AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T07:51:32.922Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 55,
-              "Title": "RegisterModel.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Auth\\RegisterModel.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\Auth\\RegisterModel.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Auth\\RegisterModel.cs",
-              "RelativeToolTip": "QLBanHang.Core\\Auth\\RegisterModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAeAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-08T14:40:47.851Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 56,
-              "Title": "ICartService.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Services\\ICartService.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\Interfaces\\Services\\ICartService.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Services\\ICartService.cs",
-              "RelativeToolTip": "QLBanHang.Core\\Interfaces\\Services\\ICartService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-09T07:10:21.658Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 57,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.API\\appsettings.json",
-              "RelativeDocumentMoniker": "QLBanHang.API\\appsettings.json",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.API\\appsettings.json",
-              "RelativeToolTip": "QLBanHang.API\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAtAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-04-08T11:49:15.11Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 58,
-              "Title": "QLBanHang.API.csproj",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.API\\QLBanHang.API.csproj",
-              "RelativeDocumentMoniker": "QLBanHang.API\\QLBanHang.API.csproj",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.API\\QLBanHang.API.csproj",
-              "RelativeToolTip": "QLBanHang.API\\QLBanHang.API.csproj",
-              "ViewState": "AQIAABgAAAAAAAAAAAAAABQAAAAlAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-04-08T13:51:13.141Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 59,
-              "Title": "QLBanHang.Infrastructure.csproj",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Infrastructure\\QLBanHang.Infrastructure.csproj",
-              "RelativeDocumentMoniker": "QLBanHang.Infrastructure\\QLBanHang.Infrastructure.csproj",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Infrastructure\\QLBanHang.Infrastructure.csproj",
-              "RelativeToolTip": "QLBanHang.Infrastructure\\QLBanHang.Infrastructure.csproj",
-              "ViewState": "AQIAABgAAAAAAAAAAAAAABkAAAAVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-04-08T13:53:56.228Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 60,
-              "Title": "QLBanHang.Core.csproj",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\QLBanHang.Core.csproj",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\QLBanHang.Core.csproj",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\QLBanHang.Core.csproj",
-              "RelativeToolTip": "QLBanHang.Core\\QLBanHang.Core.csproj",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEoAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-04-08T13:52:46.425Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 61,
-              "Title": "TokenModel.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Auth\\TokenModel.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\Auth\\TokenModel.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Auth\\TokenModel.cs",
-              "RelativeToolTip": "QLBanHang.Core\\Auth\\TokenModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAATAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-08T14:41:00.624Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 62,
-              "Title": "Response.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Auth\\Response.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\Auth\\Response.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Auth\\Response.cs",
-              "RelativeToolTip": "QLBanHang.Core\\Auth\\Response.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAATAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-08T14:40:56.001Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 63,
-              "Title": "ApplicationUser.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Auth\\ApplicationUser.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\Auth\\ApplicationUser.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Auth\\ApplicationUser.cs",
-              "RelativeToolTip": "QLBanHang.Core\\Auth\\ApplicationUser.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-08T14:40:31.826Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 64,
-              "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Auth\\ApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\Auth\\ApplicationDbContext.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Auth\\ApplicationDbContext.cs",
-              "RelativeToolTip": "QLBanHang.Core\\Auth\\ApplicationDbContext.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-08T13:46:02.62Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 65,
-              "Title": "UserRoles.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Auth\\UserRoles.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\Auth\\UserRoles.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Auth\\UserRoles.cs",
-              "RelativeToolTip": "QLBanHang.Core\\Auth\\UserRoles.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAATAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-08T14:41:08.117Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 66,
-              "Title": "MISAServiceResultError.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\MISAServiceResult\\MISAServiceResultError.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\MISAServiceResult\\MISAServiceResultError.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\MISAServiceResult\\MISAServiceResultError.cs",
-              "RelativeToolTip": "QLBanHang.Core\\MISAServiceResult\\MISAServiceResultError.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T15:36:51.288Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 67,
-              "Title": "MISAServiceResultAuth.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\MISAServiceResult\\MISAServiceResultAuth.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\MISAServiceResult\\MISAServiceResultAuth.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\MISAServiceResult\\MISAServiceResultAuth.cs",
-              "RelativeToolTip": "QLBanHang.Core\\MISAServiceResult\\MISAServiceResultAuth.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAATAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-08T14:42:04.021Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 68,
-              "Title": "MISAEnum.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\MISAEnum\\MISAEnum.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\MISAEnum\\MISAEnum.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\MISAEnum\\MISAEnum.cs",
-              "RelativeToolTip": "QLBanHang.Core\\MISAEnum\\MISAEnum.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAATAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-08T14:41:55.994Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 69,
+              "DocumentIndex": 9,
               "Title": "MISAAtribute.cs",
               "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\MISAAttribute\\MISAAtribute.cs",
               "RelativeDocumentMoniker": "QLBanHang.Core\\MISAAttribute\\MISAAtribute.cs",
               "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\MISAAttribute\\MISAAtribute.cs",
               "RelativeToolTip": "QLBanHang.Core\\MISAAttribute\\MISAAtribute.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAmAAAA",
+              "ViewState": "AQIAACUAAAAAAAAAAAAAwD0AAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-08T14:41:32.356Z"
+              "WhenOpened": "2024-05-05T16:32:28.773Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 71,
-              "Title": "AccountLogin.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\DTOs\\AccountLogin.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\DTOs\\AccountLogin.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\DTOs\\AccountLogin.cs",
-              "RelativeToolTip": "QLBanHang.Core\\DTOs\\AccountLogin.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAdAAAA",
+              "DocumentIndex": 15,
+              "Title": "IAccountRepository.cs",
+              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Infastructure\\IAccountRepository.cs",
+              "RelativeDocumentMoniker": "QLBanHang.Core\\Interfaces\\Infastructure\\IAccountRepository.cs",
+              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Infastructure\\IAccountRepository.cs",
+              "RelativeToolTip": "QLBanHang.Core\\Interfaces\\Infastructure\\IAccountRepository.cs",
+              "ViewState": "AQIAAEAAAAAAAAAAAADwv04AAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-08T14:36:55.879Z"
+              "WhenOpened": "2024-05-01T02:01:09.793Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 70,
-              "Title": "IDbContext.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\DBContext\\IDbContext.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\Interfaces\\DBContext\\IDbContext.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\DBContext\\IDbContext.cs",
-              "RelativeToolTip": "QLBanHang.Core\\Interfaces\\DBContext\\IDbContext.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAABAAAA",
+              "DocumentIndex": 12,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.API\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "QLBanHang.API\\Controllers\\AccountController.cs",
+              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.API\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "QLBanHang.API\\Controllers\\AccountController.cs",
+              "ViewState": "AQIAAC4BAAAAAAAAAAAAAD8BAABBAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T09:56:51.582Z"
+              "WhenOpened": "2024-04-26T15:14:29.131Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 73,
-              "Title": "MISAConst.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Const\\MISAConst.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\Const\\MISAConst.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Const\\MISAConst.cs",
-              "RelativeToolTip": "QLBanHang.Core\\Const\\MISAConst.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAeAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-08T14:37:22.788Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 72,
-              "Title": "AutoMapperProfile.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\AutoMapper\\AutoMapperProfile.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\AutoMapper\\AutoMapperProfile.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\AutoMapper\\AutoMapperProfile.cs",
-              "RelativeToolTip": "QLBanHang.Core\\AutoMapper\\AutoMapperProfile.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAjAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-04T03:43:38.371Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 74,
-              "Title": "ProductDTOs.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\DTOs\\ProductDTOs.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\DTOs\\ProductDTOs.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\DTOs\\ProductDTOs.cs",
-              "RelativeToolTip": "QLBanHang.Core\\DTOs\\ProductDTOs.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAdAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-04T03:28:52.96Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 75,
-              "Title": "Supplier.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Entities\\Supplier.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\Entities\\Supplier.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Entities\\Supplier.cs",
-              "RelativeToolTip": "QLBanHang.Core\\Entities\\Supplier.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T13:18:51.898Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 76,
-              "Title": "ProductType.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Entities\\ProductType.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\Entities\\ProductType.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Entities\\ProductType.cs",
-              "RelativeToolTip": "QLBanHang.Core\\Entities\\ProductType.cs",
-              "ViewState": "AQIAAAQAAAAAAAAAAABBwBoAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T07:27:57.12Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 77,
-              "Title": "Configuration.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Entities\\Configuration.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\Entities\\Configuration.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Entities\\Configuration.cs",
-              "RelativeToolTip": "QLBanHang.Core\\Entities\\Configuration.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAxwAgAAAAeAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T13:28:41.833Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 78,
-              "Title": "SupplierRepository.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Infrastructure\\Repository\\SupplierRepository.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Infrastructure\\Repository\\SupplierRepository.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Infrastructure\\Repository\\SupplierRepository.cs",
-              "RelativeToolTip": "QLBanHang.Infrastructure\\Repository\\SupplierRepository.cs",
-              "ViewState": "AQIAAAIAAAAAAAAAAAAgwBIAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-01T11:29:56.426Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 79,
-              "Title": "ISupplierRepository.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Infastructure\\ISupplierRepository.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\Interfaces\\Infastructure\\ISupplierRepository.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Infastructure\\ISupplierRepository.cs",
-              "RelativeToolTip": "QLBanHang.Core\\Interfaces\\Infastructure\\ISupplierRepository.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAgwBIAAAAxAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-01T10:59:42.319Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 80,
-              "Title": "SupplierService.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Service\\SupplierService.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\Service\\SupplierService.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Service\\SupplierService.cs",
-              "RelativeToolTip": "QLBanHang.Core\\Service\\SupplierService.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAgwBYAAAA8AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-01T11:27:37.505Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 81,
-              "Title": "ISupplierService.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Services\\ISupplierService.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\Interfaces\\Services\\ISupplierService.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Services\\ISupplierService.cs",
-              "RelativeToolTip": "QLBanHang.Core\\Interfaces\\Services\\ISupplierService.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAgwBIAAAAsAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-01T11:19:30.919Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 82,
-              "Title": "NewsRepository.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Infrastructure\\Repository\\NewsRepository.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Infrastructure\\Repository\\NewsRepository.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Infrastructure\\Repository\\NewsRepository.cs",
-              "RelativeToolTip": "QLBanHang.Infrastructure\\Repository\\NewsRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-01T11:29:42.592Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 83,
-              "Title": "NewsService.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Service\\NewsService.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\Service\\NewsService.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Service\\NewsService.cs",
-              "RelativeToolTip": "QLBanHang.Core\\Service\\NewsService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-01T11:27:20.207Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 84,
-              "Title": "INewsService.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Services\\INewsService.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\Interfaces\\Services\\INewsService.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Services\\INewsService.cs",
-              "RelativeToolTip": "QLBanHang.Core\\Interfaces\\Services\\INewsService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-01T11:22:27.035Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 85,
-              "Title": "INewsRepository.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Infastructure\\INewsRepository.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Core\\Interfaces\\Infastructure\\INewsRepository.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Infastructure\\INewsRepository.cs",
-              "RelativeToolTip": "QLBanHang.Core\\Interfaces\\Infastructure\\INewsRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-01T11:04:27.824Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 86,
+              "DocumentIndex": 14,
               "Title": "NewsController.cs",
               "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.API\\Controllers\\NewsController.cs",
               "RelativeDocumentMoniker": "QLBanHang.API\\Controllers\\NewsController.cs",
               "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.API\\Controllers\\NewsController.cs",
               "RelativeToolTip": "QLBanHang.API\\Controllers\\NewsController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAFAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACEAAAA2AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-01T10:12:13.971Z"
+              "WhenOpened": "2024-05-01T09:04:42.191Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 87,
+              "DocumentIndex": 13,
               "Title": "News.cs",
               "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Entities\\News.cs",
               "RelativeDocumentMoniker": "QLBanHang.Core\\Entities\\News.cs",
               "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Entities\\News.cs",
               "RelativeToolTip": "QLBanHang.Core\\Entities\\News.cs",
-              "ViewState": "AQIAAAQAAAAAAAAAAABBwBMAAAAAAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAB8AAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T13:15:01.678Z"
+              "WhenOpened": "2024-05-01T09:50:28.22Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 88,
-              "Title": "MySqlDbContext.cs",
-              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Infrastructure\\DatabaseContext\\MySqlDbContext.cs",
-              "RelativeDocumentMoniker": "QLBanHang.Infrastructure\\DatabaseContext\\MySqlDbContext.cs",
-              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Infrastructure\\DatabaseContext\\MySqlDbContext.cs",
-              "RelativeToolTip": "QLBanHang.Infrastructure\\DatabaseContext\\MySqlDbContext.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAJAAAA",
+              "DocumentIndex": 19,
+              "Title": "INewsRepository.cs",
+              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Infastructure\\INewsRepository.cs",
+              "RelativeDocumentMoniker": "QLBanHang.Core\\Interfaces\\Infastructure\\INewsRepository.cs",
+              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Infastructure\\INewsRepository.cs",
+              "RelativeToolTip": "QLBanHang.Core\\Interfaces\\Infastructure\\INewsRepository.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAADwvxIAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T08:33:10.995Z"
+              "WhenOpened": "2024-05-01T09:07:18.779Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "NewsService.cs",
+              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Service\\NewsService.cs",
+              "RelativeDocumentMoniker": "QLBanHang.Core\\Service\\NewsService.cs",
+              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Service\\NewsService.cs",
+              "RelativeToolTip": "QLBanHang.Core\\Service\\NewsService.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAADwvxoAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-01T09:07:46.905Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "CartService.cs",
+              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Service\\CartService.cs",
+              "RelativeDocumentMoniker": "QLBanHang.Core\\Service\\CartService.cs",
+              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Service\\CartService.cs",
+              "RelativeToolTip": "QLBanHang.Core\\Service\\CartService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-01T09:21:29.51Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.API\\Program.cs",
+              "RelativeDocumentMoniker": "QLBanHang.API\\Program.cs",
+              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.API\\Program.cs",
+              "RelativeToolTip": "QLBanHang.API\\Program.cs",
+              "ViewState": "AQIAADkAAAAAAAAAAAAAAEkAAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-01T09:47:05.26Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "INewsService.cs",
+              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Services\\INewsService.cs",
+              "RelativeDocumentMoniker": "QLBanHang.Core\\Interfaces\\Services\\INewsService.cs",
+              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Services\\INewsService.cs",
+              "RelativeToolTip": "QLBanHang.Core\\Interfaces\\Services\\INewsService.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAADwvxIAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-01T09:07:31.174Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "NewsRepository.cs",
+              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Infrastructure\\Repository\\NewsRepository.cs",
+              "RelativeDocumentMoniker": "QLBanHang.Infrastructure\\Repository\\NewsRepository.cs",
+              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Infrastructure\\Repository\\NewsRepository.cs",
+              "RelativeToolTip": "QLBanHang.Infrastructure\\Repository\\NewsRepository.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAADwvxQAAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-01T09:11:03.405Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "CommentService.cs",
+              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Service\\CommentService.cs",
+              "RelativeDocumentMoniker": "QLBanHang.Core\\Service\\CommentService.cs",
+              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Service\\CommentService.cs",
+              "RelativeToolTip": "QLBanHang.Core\\Service\\CommentService.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-01T09:21:35.692Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "SupplierRepository.cs",
+              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Infrastructure\\Repository\\SupplierRepository.cs",
+              "RelativeDocumentMoniker": "QLBanHang.Infrastructure\\Repository\\SupplierRepository.cs",
+              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Infrastructure\\Repository\\SupplierRepository.cs",
+              "RelativeToolTip": "QLBanHang.Infrastructure\\Repository\\SupplierRepository.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAwAAABTAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-01T09:10:58.485Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "ISupplierService.cs",
+              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Services\\ISupplierService.cs",
+              "RelativeDocumentMoniker": "QLBanHang.Core\\Interfaces\\Services\\ISupplierService.cs",
+              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Services\\ISupplierService.cs",
+              "RelativeToolTip": "QLBanHang.Core\\Interfaces\\Services\\ISupplierService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-01T09:07:26.121Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "ISupplierRepository.cs",
+              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Infastructure\\ISupplierRepository.cs",
+              "RelativeDocumentMoniker": "QLBanHang.Core\\Interfaces\\Infastructure\\ISupplierRepository.cs",
+              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Infastructure\\ISupplierRepository.cs",
+              "RelativeToolTip": "QLBanHang.Core\\Interfaces\\Infastructure\\ISupplierRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAA0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-01T09:07:11.936Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "SupplierController.cs",
+              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.API\\Controllers\\SupplierController.cs",
+              "RelativeDocumentMoniker": "QLBanHang.API\\Controllers\\SupplierController.cs",
+              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.API\\Controllers\\SupplierController.cs",
+              "RelativeToolTip": "QLBanHang.API\\Controllers\\SupplierController.cs",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAACQAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-01T08:46:32.512Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "DiscountController.cs",
+              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.API\\Controllers\\DiscountController.cs",
+              "RelativeDocumentMoniker": "QLBanHang.API\\Controllers\\DiscountController.cs",
+              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.API\\Controllers\\DiscountController.cs",
+              "RelativeToolTip": "QLBanHang.API\\Controllers\\DiscountController.cs",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-01T08:46:26.295Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "InvoiceController.cs",
+              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.API\\Controllers\\InvoiceController.cs",
+              "RelativeDocumentMoniker": "QLBanHang.API\\Controllers\\InvoiceController.cs",
+              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.API\\Controllers\\InvoiceController.cs",
+              "RelativeToolTip": "QLBanHang.API\\Controllers\\InvoiceController.cs",
+              "ViewState": "AQIAAN8AAAAAAAAAAADwv+4AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-27T01:23:48.154Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "CartRepository.cs",
+              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Infrastructure\\Repository\\CartRepository.cs",
+              "RelativeDocumentMoniker": "QLBanHang.Infrastructure\\Repository\\CartRepository.cs",
+              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Infrastructure\\Repository\\CartRepository.cs",
+              "RelativeToolTip": "QLBanHang.Infrastructure\\Repository\\CartRepository.cs",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAwCMAAAB+AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-27T15:03:20.339Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "ICartRepository.cs",
+              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Infastructure\\ICartRepository.cs",
+              "RelativeDocumentMoniker": "QLBanHang.Core\\Interfaces\\Infastructure\\ICartRepository.cs",
+              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Infastructure\\ICartRepository.cs",
+              "RelativeToolTip": "QLBanHang.Core\\Interfaces\\Infastructure\\ICartRepository.cs",
+              "ViewState": "AQIAABIAAAAAAAAAAAAjwCAAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-27T15:02:07.896Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "IInvoiceRepository.cs",
+              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Infastructure\\IInvoiceRepository.cs",
+              "RelativeDocumentMoniker": "QLBanHang.Core\\Interfaces\\Infastructure\\IInvoiceRepository.cs",
+              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Interfaces\\Infastructure\\IInvoiceRepository.cs",
+              "RelativeToolTip": "QLBanHang.Core\\Interfaces\\Infastructure\\IInvoiceRepository.cs",
+              "ViewState": "AQIAAFAAAAAAAAAAAAASwGUAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-27T06:27:56.835Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "CartController.cs",
+              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.API\\Controllers\\CartController.cs",
+              "RelativeDocumentMoniker": "QLBanHang.API\\Controllers\\CartController.cs",
+              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.API\\Controllers\\CartController.cs",
+              "RelativeToolTip": "QLBanHang.API\\Controllers\\CartController.cs",
+              "ViewState": "AQIAADMAAAAAAAAAAAAAAEUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-27T01:24:00.395Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "InvoiceRepository.cs",
+              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Infrastructure\\Repository\\InvoiceRepository.cs",
+              "RelativeDocumentMoniker": "QLBanHang.Infrastructure\\Repository\\InvoiceRepository.cs",
+              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Infrastructure\\Repository\\InvoiceRepository.cs",
+              "RelativeToolTip": "QLBanHang.Infrastructure\\Repository\\InvoiceRepository.cs",
+              "ViewState": "AQIAAMQAAAAAAAAAAAASwNEAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-27T06:27:17.47Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "CartProduct.cs",
+              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\DTOs\\CartProduct.cs",
+              "RelativeDocumentMoniker": "QLBanHang.Core\\DTOs\\CartProduct.cs",
+              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\DTOs\\CartProduct.cs",
+              "RelativeToolTip": "QLBanHang.Core\\DTOs\\CartProduct.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-27T07:27:35.824Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "UpdateQuantityProduct.cs",
+              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\DTOs\\UpdateQuantityProduct.cs",
+              "RelativeDocumentMoniker": "QLBanHang.Core\\DTOs\\UpdateQuantityProduct.cs",
+              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\DTOs\\UpdateQuantityProduct.cs",
+              "RelativeToolTip": "QLBanHang.Core\\DTOs\\UpdateQuantityProduct.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-27T14:57:45.291Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "Cart.cs",
+              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Entities\\Cart.cs",
+              "RelativeDocumentMoniker": "QLBanHang.Core\\Entities\\Cart.cs",
+              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Entities\\Cart.cs",
+              "RelativeToolTip": "QLBanHang.Core\\Entities\\Cart.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-27T14:58:17.377Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "InvoiceService.cs",
+              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Service\\InvoiceService.cs",
+              "RelativeDocumentMoniker": "QLBanHang.Core\\Service\\InvoiceService.cs",
+              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Service\\InvoiceService.cs",
+              "RelativeToolTip": "QLBanHang.Core\\Service\\InvoiceService.cs",
+              "ViewState": "AQIAADUAAAAAAAAAAAASwEQAAABAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-28T02:03:05.886Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "Invoice.cs",
+              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Entities\\Invoice.cs",
+              "RelativeDocumentMoniker": "QLBanHang.Core\\Entities\\Invoice.cs",
+              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\Entities\\Invoice.cs",
+              "RelativeToolTip": "QLBanHang.Core\\Entities\\Invoice.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAACAAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-27T05:19:08.613Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "InvoiceDiscountDTOs.cs",
+              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\DTOs\\InvoiceDiscountDTOs.cs",
+              "RelativeDocumentMoniker": "QLBanHang.Core\\DTOs\\InvoiceDiscountDTOs.cs",
+              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\DTOs\\InvoiceDiscountDTOs.cs",
+              "RelativeToolTip": "QLBanHang.Core\\DTOs\\InvoiceDiscountDTOs.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-27T07:27:31.737Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "CartDTOs.cs",
+              "DocumentMoniker": "D:\\QLBanHang\\BE\\QLBanHang.Core\\DTOs\\CartDTOs.cs",
+              "RelativeDocumentMoniker": "QLBanHang.Core\\DTOs\\CartDTOs.cs",
+              "ToolTip": "D:\\QLBanHang\\BE\\QLBanHang.Core\\DTOs\\CartDTOs.cs",
+              "RelativeToolTip": "QLBanHang.Core\\DTOs\\CartDTOs.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-27T07:27:39.807Z"
             }
           ]
         }

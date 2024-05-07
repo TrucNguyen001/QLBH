@@ -27,11 +27,7 @@
               />
               <span class="error">{{ error }}</span>
             </div>
-            <div
-              style="padding-top: 10px"
-              @click="getPassword"
-              class="btn btn-primary"
-            >
+            <div @click="getPassword" class="btn btn-primary my-4">
               Lấy lại mật khẩu
             </div>
           </div>
@@ -84,9 +80,9 @@
                 id="code-auth"
                 @click="common.blackenInput('code-auth')"
               />
-              <span class="error">{{ error }}</span>
+              <span class="error-page2">{{ error }}</span>
             </div>
-            <div @click="confirmCode" class="btn">
+            <div @click="confirmCode" class="btn btn-primary my-2 mt-2">
               {{ resource.MForgetPassword.Continue }}
             </div>
           </div>
@@ -133,7 +129,7 @@
               }"
               class="input-email"
             >
-              <div class="input-icon new-password">
+              <div style="position: relative" class="input-icon new-password">
                 <div
                   @click="toggleNewPassword"
                   class="icon-pass icon-show-pass"
@@ -160,7 +156,10 @@
               }"
               class="input-email"
             >
-              <div class="input-icon confirm-new-password">
+              <div
+                style="position: relative"
+                class="input-icon confirm-new-password"
+              >
                 <div
                   @click="toggleConfirmNewPassword"
                   class="icon-pass icon-show-pass"
@@ -183,7 +182,10 @@
                 <span class="error">{{ errorConfirmNewPassword }}</span>
               </div>
             </div>
-            <div @click="createPassword" class="btn create-password">
+            <div
+              @click="createPassword"
+              class="btn btn-primary mb-2 create-password"
+            >
               {{ resource.MForgetPassword.CreatePassword }}
             </div>
           </div>
@@ -227,7 +229,7 @@ export default {
      * @author: Nguyễn Văn Trúc(10/3/2024)
      */
     backLogin() {
-      this.$router.push(this.helper.Router.Login);
+      this.$router.push("login-user");
     },
     /**
      * Hàm lấy mật khẩu
@@ -272,7 +274,7 @@ export default {
           this.common.showLoading();
           let result = await this.apiService.getByInfo(
             this.helper.MApi.CheckRecoverCode,
-            this.code
+            this.code + "/" + this.email
           );
           result === 1
             ? (this.page = 3)
@@ -390,7 +392,14 @@ export default {
 @import url(../../css/pages/forgetpassword.css);
 .error {
   color: red;
-  font-size: 14px;
+  font-size: 11px;
+  margin-top: 50px;
+  position: absolute;
+}
+.error-page2 {
+  color: red;
+  font-size: 11px;
+  margin-top: 50px;
 }
 .input_error {
   border: 1px solid red;
@@ -405,15 +414,21 @@ export default {
   width: 424px;
 }
 .confirm-new-password {
-  margin-top: 60px;
+  margin-top: 30px;
 }
 .create-password {
-  margin-top: 130px;
+  margin-top: 30px;
 }
 .input_error_password {
-  height: 24px;
+  height: 44px;
 }
 .input_error_password2 {
-  height: 14px;
+  height: 44px;
+}
+.icon_show_pass {
+  background: url("../../assets/img/icon-show-pass.svg") no-repeat;
+}
+.icon_hide_pass {
+  background: url("../../assets/img/icon-hide-pass.svg") no-repeat;
 }
 </style>

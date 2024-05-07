@@ -29,6 +29,28 @@ const app = createApp(App);
 app.use(DatePicker);
 app.component("DatePicker", DatePicker);
 
+import GAuth from "vue3-google-oauth2";
+
+import CKEditor from "@ckeditor/ckeditor5-vue";
+
+import { gapi } from "gapi-script";
+const gAuthOptions = {
+  clientId:
+    "215795800085-080cimpgt6vp7s1mvejmel3fnjs6iqif.apps.googleusercontent.com",
+  scope: "email",
+  prompt: "consent",
+  fetch_basic_profile: false,
+};
+app.use(GAuth, gAuthOptions);
+app.use(CKEditor);
+gapi.load("client: auth2", () => {
+  gapi.client.init({
+    clientId:
+      "215795800085-080cimpgt6vp7s1mvejmel3fnjs6iqif.apps.googleusercontent.com",
+    plugin_name: "chat",
+  });
+});
+
 app.component("MInput", MInput);
 app.component("MDate", MDate);
 app.component("MCheckBox", MCheckBox);

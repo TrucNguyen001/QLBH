@@ -47,5 +47,7 @@ namespace QLBanHang.Core.Interfaces.Infastructure
         /// <param name="accountId">id khách hàng</param>
         /// <returns>1: nếu sửa thành công</returns>
         int Update(Guid invoiceId, Guid accountId);
+
+        IEnumerable<UpdateQuantityProduct> UpdateQuantityProducts(Guid invoiceId);
     }
 }

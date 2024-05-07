@@ -6,12 +6,14 @@
     <header class="row h-100 d-flex align-items-center">
       <div class="col-md-1 logo-baboo"></div>
       <div class="col-md-1">
-        <router-link to="/user/home">Trang chủ</router-link>
+        <router-link to="/">Trang chủ</router-link>
       </div>
       <div class="col-md-1">
         <router-link to="/user/list-product">Sản phẩm</router-link>
       </div>
-      <div class="col-md-1">Tin tức</div>
+      <div class="col-md-1">
+        <router-link to="/user/news">Tin tức</router-link>
+      </div>
       <div class="col-md-1">
         <router-link to="/user/info">Giới thiệu</router-link>
       </div>
@@ -30,7 +32,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-2 d-flex justify-content-between">
+      <div class="col-md-2 d-flex justify-content-between" style="width: 320px">
         <div class="">
           <router-link to="/user/cart"><i class="bi bi-cart3"></i></router-link>
         </div>
@@ -65,7 +67,7 @@
           </div>
         </div>
         <div v-else class="text-white">
-          <router-link to="/login">Đăng nhập</router-link>
+          <router-link to="/login-user">Đăng nhập</router-link>
         </div>
       </div>
     </header>
@@ -122,6 +124,7 @@ export default {
      */
     async detailInfo() {
       try {
+        this.isSetting = false;
         let record = await this.apiService.getByInfo(
           "Account/getById",
           localStorage.getItem("AccountId")
@@ -135,6 +138,7 @@ export default {
     },
     async changePassword() {
       try {
+        this.isSetting = false;
         let record = await this.apiService.getByInfo(
           "Account/getById",
           localStorage.getItem("AccountId")

@@ -102,6 +102,7 @@ export default {
      */
     async detailInfo() {
       try {
+        this.isSetting = false;
         let record = await this.apiService.getByInfo(
           "Account/getById",
           localStorage.getItem("AccountId")
@@ -115,6 +116,7 @@ export default {
     },
     async changePassword() {
       try {
+        this.isSetting = false;
         let record = await this.apiService.getByInfo(
           "Account/getById",
           localStorage.getItem("AccountId")

@@ -27,5 +27,9 @@ namespace QLBanHang.Core.Entities
         public int? StatusInvoice { get; set; }
 
         public DateTime? CreatedDate { get; set; }
+
+        public int? pay { get; set; }
+
+        public int IsSuccess { get; set; }
     }
 }

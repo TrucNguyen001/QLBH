@@ -219,7 +219,7 @@ namespace QLBanHang.API.Controllers
         [HttpGet("ExportFile")]
         public IActionResult ExportExcel()
         {
-            var result = _productService.ExportExcel<Product>();
+            var result = _productService.ExportExcel();
             return File(result.FileStream, result.FileContent, result.FileName);
         }
 

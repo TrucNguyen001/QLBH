@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Dapper;
+using Microsoft.Data.SqlClient;
 using QLBanHang.Core.DTOs;
 using QLBanHang.Core.Entities;
 using QLBanHang.Core.Interfaces.DBContext;
@@ -10,6 +11,7 @@ using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static NUnit.Framework.Internal.OSPlatform;
 
 namespace QLBanHang.Infrastructure.Repository
 {
@@ -31,10 +33,13 @@ namespace QLBanHang.Infrastructure.Repository
             return entities.OrderByDescending(product => Convert.ToInt64(product.ProductCode.Substring(3)));
         }
 
-        public IEnumerable<Product> GetAll()
+        public IEnumerable<ProductDTOs> GetAll()
         {
-            var entities = _dbContext.Connection.Query<Product>($"SELECT * FROM Product");
-            return entities;
+            var sqlCommand = "Proc_GetAllProductJoinConfig";
+
+            var res = _dbContext.Connection.Query<ProductDTOs>(sql: sqlCommand, commandType: System.Data.CommandType.StoredProcedure);
+
+            return res;
         }
 
         public bool CheckDuplicateCode(string code)

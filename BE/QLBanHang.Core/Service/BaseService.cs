@@ -15,6 +15,7 @@ using OfficeOpenXml.Style;
 using QLBanHang.Core.MISAEnum;
 using QLBanHang.Core.MISAAttribute;
 using QLBanHang.Core.ValidateException;
+using QLBanHang.Core.DTOs;
 
 namespace QLBanHang.Core.Service
 {
@@ -168,7 +169,7 @@ namespace QLBanHang.Core.Service
         public FileExport ExportExcel<T>()
         {
             var list = _baseRepository.GetAll(1);
-            var properties = typeof(T).GetProperties();
+            var properties = typeof(ProductDTOs).GetProperties().Where(p => Attribute.IsDefined(p, typeof(ExportFile)));
 
             var stream = new MemoryStream();
             ExcelPackage.LicenseContext = LicenseContext.Commercial;
@@ -176,11 +177,21 @@ namespace QLBanHang.Core.Service
             var workSheet = package.Workbook.Worksheets.Add("Danh sách bản ghi");
 
             // Đặt các cấu hình cho các cột
-            for (int i = 0; i < properties.Length; i++)
+            //for (int i = 0; i < properties.Count(); i++)
+            //{
+            //    var propName = (properties[i].GetCustomAttributes(typeof(ProppertyName), true)[0] as ProppertyName).Name;
+            //    workSheet.Column(i + 1).Width = 20;
+            //    workSheet.Column(i + 1).Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+            //    workSheet.Cells[2, i + 1].Value = properties[i].Name;
+            //}
+            int i = 0;
+            foreach(var property in properties)
             {
+                var propName = (property.GetCustomAttributes(typeof(ProppertyName), true)[0] as ProppertyName).Name;
                 workSheet.Column(i + 1).Width = 20;
                 workSheet.Column(i + 1).Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-                workSheet.Cells[2, i + 1].Value = properties[i].Name;
+                workSheet.Cells[2, i + 1].Value = propName;
+                i++;
             }
 
             using (var row = workSheet.Cells[MISAExportFileExcel.A1Q1])

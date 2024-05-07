@@ -35,7 +35,7 @@ namespace QLBanHang.Core.Interfaces.Infastructure
         /// <param name="userId">id khách hàng</param>
         /// <returns>Trả về 1 nếu sửa thành công</returns>
         /// CreatedBy: NVTruc(31/3/2024)
-        int Update(Invoice entity, Guid id, Guid userId);
+        int Update(Invoice entity, Guid id);
 
         /// <summary>
         /// Lấy dữ liệu theo Id
@@ -86,8 +86,19 @@ namespace QLBanHang.Core.Interfaces.Infastructure
         /// </summary>
         /// <returns>Trả về toàn bộ bản ghi</returns>
         /// CreatedBy: NVTruc(31/3/2024)
-        IEnumerable<Invoice> GetAll(int year);
+        IEnumerable<Total> GetAll(int year);
 
+        /// <summary>
+        /// Lấy toàn bộ dữ liệu
+        /// </summary>
+        /// <returns>Trả về toàn bộ bản ghi</returns>
+        /// CreatedBy: NVTruc(31/3/2024)
+        IEnumerable<CartProduct> GetAllByYear(int year);
 
+        IEnumerable<ProductTop> GetProductTop10(int year);
+
+        IEnumerable<Year> GetFullYear();
+
+        int UpdateProudctInvoiceFalse(Guid id);
     }
 }

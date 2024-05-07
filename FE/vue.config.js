@@ -5,17 +5,9 @@ module.exports = defineConfig({
   configureWebpack: {
     devtool: "source-map", // Add this line to enable source maps
   },
+  devServer: {
+    headers: {
+      "Cross-Origin-Embedder-Policy": "unsafe-none",
+    },
+  },
 });
-// module.exports = {
-//   devServer: {
-//     proxy: {
-//       "/api": {
-//         target: "https://localhost:8888",
-//         changeOrigin: true,
-//         pathRewrite: {
-//           "^/api": "",
-//         },
-//       },
-//     },
-//   },
-// };

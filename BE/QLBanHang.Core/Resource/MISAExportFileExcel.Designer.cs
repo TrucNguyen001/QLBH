@@ -61,6 +61,24 @@ namespace QLBanHang.Core.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to A1:AH1.
+        /// </summary>
+        public static string A1AH1 {
+            get {
+                return ResourceManager.GetString("A1AH1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A1:AH2.
+        /// </summary>
+        public static string A1AH2 {
+            get {
+                return ResourceManager.GetString("A1AH2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to A1:Q1.
         /// </summary>
         public static string A1Q1 {
@@ -412,7 +430,7 @@ namespace QLBanHang.Core.Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Danh sách nhân viên.
+        ///   Looks up a localized string similar to Danh sách bản ghi.
         /// </summary>
         public static string TITLE {
             get {

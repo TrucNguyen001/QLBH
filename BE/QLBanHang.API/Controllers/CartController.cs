@@ -14,11 +14,13 @@ namespace QLBanHang.API.Controllers
     {
         ICartRepository _cartRepository;
         ICartService _cartService;
+        IProductRepository _productRepository;
 
-        public CartController(ICartRepository cartRepository, ICartService cartService)
+        public CartController(ICartRepository cartRepository, ICartService cartService, IProductRepository productRepository)
         {
             _cartRepository = cartRepository;
             _cartService = cartService;
+            _productRepository = productRepository;
         }
 
         [HttpGet("{id}/{text?}")]
@@ -42,6 +44,9 @@ namespace QLBanHang.API.Controllers
         public IActionResult Post(Cart entity)
         {
             var res = _cartRepository.Insert(entity);
+            var product = _productRepository.GetById(entity.ProductId);
+            product.Quantity = product.Quantity - entity.QuantityPurchased;
+            _productRepository.Update(product, product.ProductId);
 
             return StatusCode(201, res);
         }

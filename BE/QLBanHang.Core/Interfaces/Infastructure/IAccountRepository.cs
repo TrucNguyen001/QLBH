@@ -19,6 +19,8 @@ namespace QLBanHang.Core.Interfaces.Infastructure
         /// CreatedBy: NVTruc(31/3/2024)
         IEnumerable<Account> GetByRole(string role);
 
+        string GetByUsername(string username);
+
         /// <summary>
         /// Phân trang
         /// </summary>

@@ -24,7 +24,7 @@ namespace QLBanHang.Core.Interfaces.Infastructure
         /// </summary>
         /// <returns>Trả về toàn bộ bản ghi</returns>
         /// CreatedBy: NVTruc(31/3/2024)
-        IEnumerable<Product> GetAll();
+        IEnumerable<ProductDTOs> GetAll();
 
         /// <summary>
         /// Lấy dữ liệu theo Id

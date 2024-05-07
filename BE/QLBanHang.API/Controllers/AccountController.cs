@@ -16,6 +16,7 @@ using QLBanHang.Core.Interfaces.Infastructure;
 using QLBanHang.Core.Interfaces.Services;
 using QLBanHang.Core.Service;
 using QLBanHang.Infrastructure.Repository;
+using System.Data;
 using System.IdentityModel.Tokens.Jwt;
 using System.Net;
 using System.Net.Mail;
@@ -133,7 +134,7 @@ namespace QLBanHang.API.Controllers
             var model = new
             {
                 Model = result,
-                FullName = user.FullName == null ? user.UserName : user.FullName,
+                FullName = user.FullName == null ? user.Email : user.FullName,
                 AccountId = user.AccountId,
                 Email = user.Email,
             };
@@ -195,6 +196,7 @@ namespace QLBanHang.API.Controllers
                 LockoutEnd = 30,
                 RefreshToken = "",
                 RefreshTokenExpiryTime = null,
+                Status = 1,
             };
             var result = _accountRepository.InsertAccount(user);
             return StatusCode(201, result);
@@ -250,7 +252,6 @@ namespace QLBanHang.API.Controllers
         /// 500: Nếu có exception
         /// </returns>
         /// CreatedBy: NVTruc(1/3/2024)
-        [Authorize]
         [HttpGet("{username}")]
         public IActionResult Revoke(string username)
         {
@@ -260,6 +261,12 @@ namespace QLBanHang.API.Controllers
             return StatusCode(200, result);
         }
 
+        [HttpGet("GetByUserName/{username}")]
+        public IActionResult CheckByUserName(string username)
+        {
+            var entity = _accountRepository.GetByUsername(username);
+            return StatusCode(200, entity);
+        }
 
         /// <summary>
         /// Huỷ bỏ tất cả token

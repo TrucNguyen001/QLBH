@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="A1AH1" xml:space="preserve">
+    <value>A1:AH1</value>
+  </data>
+  <data name="A1AH2" xml:space="preserve">
+    <value>A1:AH2</value>
+  </data>
   <data name="A1Q1" xml:space="preserve">
     <value>A1:Q1</value>
   </data>
@@ -235,7 +241,7 @@
     <value>Hợp lệ</value>
   </data>
   <data name="TITLE" xml:space="preserve">
-    <value>Danh sách nhân viên</value>
+    <value>Danh sách bản ghi</value>
   </data>
   <data name="TYPE" xml:space="preserve">
     <value>application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</value>

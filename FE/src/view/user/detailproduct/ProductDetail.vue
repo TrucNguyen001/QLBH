@@ -48,7 +48,7 @@
         </div>
         <div class="d-flex" style="height: 40px">
           <p class="mx-4 my-auto">Tình trạng:</p>
-          <h3 v-if="product.Status === 1" class="text-success">Còn hàng</h3>
+          <h3 v-if="product.Quantity !== 0" class="text-success">Còn hàng</h3>
           <h3 v-else class="text-danger">Hết hàng</h3>
         </div>
         <div class="d-flex" style="height: 40px">
@@ -68,15 +68,16 @@
             </button>
             <input
               class="my-auto mx-4"
-              readonly
               style="
-                width: 50px;
+                width: 100px;
                 height: 50px;
                 font-size: 30px;
-                padding-left: 16px;
-                border: none;
+                padding-left: 10px;
+                border: 1px solid #e0e0e0;
               "
               v-model="quantity"
+              @input="checkAmountProduct"
+              type="number"
             />
             <button
               @click="upQuantity"
@@ -89,15 +90,39 @@
         </div>
         <div class="d-flex mt-4" style="height: 100px">
           <button
+            v-if="this.product.Quantity === 0"
+            style="height: 40px; width: 200px; border: none; border-radius: 4px"
+            class="btn btn-light"
+            @click="this.common.showToastError('Sản phẩm đã hết hàng')"
+          >
+            Thêm vào giỏ hàng
+          </button>
+          <button
+            v-else
             @click="addToCart"
-            class="bg-danger"
+            class="btn btn-danger"
             style="height: 40px; width: 200px; border: none; border-radius: 4px"
           >
             Thêm vào giỏ hàng <i class="bi bi-cart-dash"></i>
           </button>
           <button
+            v-if="this.product.Quantity === 0"
+            style="
+              height: 40px;
+              width: 200px;
+              border: none;
+              margin-left: 40px;
+              border-radius: 4px;
+            "
+            @click="this.common.showToastError('Sản phẩm đã hết hàng')"
+            class="btn btn-light"
+          >
+            Mua hàng
+          </button>
+          <button
+            v-else
             @click="buyProduct"
-            class="bg-danger"
+            class="btn btn-danger"
             style="
               height: 40px;
               width: 200px;
@@ -530,14 +555,29 @@ export default {
       contentComment: "",
       contentFeedback: "",
       fullNameFeedback: "",
+      checkAmount: true,
     };
   },
   methods: {
+    checkAmountProduct() {
+      this.checkAmount = true;
+      if (this.quantity > this.product.Quantity) {
+        this.common.showToastError("Số lượng sản phẩm vượt quá giới hạn!");
+        this.checkAmount = false;
+      } else if (this.quantity <= 0) {
+        this.common.showToastError("Số lượng sản phẩm không hợp lệ!");
+        this.checkAmount = false;
+      }
+    },
     /**
      * Thêm phản hồi
      */
     async addFeedback() {
-      if (this.contentFeedback !== "" && localStorage.getItem("FullName")) {
+      if (!localStorage.getItem("AccountId")) {
+        this.common.showToastError("Đăng nhập để có thể phản hồi");
+      } else if (this.contentFeedback === "") {
+        this.common.showToastError("Nhập nội dung mà bạn muốn phản hồi");
+      } else if (localStorage.getItem("FullName")) {
         this.feedback = {
           FeedbackContent: this.contentFeedback,
           CommentId: this.commentIdSelect,
@@ -548,7 +588,12 @@ export default {
         };
 
         let result = await this.apiService.post("Feedback/post", this.feedback);
-        console.log(result);
+        if (result === 1) {
+          await this.getCommentAndFeedBack();
+          this.listCommentUnique = await this.filterUniqueComments(
+            this.listComment
+          );
+        }
       }
     },
     /**
@@ -574,7 +619,11 @@ export default {
      * Thêm bình luận
      */
     async addComment() {
-      if (this.contentComment !== "" && localStorage.getItem("AccountId")) {
+      if (!localStorage.getItem("AccountId")) {
+        this.common.showToastError("Đăng nhập để có thể bình luận");
+      } else if (this.contentComment === "") {
+        this.common.showToastError("Nhập nội dung mà bạn muốn bình luận");
+      } else if (localStorage.getItem("AccountId")) {
         this.comment = {
           CommentName: localStorage.getItem("FullName"),
           Content: this.contentComment,
@@ -582,13 +631,19 @@ export default {
           AccountId: localStorage.getItem("AccountId"),
         };
 
-        var result = await this.apiService.post("Comment/post", this.comment);
-        console.log(result);
+        let result = await this.apiService.post("Comment/post", this.comment);
+        if (result === 1) {
+          await this.getCommentAndFeedBack();
+          this.listCommentUnique = await this.filterUniqueComments(
+            this.listComment
+          );
+        }
       }
     },
     upQuantity() {
       if (this.quantity < this.product.Quantity) {
         this.quantity++;
+        this.checkAmount = true;
       }
     },
     downQuantity() {
@@ -600,23 +655,39 @@ export default {
      * Thêm sản phẩm vào giỏ hàng
      */
     addToCart() {
-      this.cart.ProductId = this.product.ProductId;
-      this.cart.AccountId = localStorage.getItem("AccountId");
-      this.cart.InvoiceId = null;
-      this.cart.QuantityPurchased = this.quantity;
+      if (!localStorage.getItem("AccountId")) {
+        this.common.showToastError("Bạn hãy đăng nhập để mua hàng");
+      } else if (this.quantity <= 0) {
+        this.common.showToastError("Số lượng sản phẩm không hợp lệ");
+      } else if (this.checkAmount) {
+        this.cart.ProductId = this.product.ProductId;
+        this.cart.AccountId = localStorage.getItem("AccountId");
+        this.cart.InvoiceId = null;
+        this.cart.QuantityPurchased = this.quantity;
 
-      var result = this.apiService.post("Cart/post", this.cart);
-      console.log(result);
+        let result = this.apiService.post("Cart/post", this.cart);
+        console.log(result);
+      } else {
+        this.common.showToastError("Số lượng sản phẩm vượt quá giới hạn!");
+      }
     },
     async buyProduct() {
-      this.cart.ProductId = this.product.ProductId;
-      this.cart.AccountId = localStorage.getItem("AccountId");
-      this.cart.InvoiceId = null;
-      this.cart.QuantityPurchased = this.quantity;
+      if (!localStorage.getItem("AccountId")) {
+        this.common.showToastError("Bạn hãy đăng nhập để mua hàng");
+      } else if (this.quantity <= 0) {
+        this.common.showToastError("Số lượng sản phẩm không hợp lệ");
+      } else if (this.checkAmount) {
+        this.cart.ProductId = this.product.ProductId;
+        this.cart.AccountId = localStorage.getItem("AccountId");
+        this.cart.InvoiceId = null;
+        this.cart.QuantityPurchased = this.quantity;
 
-      await this.apiService.post("Cart/post", this.cart);
+        await this.apiService.post("Cart/post", this.cart);
 
-      this.$router.push("/user/cart");
+        this.$router.push("/user/cart");
+      } else {
+        this.common.showToastError("Số lượng sản phẩm vượt quá giới hạn!");
+      }
     },
     /**
      * Quay về trang sản phẩm
@@ -708,7 +779,6 @@ export default {
     this.loadAllProduct();
     await this.getCommentAndFeedBack();
     this.listCommentUnique = await this.filterUniqueComments(this.listComment);
-    console.log(this.product);
   },
 };
 </script>

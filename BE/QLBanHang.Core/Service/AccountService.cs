@@ -326,7 +326,7 @@ namespace QLBanHang.Core.Service
             // Lấy code ngẫu nhiên
             var codeRecoverPassword = GenerateRandomNumber();
 
-            Cache.Set($"{ MISAResourceVN.CodeRecoverPassword}-${email}", codeRecoverPassword, DateTimeOffset.UtcNow.AddMinutes(5));
+            Cache.Set($"{MISAResourceVN.CodeRecoverPassword}-${email}", codeRecoverPassword, DateTimeOffset.UtcNow.AddMinutes(5));
 
             // Lấy thông tin từ appsetting
             var fromMail = _configuration[MISAResourceVN.FromMail];

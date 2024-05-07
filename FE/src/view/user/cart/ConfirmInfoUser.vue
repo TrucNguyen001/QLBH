@@ -1,7 +1,13 @@
 <template>
   <div class="frame">
-    <div class="p-5 container w-75" style="height: 75%; border-radius: 10px">
-      <h2>Xác nhận thông tin khách hàng</h2>
+    <div
+      class="p-4 container"
+      style="min-height: 400px; border-radius: 10px; width: 60%"
+    >
+      <div class="d-flex justify-content-between">
+        <h2>Xác nhận thông tin khách hàng</h2>
+        <i @click="goBack" class="bi bi-x-lg"></i>
+      </div>
       <div class="col-lg-12 mb-3">
         <label>Tên khách hàng<i style="color: red">*</i></label>
         <input class="m-input mt-2" type="text" v-model="record.FullName" />
@@ -19,48 +25,41 @@
         <input class="m-input mt-2" type="text" v-model="record.Address" />
         <span style="color: red; font-size: 12px">{{ errors.Address }}</span>
       </div>
-      <div class="col-lg-12 mb-3">
-        <label>Mã giảm giá</label>
-        <input
-          class="m-input mt-2"
-          placeholder="Nhập mã giảm giá nếu có"
-          type="text"
-          v-model="discountCode"
-        />
-      </div>
-      <div class="col-lg-12 d-flex justify-content-between pb-4">
+      <div class="col-lg-12 w-100 d-flex justify-content-center mt-4">
         <button
-          style="padding: 4px 12px; border: none; border-radius: 4px"
-          class="bg-primary pull-right text-white"
-          @click="goBack"
-        >
-          Quay về
-        </button>
-        <button
-          style="padding: 4px 12px; border: none; border-radius: 4px"
-          class="bg-primary pull-right text-white"
+          v-show="this.pay == 1"
+          style="
+            padding: 4px 12px;
+            border: none;
+            border-radius: 4px;
+            height: 36px;
+          "
+          class="bg-primary pull-right text-white w-100"
           @click="addInvoice"
         >
           Xác nhận
         </button>
+        <div style="width: 750px" v-show="this.pay == 2" ref="paypal"></div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+const axios = require("axios");
 export default {
   name: "ConfirmInfoUser",
   data() {
     return {
       record: {},
       invoice: {},
-      discountCode: "",
       errors: {
         FullName: "",
         PhoneNumber: "",
         Address: "",
       },
+      pay: 1,
+      totalPay: "",
     };
   },
   methods: {
@@ -106,21 +105,14 @@ export default {
         this.invoice.Address = this.record.Address;
         this.invoice.Email = this.record.Email;
         this.invoice.Total = sessionStorage.getItem("total");
-        this.invoice.Total = sessionStorage.getItem("total") - 25000;
-        if (this.discountCode.length > 0) {
-          let resultDiscount = await this.apiService.getByInfo(
-            "Discount/discountCode",
-            this.discountCode
-          );
-          this.invoice.DiscountId = resultDiscount.DiscountId;
-          this.invoice.Total =
-            this.invoice.Total - resultDiscount.ReducedAmount;
+        if (sessionStorage.getItem("DiscountId") !== "null") {
+          this.invoice.DiscountId = sessionStorage.getItem("DiscountId");
         }
-
         this.invoice.InvoiceId = sessionStorage.getItem("invoiceId");
         this.invoice.InvoiceCode = sessionStorage.getItem("invoiceCode");
         this.invoice.StatusInvoice = 1;
         this.invoice.CreatedDate = new Date();
+        this.invoice.pay = sessionStorage.getItem("pay");
 
         let result = await this.apiService.update(
           "Invoice/put",
@@ -129,8 +121,83 @@ export default {
         );
 
         if (result === 1) {
-          this.$router.push("/user/home");
+          this.$router.push("/");
+          this.common.showToast("Bạn đã đặt hàng thành công");
         }
+      }
+    },
+    setLoaded: function () {
+      window.paypal
+        .Buttons({
+          createOrder: (data, actions) => {
+            if (this.validateData()) {
+              return actions.order.create({
+                purchase_units: [
+                  {
+                    description: "Thanh toán hoá đơn",
+                    amount: {
+                      currency_code: "USD",
+                      value: this.totalPay,
+                    },
+                  },
+                ],
+              });
+            }
+          },
+          onApprove: async (data, actions) => {
+            await actions.order.capture();
+            //  Thực hiện khi thanh toán thành công
+            this.paymentSuccess();
+          },
+          onError: (err) => {
+            console.log(err);
+          },
+        })
+        .render(this.$refs.paypal);
+    },
+    paymentSuccess: function () {
+      this.addInvoice();
+    },
+
+    async getUSDtoVNDExchangeRate() {
+      try {
+        let response = await axios.get(
+          "https://api.exchangerate-api.com/v4/latest/USD"
+        );
+
+        if (response.status === 200 && response.data && response.data.rates) {
+          let usdToVndRate = response.data.rates.VND;
+          return usdToVndRate;
+        } else {
+          throw new Error("Không thể lấy dữ liệu tỷ giá hối đoái.");
+        }
+      } catch (error) {
+        console.error("Lỗi khi lấy tỷ giá hối đoái:", error.message);
+        return null;
+      }
+    },
+
+    // Hàm để chuyển đổi số tiền từ VND sang USD
+    async convertVNDtoUSD(amountVND) {
+      try {
+        // Lấy tỷ giá hối đoái từ API
+        const exchangeRate = await this.getUSDtoVNDExchangeRate();
+
+        // Kiểm tra nếu tỷ giá hối đoái hợp lệ
+        if (exchangeRate !== null) {
+          // Chuyển đổi số tiền từ VND sang USD
+          const amountUSD = amountVND / exchangeRate;
+
+          // Làm tròn ở con số thứ 2 sau dấu phẩy
+          const roundedAmountUSD = amountUSD.toFixed(2);
+
+          return roundedAmountUSD;
+        } else {
+          throw new Error("Không thể chuyển đổi.");
+        }
+      } catch (error) {
+        console.error("Lỗi khi chuyển đổi:", error.message);
+        return null;
       }
     },
   },
@@ -141,6 +208,25 @@ export default {
         localStorage.getItem("AccountId")
       );
     }
+    if (sessionStorage.getItem("pay")) {
+      this.pay = sessionStorage.getItem("pay");
+    }
+  },
+  mounted: function () {
+    let script = document.createElement("script");
+    script.src =
+      "https://www.paypal.com/sdk/js?client-id=AQjMioGAvaPO7xVSyvdC6bzeHAPd0XQEn1oZYH5YWtIxNG9efQcxBX6IzivjBtNHBBxzzvRgWfqKiIxd";
+    script.addEventListener("load", this.setLoaded);
+    document.body.appendChild(script);
+    this.convertVNDtoUSD(sessionStorage.getItem("total")).then(
+      (amountInUSD) => {
+        if (amountInUSD !== null) {
+          this.totalPay = amountInUSD;
+        } else {
+          console.log("Không thể chuyển đổi.");
+        }
+      }
+    );
   },
 };
 </script>
@@ -166,5 +252,14 @@ export default {
 }
 .frame p {
   width: 200px;
+}
+.pay {
+  display: flex;
+  align-items: center;
+}
+.pay input {
+  height: 16px;
+  width: 16px;
+  margin-right: 8px;
 }
 </style>

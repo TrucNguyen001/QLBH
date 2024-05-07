@@ -1,6 +1,6 @@
 /* Thiết lập cho toast */
 .m-toast {
-    position: absolute;
+    position: fixed;
     right: 24px;
     bottom: 100px;
     height: 56px;

@@ -122,12 +122,12 @@ export default {
     async updatePassword() {
       if (this.checkPassword()) {
         this.account.Password = this.password2;
-        let result = await this.apiService.update(
+        await this.apiService.update(
           "Account/put",
           this.account.AccountId,
           this.account
         );
-        console.log(result);
+        this.$router.go();
       }
     },
 
@@ -175,7 +175,7 @@ export default {
 
     autoFocus: function () {
       try {
-        this.$refs.input_account.focus();
+        //this.$refs.input_account.focus();
       } catch (error) {
         console.log(error);
       }

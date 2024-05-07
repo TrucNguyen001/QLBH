@@ -232,7 +232,7 @@ const common = {
     // Đóng form sau 1 giây
     setTimeout(function () {
       $(".m-show-toast").remove();
-    }, 1600);
+    }, 2000);
   },
 
   /**
@@ -358,9 +358,23 @@ const common = {
       `);
 
     switch (status) {
+      case helper.Status.UpdateInvoiceFalse:
+        {
+          $(".accept-dialog").on("click", function () {
+            let result = apiService.update(path, value, valueId);
+            result.then((data) => {
+              if (data === 1) {
+                tinyEmitter.emit("Status", status);
+              }
+            });
+            $(".show-dialog").remove();
+          });
+        }
+        break;
       case helper.Status.Update:
         {
           $(".accept-dialog").on("click", function () {
+            tinyEmitter.emit("UpdateInvoiceFalse", valueId);
             let result = apiService.update(path, value, valueId);
             result.then((data) => {
               if (data === 1) {

@@ -234,7 +234,7 @@ export default {
      * @param {id sản phẩm} id
      */
     detailProduct(id) {
-      this.$router.push(`product-detail/${id}`);
+      this.$router.push(`user/product-detail/${id}`);
     },
     /**
      * Hàm lấy dữ liệu sản phẩm

@@ -70,6 +70,9 @@ builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IDiscountService, DiscountService>();
 builder.Services.AddScoped<IDiscountRepository, DiscountRepository>();
 
+builder.Services.AddScoped<INewsRepository, NewsRepository>();
+builder.Services.AddScoped<INewsService, NewsService>();
+
 builder.Services.AddScoped<ICommentRepository, CommentRepository>();
 builder.Services.AddScoped<ICommentService, CommentService>();
 

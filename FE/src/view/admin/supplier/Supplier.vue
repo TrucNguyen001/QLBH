@@ -131,7 +131,7 @@
               <td>
                 <button
                   v-if="status === 1"
-                  @click="deleteRecord(record.ProductId)"
+                  @click="deleteRecord(record.SupplierId)"
                   class="btn btn-danger px-4"
                 >
                   Xoá

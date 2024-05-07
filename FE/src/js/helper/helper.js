@@ -1,6 +1,6 @@
 const helper = {
   EmployeeCodeDefault: "NV-00001",
-  URL: "https://localhost:7016/",
+  URL: "https://localhost:44307/",
   MApi: {
     Employee: "Employee",
     EmployeeInsert: "Employee/post",
@@ -63,7 +63,7 @@ const helper = {
     Delete: 3,
     Save: 4,
     Exit: 5,
-    SaveAndInsert: 6,
+    UpdateInvoiceFalse: 6,
     DeleteMultiple: 7,
     SaveWhenClose: 8,
     See: 9,

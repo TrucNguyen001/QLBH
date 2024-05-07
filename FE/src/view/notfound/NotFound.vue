@@ -2,20 +2,32 @@
   <div class="coming-soon-container 404-page">
     <div class="coming-soon-graphic">
       <div class="img-graphic" style="text-align: center">
-        <div class="not-found"></div>
+        <div><img src="../../assets/img/error-404.jpg" /></div>
       </div>
     </div>
     <div class="coming-soon-title">Oops! Không tìm thấy trang</div>
     <div class="coming-soon-description">
       Đường dẫn đang truy cập đã bị thay đổi hoặc không tồn tại.
     </div>
-    <a class="coming-soon-btn" href="/employee">Quay lại trang chủ</a>
+    <a class="coming-soon-btn" @click="goBack">Quay lại trang chủ</a>
   </div>
 </template>
 
 <script>
 export default {
   name: "NotFound",
+  methods: {
+    goBack() {
+      if (localStorage.getItem("Role")) {
+        let role = localStorage.getItem("Role");
+        if (role === "Admin") {
+          this.$router.push("/admin/overview");
+        } else {
+          this.$router.push("/");
+        }
+      }
+    },
+  },
 };
 </script>
 
@@ -62,6 +74,7 @@ export default {
 }
 
 .coming-soon-btn {
+  cursor: pointer;
   text-align: center;
   margin-top: 16px;
   display: block;
@@ -69,5 +82,10 @@ export default {
   font-weight: bold;
   color: #2196f3;
   text-decoration: none;
+}
+img {
+  height: 400px;
+  width: 800px;
+  border-radius: 20px;
 }
 </style>

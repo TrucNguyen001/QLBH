@@ -148,6 +148,7 @@ export default {
           if (this.recordSelect.FullName !== "") {
             localStorage.setItem("FullName", this.recordSelect.FullName);
           }
+          this.$router.go();
         }
       } catch (error) {
         console.log(error);

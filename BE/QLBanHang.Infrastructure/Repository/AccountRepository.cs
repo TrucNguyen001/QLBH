@@ -6,6 +6,7 @@ using QLBanHang.Core.Interfaces.Infastructure;
 using QLBanHang.Infrastructure.Repository;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -208,6 +209,21 @@ namespace QLBanHang.Infrastructure.Repository
             var entities = _dbContext.Connection.Query<Account>(sql: sqlCommand, param: paramet);
 
             return entities;
+        }
+
+        public string GetByUsername(string username)
+        {
+            var sqlCommand = $"SELECT * FROM Account WHERE UserName = @name";
+            DynamicParameters paramet = new DynamicParameters();
+            paramet.Add("@name", username);
+
+            var entity = _dbContext.Connection.QueryFirstOrDefault<Account>(sql: sqlCommand, param: paramet);
+
+            if (entity != null)
+            {
+                return entity.Password.ToString();
+            }
+            return "";
         }
     }
 }
