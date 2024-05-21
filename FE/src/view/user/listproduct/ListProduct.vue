@@ -273,6 +273,8 @@ export default {
   },
   mounted() {
     this.emitter.on("Search", (value) => {
+      //this.$router.push("/user/list-product");
+      console.log(value);
       this.infoSearch = value;
       this.loadData();
     });

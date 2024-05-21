@@ -20,9 +20,6 @@
               <i class="bi bi-search"></i>
             </div>
           </div>
-          <div @click="downloadFile" class="icon">
-            <i class="bi bi-file-earmark-arrow-up"></i>
-          </div>
         </div>
       </div>
       <div class="table">

@@ -118,5 +118,9 @@ namespace QLBanHang.Core.Interfaces.Infastructure
         /// <returns>Danh sách tìm kiêm</returns>
         /// CreatedBy: NVTruc(1/4/2024)
         IEnumerable<Product> GetByText(string text, int status);
+
+        IEnumerable<ProductForUserDTO> ListProductForUser(Guid accountId);
+
+        IEnumerable<Product> GetProductRelated(Guid productTypeId);
     }
 }

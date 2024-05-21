@@ -31,6 +31,8 @@ import UserNewsDetail from "../../view/user/news/NewsDetail.vue";
 
 import notfound from "../../view/notfound/NotFound.vue";
 
+import ImportFile from "../../view/importfile/ImportFile.vue";
+
 const routes = [
   {
     path: "/admin",
@@ -132,6 +134,10 @@ const routes = [
   {
     path: "/invoice-detail/:id",
     component: InvoiceDetail,
+  },
+  {
+    path: "/import-file",
+    component: ImportFile,
   },
   {
     path: "/:pathMatch(.*)*",

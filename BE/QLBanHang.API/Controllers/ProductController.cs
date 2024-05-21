@@ -1,11 +1,13 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Identity.Client;
 using QLBanHang.Core.DTOs;
 using QLBanHang.Core.Entities;
 using QLBanHang.Core.Interfaces.Infastructure;
 using QLBanHang.Core.Interfaces.Services;
 using QLBanHang.Core.Service;
 using QLBanHang.Infrastructure.Repository;
+using static Dapper.SqlMapper;
 
 namespace QLBanHang.API.Controllers
 {
@@ -38,6 +40,13 @@ namespace QLBanHang.API.Controllers
             return StatusCode(200, entities);
         }
 
+        [HttpGet("GetProductForUser/{accountId}")]
+        public IActionResult GetProductForUser(Guid accountId)
+        {
+            var productForUser = _productRespository.ListProductForUser(accountId);
+            return StatusCode(200, productForUser);
+        }
+
         /// <summary>
         /// Lấy bản ghi theo Id
         /// </summary>
@@ -48,13 +57,19 @@ namespace QLBanHang.API.Controllers
         /// 500: Nếu có exception
         /// </returns>
         /// CreatedBy: NVTruc(31/3/2024)
-        [HttpGet("{id}")]
-        public IActionResult GetById(Guid id)
+        [HttpGet("{productId}")]
+        public IActionResult GetById(Guid productId)
         {
-            var entity = _productRespository.GetById(id);
+            var entity = _productRespository.GetById(productId);
             return StatusCode(200, entity);
         }
 
+        [HttpGet("GetProductRelated/{productTypeId}")]
+        public IActionResult GetProductRelatedC(Guid productTypeId)
+        {
+            var productRelated = _productRespository.GetProductRelated(productTypeId);
+            return StatusCode(200, productRelated);
+        }
 
         /// <summary>
         /// Thêm bản ghi
@@ -221,6 +236,23 @@ namespace QLBanHang.API.Controllers
         {
             var result = _productService.ExportExcel();
             return File(result.FileStream, result.FileContent, result.FileName);
+        }
+
+        /// <summary>
+        /// Hàm thực hiện import file excel
+        /// </summary>
+        /// <param name="fileImport">file muốn import</param>
+        /// <returns>
+        /// 201: Thêm dữ liệu thành côngA
+        /// 400: Lỗi nghiệp vụ
+        /// 500: Nếu có exception
+        /// </returns>
+        /// CreatedBy: NVTruc(24/12/2023)
+        [HttpPost("import/{isCommit}")]
+        public IActionResult Import(bool isCommit, IFormFile fileImport)
+        {
+            var res = _productService.ImportExcel(isCommit, fileImport);
+            return StatusCode(201, res);
         }
 
         /// <summary>

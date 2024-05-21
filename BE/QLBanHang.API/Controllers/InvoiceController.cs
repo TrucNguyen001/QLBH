@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using QLBanHang.Core.Entities;
 using QLBanHang.Core.Interfaces.Infastructure;
 using QLBanHang.Core.Interfaces.Services;
@@ -239,6 +240,27 @@ namespace QLBanHang.API.Controllers
         {
             var result = _invoiceRepository.UpdateProudctInvoiceFalse(id);
             return StatusCode(200, result);
+        }
+
+
+        [HttpGet("Revenue/{month}/{year}")]
+        public IActionResult RevennueByMonth(int month, int year)
+        {
+            var result = _invoiceRepository.getRevenueByMonth(month, year);
+            List<string> myListDay = new List<string>();
+            List<decimal> myListTotal = new List<decimal>();
+            foreach (var item in result)
+            {
+                myListDay.Add(item.Day.ToString());
+                myListTotal.Add(item.Total);
+            }
+
+            var res = new
+            {
+                Day = myListDay,
+                Total = myListTotal
+            };
+            return StatusCode(200, res);
         }
     }
 }

@@ -272,11 +272,11 @@ namespace QLBanHang.Core.Service
         /// <summary>
         /// Hàm import file
         /// </summary>
-        /// <param name="fileImport">file import</param>
-        ///  <param name="isCommit" Check xem có commit hay không> </param>
+        /// <param name = "fileImport" > file import</param>
+        ///  <param name = "isCommit" Check xem có commit hay không> </param>
         /// <returns>Trả về danh sách nhân viên import</returns>
         /// CreatedBy: NVTruc(9/1/2024)
-        public IEnumerable<ProductDTOs> ImportProduct(bool isCommit, IFormFile fileImport)
+        public List<ProductDTOs> ImportExcel(bool isCommit, IFormFile fileImport)
         {
             ExcelPackage.LicenseContext = LicenseContext.Commercial;
             CheckFileImport(fileImport);
@@ -293,7 +293,12 @@ namespace QLBanHang.Core.Service
                     List<Product> productMap = _mapper.Map<List<ProductDTOs>, List<Product>>(importedProducts);
                     foreach (var product in productMap)
                     {
+                        product.ProductId = Guid.NewGuid();
                         product.CreatedDate = DateTime.Now;
+                        product.Status = 1;
+                        product.PriceBuy = product.Price - product.PriceReduced;
+                        product.CreatedBy = "NVTruc";
+                        product.QuantityBuy = 0;
                     }
                     var result = _productRepository.MultiplePost(productMap);
                     return cachedProducts;
@@ -313,26 +318,24 @@ namespace QLBanHang.Core.Service
                     ExcelWorksheet worksheet = currentSheet.FirstOrDefault();
                     if (worksheet != null)
                     {
-                    //    string[] arr = { MISAResourceVN.ProductCode, MISAResourceVN.ProductName, MISAResourceVN.Gender, MISAResourceVN.Birth,
-                    //MISAResourceVN.Position, MISAResourceVN.Department, MISAResourceVN.PhoneNumber, MISAResourceVN.CMND,
-                    //MISAResourceVN.BankName };
+                        string[] arr = { "Mã sản phẩm", "Tên sản phẩm", "Avatar", "Số lượng", "Giá", "Giá giảm", "Mã nhà cung cấp", "Mã loại sản phẩm", "Độ hot" };
                         // Tổng số dòng dữ liệu:
                         var rowCount = worksheet.Dimension.Rows;
                         var checkHeader = true;
                         int i = 0;
-                        //foreach (var item in arr)
-                        //{
-                        //    if (item != worksheet?.Cells[2, i + 2]?.Value?.ToString()?.Trim())
-                        //    {
-                        //        checkHeader = false;
-                        //    }
-                        //    i++;
-                        //}
+                        foreach (var item in arr)
+                        {
+                            if (item != worksheet?.Cells[2, i + 2]?.Value?.ToString()?.Trim())
+                            {
+                                checkHeader = false;
+                            }
+                            i++;
+                        }
 
-                        //if (!checkHeader)
-                        //{
-                        //    throw new MISAValidateException(MISAResourceVN.FileNotValid);
-                        //}
+                        if (!checkHeader)
+                        {
+                            throw new ValidateExceptionError(MISAResourceVN.FileNotValid);
+                        }
 
                         // Bắt đầu đọc dữ liệu 
                         for (int row = 3; row <= rowCount; row++)
@@ -343,127 +346,65 @@ namespace QLBanHang.Core.Service
                             var productCode = worksheet?.Cells[row, 2]?.Value?.ToString()?.Trim();
                             if (string.IsNullOrEmpty(productCode))
                             {
-                                productImport.ImportInvalidErrors.Add("Mã sản ");
+                                productImport.ImportInvalidErrors.Add("Mã sản không được phép bỏ trống!");
                             }
                             else
                             {
-                                if (!CheckProductCode(productCode, products))
-                                {
-                                    productImport.ImportInvalidErrors.Add(MISAExportFileExcel.ProductCodeDuplicate);
-                                }
-                                if (!CheckProductCodeNotChar(productCode))
-                                {
-                                    productImport.ImportInvalidErrors.Add(MISAResourceVN.ProductCodeNotChar);
-                                }
+                                //if (!CheckProductCode(productCode, products))
+                                //{
+                                //    productImport.ImportInvalidErrors.Add(MISAExportFileExcel.ProductCodeDuplicate);
+                                //}
+                                //if (!CheckProductCodeNotChar(productCode))
+                                //{
+                                //    productImport.ImportInvalidErrors.Add(MISAResourceVN.ProductCodeNotChar);
+                                //}
                             }
 
-                            // Họ tên
-                            var fullName = worksheet?.Cells[row, 3]?.Value?.ToString()?.Trim();
-                            if (string.IsNullOrEmpty(fullName))
+                            // Tên sản phẩm
+                            var productName = worksheet?.Cells[row, 3]?.Value?.ToString()?.Trim();
+                            if (string.IsNullOrEmpty(productName))
                             {
-                                productImport.ImportInvalidErrors.Add(MISAExportFileExcel.ProductNameNotBlank);
+                                productImport.ImportInvalidErrors.Add("Tên sản phẩm không được phép bỏ trống");
                             }
 
-                            // Kiểm tra chức danh
-                            var positionName = worksheet.Cells[row, 6]?.Value?.ToString()?.Trim();
-                            positionName = (positionName == "") ? null : positionName;
-                            if (positionName != null)
-                            {
-                                var position = _positionRepository.GetByName(positionName);
-                                if (position == null)
-                                {
-                                    productImport.ImportInvalidErrors.Add(MISAResourceVN.PostionNotExist);
-                                }
-                                else
-                                {
-                                    productImport.PositionId = position.PositionId;
-                                }
-                            }
-                            else
-                            {
-                                productImport.PositionId = null;
-                                productImport.ImportInvalidErrors.Add(MISAResourceVN.PositionNotEmpty);
-                            }
-
-                            // Kiểm tra chức vụ
-                            var departmentName = worksheet.Cells[row, 7]?.Value?.ToString()?.Trim();
-                            if (departmentName != null)
-                            {
-                                var department = _departmentRepository.GetByName(departmentName);
-                                if (department == null)
-                                {
-                                    productImport.ImportInvalidErrors.Add(MISAResourceVN.DepartmentExist);
-                                }
-                                else
-                                {
-                                    productImport.DepartmentId = department.DepartmentId;
-                                }
-                            }
-                            else
-                            {
-                                productImport.DepartmentId = null;
-                                productImport.ImportInvalidErrors.Add(MISAResourceVN.DepartmentNotEmpty);
-                            }
-
-                            // Kiểm tra số điện thoại(File Excel anh gửi để import product không có cột SĐT. Em xin phép thay cột Số tài khoản thành Số điện thoại để test chức năng)
-                            var phoneNumber = worksheet.Cells[row, 8]?.Value?.ToString()?.Trim();
-                            phoneNumber = phoneNumber == null ? "" : phoneNumber.Trim();
-                            if (phoneNumber.Length > 0)
-                            {
-                                if (!CheckPhoneNumber(phoneNumber, products))
-                                {
-                                    productImport.ImportInvalidErrors.Add(MISAExportFileExcel.PhoneNumberDuplicate);
-                                }
-                            }
-
-                            var genderName = worksheet.Cells[row, 4]?.Value?.ToString()?.Trim();
-                            Gender gender = (Gender)((genderName == MISAResourceVN.MALE) ? 0 : (genderName == MISAResourceVN.FEMALE) ? 1 : 2);
-
-                            var dob = worksheet.Cells[row, 5]?.Value?.ToString()?.Trim();
-                            if (!string.IsNullOrEmpty(dob))
-                            {
-                                if (ConvertDateTime(dob) == null)
-                                {
-                                    productImport.ImportInvalidErrors.Add(MISAExportFileExcel.DateOfBirthNotValid);
-                                }
-                                else if (ConvertDateTime(dob) > DateTime.Now)
-                                {
-                                    productImport.ImportInvalidErrors.Add(MISAExportFileExcel.DateOfBirthNotCurrentDate);
-                                }
-                            }
 
                             productImport.ProductId = Guid.NewGuid();
                             productImport.ProductCode = productCode;
-                            productImport.FullName = fullName;
-                            productImport.Gender = gender != null ? gender : null;
-                            productImport.DateOfBirth = ConvertDateTime(dob);
-                            productImport.PositionName = positionName;
-                            productImport.DepartmentName = departmentName;
-                            productImport.PhoneNumber = phoneNumber;
-                            productImport.IdentificationCard = worksheet.Cells[row, 9]?.Value?.ToString()?.Trim();
-                            productImport.BankName = worksheet.Cells[row, 10]?.Value?.ToString()?.Trim();
+                            productImport.ProductName = productName;
+                            productImport.Avatar = worksheet.Cells[row, 4]?.Value?.ToString()?.Trim();
+                            productImport.Quantity = Convert.ToInt32(worksheet.Cells[row, 5]?.Value?.ToString()?.Trim());
+                            productImport.Price = Convert.ToDecimal(worksheet.Cells[row, 6]?.Value?.ToString()?.Trim());
+                            productImport.PriceReduced = Convert.ToDecimal(worksheet.Cells[row, 7]?.Value?.ToString()?.Trim());
+                            productImport.SupplierId = Guid.Parse(worksheet.Cells[row, 8]?.Value?.ToString()?.Trim());
+                            productImport.ProductTypeId = Guid.Parse(worksheet.Cells[row, 9]?.Value?.ToString()?.Trim());
+                            productImport.Hot = Convert.ToInt32(worksheet.Cells[row, 10]?.Value?.ToString()?.Trim());
 
 
 
 
-                            // Kiểm tra trùng mã
-                            var isAlreadyExistProductCode = _productRepository.CheckDuplicateCode(productImport.ProductCode);
+                            //// Kiểm tra trùng mã
+                            //var isAlreadyExistProductCode = _productRepository.CheckDuplicateCode(productImport.ProductCode);
 
-                            // Kiểm tra trùng số điện thoại
-                            if (productImport.PhoneNumber.Length > 0)
-                            {
-                                var isAlreadyExistPhoneNumber = _productRepository.CheckDuplicatePhoneNumber(productImport.PhoneNumber);
-                                if (isAlreadyExistPhoneNumber)
-                                {
-                                    productImport.ImportInvalidErrors.Add(MISAExportFileExcel.PhoneNumberAlreadyExist);
-                                }
-                            }
+                            //// Kiểm tra trùng số điện thoại
+                            //if (productImport.PhoneNumber.Length > 0)
+                            //{
+                            //    var isAlreadyExistPhoneNumber = _productRepository.CheckDuplicatePhoneNumber(productImport.PhoneNumber);
+                            //    if (isAlreadyExistPhoneNumber)
+                            //    {
+                            //        productImport.ImportInvalidErrors.Add(MISAExportFileExcel.PhoneNumberAlreadyExist);
+                            //    }
+                            //}
 
-                            if (isAlreadyExistProductCode)
-                            {
-                                productImport.ImportInvalidErrors.Add(MISAExportFileExcel.ProductCodeAlreadyExist);
-                            }
+                            //if (isAlreadyExistProductCode)
+                            //{
+                            //    productImport.ImportInvalidErrors.Add(MISAExportFileExcel.ProductCodeAlreadyExist);
+                            //}
 
+                            //if (productImport.ImportInvalidErrors.Count() == 0)
+                            //{
+                            //    productImport.IsImported = true;
+                            //    productImport.ImportInvalidErrors.Add(MISAExportFileExcel.RecordSuccess);
+                            //}
                             if (productImport.ImportInvalidErrors.Count() == 0)
                             {
                                 productImport.IsImported = true;
@@ -475,12 +416,11 @@ namespace QLBanHang.Core.Service
                 }
 
                 // Lưu danh sách nhân viên vào memory cache
-                cache.Set(MISAResourceVN.CachedProducts, products, DateTimeOffset.UtcNow.AddHours(1));
+                cache.Set("CachedProducts", products, DateTimeOffset.UtcNow.AddHours(1));
             }
             return products;
         }
 
-        //public void CheckFileImport(IFr)
 
         /// <summary>
         /// Hàm chuyển đổi string thành datetime
@@ -530,17 +470,17 @@ namespace QLBanHang.Core.Service
         /// true: Chưa tồn tại trong danh sách
         /// </returns>
         /// CreatedBy: NVTruc(31/1/2024)
-        public bool CheckEmployeeCode(string employeeCode, IEnumerable<Employee> list)
-        {
-            foreach (var employee in list)
-            {
-                if (employeeCode == employee.EmployeeCode)
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
+        //public bool CheckEmployeeCode(string employeeCode, IEnumerable<Employee> list)
+        //{
+        //    foreach (var employee in list)
+        //    {
+        //        if (employeeCode == employee.EmployeeCode)
+        //        {
+        //            return false;
+        //        }
+        //    }
+        //    return true;
+        //}
 
 
         /// <summary>

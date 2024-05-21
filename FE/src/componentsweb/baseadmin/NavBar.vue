@@ -122,4 +122,7 @@ export default {
 .navbar > div a:hover {
   color: #ffffff;
 }
+.is-active {
+  background: rgba(167, 196, 255, 0.16);
+}
 </style>

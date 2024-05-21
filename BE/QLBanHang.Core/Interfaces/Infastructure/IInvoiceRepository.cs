@@ -100,5 +100,7 @@ namespace QLBanHang.Core.Interfaces.Infastructure
         IEnumerable<Year> GetFullYear();
 
         int UpdateProudctInvoiceFalse(Guid id);
+
+        List<RevenueByMonth> getRevenueByMonth(int month, int year);
     }
 }

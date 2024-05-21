@@ -1,23 +1,31 @@
 <template>
-  <div class="import-employee">
+  <div class="import-Product">
     <div class="header-import">
-      <div style="margin-top: -4px">
-        {{ resource.MImportFile.Title }}
-      </div>
+      <div class=""></div>
     </div>
     <div class="body">
       <!-- Bước 1 -->
       <div v-if="pageIndex === 1" class="page1">
-        <div class="header">
-          <h3>{{ resource.MImportFile.StepOne }}</h3>
-        </div>
         <div class="main">
-          <div class="navbar">
-            <div class="is-active">
-              {{ resource.MImportFile.TitleStepOne }}
+          <div>
+            <div
+              style="height: 36px"
+              class="text-white d-flex align-items-center p-2 bg-primary"
+            >
+              1. Chọn tệp nguồn
             </div>
-            <div>{{ resource.MImportFile.TitleStepTwo }}</div>
-            <div>{{ resource.MImportFile.TitleStepThree }}</div>
+            <div
+              class="d-flex align-items-center p-2 my-4 bg-light"
+              style="height: 36px"
+            >
+              2. Kiểm tra dữ liệu
+            </div>
+            <div
+              class="d-flex align-items-center p-2 bg-light"
+              style="height: 36px"
+            >
+              3. Kiểm tra nhập khẩu
+            </div>
           </div>
           <div class="content">
             <div>
@@ -41,7 +49,7 @@
                 <button
                   @click="importFile"
                   style="margin-left: 20px"
-                  class="m-button m-button-cancel"
+                  class="btn btn-primary px-4"
                 >
                   {{ resource.MImportFile.Select }}
                 </button>
@@ -55,24 +63,19 @@
             </div>
           </div>
         </div>
-        <div class="footer">
-          <div class="footer">
+        <div class="footer px-5 mt-2">
+          <div class="footer d-flex justify-content-between">
             <div class="footer-left">
-              <div class="m-button m-button-cancel">
-                {{ resource.MImportFile.Help }}
-              </div>
+              <div class="m-button m-button-cancel"></div>
             </div>
             <div class="footer-right">
-              <div class="m-button m-button-cancel not_active">
+              <div class="btn btn-primary not_active">
                 {{ resource.MImportFile.Back }}
               </div>
-              <div @click="changePage2" class="m-button m-button-cancel">
+              <div @click="changePage2" class="btn btn-primary mx-4">
                 {{ resource.MImportFile.Continue }}
               </div>
-              <div
-                class="m-button m-button-cancel"
-                @click="redirectToListEmployee"
-              >
+              <div class="btn btn-danger" @click="redirectToPageProduct">
                 {{ resource.MImportFile.Cancel }}
               </div>
             </div>
@@ -82,140 +85,125 @@
 
       <!-- Bước 2 -->
       <div v-if="pageIndex === 2" class="page2">
-        <div class="header">
-          <strong>{{ resource.MImportFile.StepTwo }}</strong>
-        </div>
         <div class="main">
-          <div class="navbar">
-            <div>{{ resource.MImportFile.TitleStepOne }}</div>
-            <div class="is-active">
-              {{ resource.MImportFile.TitleStepTwo }}
+          <div>
+            <div
+              style="height: 36px"
+              class="d-flex align-items-center p-2 bg-light"
+            >
+              1. Chọn tệp nguồn
             </div>
-            <div>{{ resource.MImportFile.TitleStepThree }}</div>
+            <div
+              class="text-white d-flex align-items-center p-2 my-4 bg-primary"
+              style="height: 36px"
+            >
+              2. Kiểm tra dữ liệu
+            </div>
+            <div
+              class="d-flex align-items-center p-2 bg-light"
+              style="height: 36px"
+            >
+              3. Kiểm tra nhập khẩu
+            </div>
           </div>
           <div class="content">
             <div class="content-header">
               <div class="content-title">
-                {{ numberOfSuccess }} / {{ listEmployeeImport.length }} d{{
-                  resource.MImportFile.RowValid
-                }}
+                {{ numberOfSuccess }} / {{ listProductImport.length }}
+                {{ resource.MImportFile.RowValid }}
               </div>
               <div>
-                {{ numberOfFail }} / {{ listEmployeeImport.length }}
+                {{ numberOfFail }} / {{ listProductImport.length }}
                 {{ resource.MImportFile.RowNoValid }}
               </div>
             </div>
             <div class="content-main">
-              <div class="table-employee">
-                <table style="width: 2000px" class="m-table tbl-employee">
+              <div class="table-product">
+                <table style="width: 1800px" class="m-table tbl-product">
                   <thead>
                     <tr>
-                      <th style="width: 180px">
-                        {{ resource.ColumnTable.EmployeeCode }}
-                      </th>
-                      <th style="padding-left: -14px">
-                        {{ resource.ColumnTable.EmployeeName }}
-                      </th>
-                      <th style="padding-right: 14px">
-                        {{ resource.ColumnTable.Gender }}
-                      </th>
-                      <th style="padding-right: 14px">
-                        {{ resource.ColumnTable.DateOfBirth }}
-                      </th>
-                      <th style="padding-right: 14px">
-                        {{ resource.ColumnTable.PositionName }}
-                      </th>
-                      <th style="padding-right: 14px">
-                        {{ resource.ColumnTable.DepartmentName }}
-                      </th>
-                      <th style="padding-right: 14px">
-                        {{ resource.ColumnTable.PhoneNumber }}
-                      </th>
-                      <th style="padding-right: 14px">
-                        {{ resource.ColumnTable.BankName }}
-                      </th>
-                      <th style="padding-right: 14px">
-                        {{ resource.ColumnTable.Status }}
-                      </th>
+                      <th style="width: 150px">Mã sản phẩm</th>
+                      <th>Tên sản phẩm</th>
+                      <th>Avatar</th>
+                      <th>Số lượng</th>
+                      <th>Giá</th>
+                      <th>Giá giảm</th>
+                      <th>Mã nhà cung cấp</th>
+                      <th>Mã loại sản phẩm</th>
+                      <th>Độ hot</th>
+                      <th>Trạng thái</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr
-                      v-for="employee in listEmployeeImport"
-                      :key="employee.EmployeeId"
+                      v-for="Product in listProductImport"
+                      :key="Product.ProductId"
                     >
                       <td
                         style="text-align: left; padding-left: 15px"
-                        class="employee-code"
+                        class="Product-code"
                       >
-                        {{ employee.EmployeeCode }}
+                        {{ Product.ProductCode }}
                       </td>
-                      <td>{{ employee.FullName }}</td>
+                      <td>{{ Product.ProductName }}</td>
                       <td>
-                        {{ this.common.changeDisplayGender(employee.Gender) }}
-                      </td>
-                      <td style="text-align: center; padding-left: 0">
-                        {{
-                          this.common.changeDisplayDate(employee.DateOfBirth)
-                        }}
+                        {{ Product.Avatar }}
                       </td>
                       <td>
-                        {{ employee.PositionName }}
+                        {{ Product.Quantity }}
                       </td>
                       <td>
-                        {{ employee.DepartmentName }}
+                        {{ Product.Price }}
                       </td>
-                      <td>{{ employee.PhoneNumber }}</td>
-                      <td>{{ employee.BankName }}</td>
+                      <td>
+                        {{ Product.PriceReduced }}
+                      </td>
+                      <td>{{ Product.SupplierId }}</td>
+                      <td>{{ Product.ProductTypeId }}</td>
+                      <td>{{ Product.Hot }}</td>
                       <td
+                        v-if="Product.ImportInvalidErrors.length !== 0"
                         :class="{
-                          error_record: employee.IsImported === false,
-                          success_record: employee.IsImported === true,
+                          error_record: Product.IsImported === false,
+                          success_record: Product.IsImported === true,
                         }"
                       >
                         <p
-                          v-for="(error, index) in employee.ImportInvalidErrors"
+                          v-for="(error, index) in Product.ImportInvalidErrors"
                           :key="index"
                         >
                           {{ error }}
                         </p>
                       </td>
+                      <td style="color: darkgreen" v-else>Hợp lệ</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
-              <div class="footer-table">
-                {{ resource.MImportFile.DownloadFileFalse }}
-                <strong @click="downloadFile(listEmployeeInsertFalse)">
-                  {{ resource.MImportFile.Here }}</strong
-                >.
-              </div>
             </div>
           </div>
         </div>
-        <div class="footer">
+        <div class="d-flex justify-content-between px-5 mt-2">
           <div class="footer-left">
-            <div class="m-button m-button-cancel">
-              {{ resource.MImportFile.Help }}
-            </div>
+            <div></div>
           </div>
-          <div class="footer-right">
-            <div @click="changePage1" class="m-button m-button-cancel">
+          <div class="footer-right d-flex">
+            <div @click="changePage1" class="btn btn-primary">
               {{ resource.MImportFile.Back }}
             </div>
             <div
-              class="m-button m-button-no-active"
+              class="btn btn-primary mx-4"
               v-if="numberOfSuccess === 0"
               @click="noChangePage3"
             >
               {{ resource.MImportFile.Continue }}
             </div>
             <div v-else>
-              <div @click="changePage3" class="m-button m-button-cancel">
+              <div @click="changePage3" class="btn btn-primary mx-4">
                 {{ resource.MImportFile.Continue }}
               </div>
             </div>
-            <div class="m-button m-button-cancel">
+            <div @click="redirectToPageProduct" class="btn btn-danger">
               {{ resource.MImportFile.Cancel }}
             </div>
           </div>
@@ -224,15 +212,25 @@
 
       <!-- Bước 3 -->
       <div v-if="pageIndex === 3" class="page3">
-        <div class="header">
-          <strong>{{ resource.MImportFile.StepThree }}</strong>
-        </div>
         <div class="main">
-          <div class="navbar">
-            <div>{{ resource.MImportFile.TitleStepOne }}</div>
-            <div>{{ resource.MImportFile.TitleStepTwo }}</div>
-            <div class="is-active">
-              {{ resource.MImportFile.TitleStepThree }}
+          <div>
+            <div
+              style="height: 36px"
+              class="d-flex align-items-center p-2 bg-light"
+            >
+              1. Chọn tệp nguồn
+            </div>
+            <div
+              class="d-flex align-items-center p-2 my-4 bg-light"
+              style="height: 36px"
+            >
+              2. Kiểm tra dữ liệu
+            </div>
+            <div
+              class="text-white d-flex align-items-center p-2 bg-primary"
+              style="height: 36px"
+            >
+              3. Kiểm tra nhập khẩu
             </div>
           </div>
           <div class="content">
@@ -244,7 +242,7 @@
               </div>
               <div style="margin: 10px 0">
                 {{ resource.MImportFile.DownloadFile }}
-                <strong @click="downloadFile(listEmployeeImport)">{{
+                <strong @click="downloadFile(listProductImport)">{{
                   resource.MImportFile.Here
                 }}</strong
                 >.
@@ -258,18 +256,13 @@
             </div>
           </div>
         </div>
-        <div class="footer">
+        <div class="footer px-5 mt-2">
           <div class="footer-left">
-            <div class="m-button m-button-cancel">
-              {{ resource.MImportFile.Help }}
-            </div>
+            <div class="m-button m-button-cancel"></div>
           </div>
           <div class="footer-right">
             <div></div>
-            <div
-              @click="redirectToListEmployee"
-              class="m-button m-button-cancel"
-            >
+            <div @click="redirectToPageProduct" class="btn btn-danger px-4">
               {{ resource.MImportFile.Close }}
             </div>
           </div>
@@ -284,7 +277,7 @@ export default {
   name: "ImportFile",
   data() {
     return {
-      listEmployeeImport: [],
+      listProductImport: [],
       listEmployeeInsertFalse: {},
       numberOfSuccess: 0,
       numberOfFail: 0,
@@ -300,8 +293,8 @@ export default {
      * Trở về trang danh sách nhân viên
      * @author: Nguyễn Văn Trúc (31/1/2024)
      */
-    redirectToListEmployee() {
-      this.$router.push(this.helper.Router.Employee);
+    redirectToPageProduct() {
+      this.$router.push("/admin/product");
     },
 
     /**
@@ -431,16 +424,16 @@ export default {
       try {
         let me = this;
         me.common.showLoading();
-        me.listEmployeeImport = await me.apiService.importFile(
-          me.helper.MApi.ImportListEmployee,
+        me.listProductImport = await me.apiService.importFile(
+          "Product/import",
           isCommit,
           me.file
         );
-        me.listEmployeeInsertFalse = me.listEmployeeImport.filter(
-          (employee) => employee.IsImported === false
+        me.listEmployeeInsertFalse = me.listProductImport.filter(
+          (Product) => Product.IsImported === false
         );
         me.numberOfFail = me.listEmployeeInsertFalse.length;
-        me.numberOfSuccess = me.listEmployeeImport.length - me.numberOfFail;
+        me.numberOfSuccess = me.listProductImport.length - me.numberOfFail;
         me.common.showLoading(false);
       } catch (error) {
         console.log(error);
@@ -499,11 +492,17 @@ strong {
   justify-content: center;
   border: 1px solid #bdbdbd;
 }
-.import-employee .navbar {
+.import-Product .navbar {
   padding-top: 0;
   padding-left: 0;
 }
-.import-employee .navbar > div {
+.import-Product .navbar > div {
   border-radius: 0;
+}
+.content-main {
+  overflow-x: auto;
+}
+.content-main table {
+  height: 100%;
 }
 </style>

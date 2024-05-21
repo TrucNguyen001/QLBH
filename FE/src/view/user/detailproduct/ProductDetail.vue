@@ -322,7 +322,7 @@
 
     <div class="row" style="margin-top: 50px">
       <div class="col-md-12" style="width: 100%">
-        <h2 class="text-danger">Top sản phẩm bán chạy nhất</h2>
+        <h2 class="text-danger">Sản phẩm liên quan</h2>
         <hr />
         <div class="auto_wrap" style="width: 100%">
           <div class="d-flex justify-content-center w-100">
@@ -706,7 +706,12 @@ export default {
       this.product = result;
     },
     async loadAllProduct() {
-      this.listProduct = await this.apiService.get("Product");
+      if (this.product.ProductTypeId) {
+        this.listProduct = await this.apiService.getByInfo(
+          "Product/GetProductRelated",
+          this.product.ProductTypeId
+        );
+      }
     },
 
     /**

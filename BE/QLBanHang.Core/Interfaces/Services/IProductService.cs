@@ -1,4 +1,5 @@
-﻿using MISA.AMISDemo.Core.Entities;
+﻿using Microsoft.AspNetCore.Http;
+using MISA.AMISDemo.Core.Entities;
 using QLBanHang.Core.DTOs;
 using QLBanHang.Core.Entities;
 using System;
@@ -66,5 +67,7 @@ namespace QLBanHang.Core.Interfaces.Services
         /// </returns>
         /// CreatedBy: NVTruc (26/1/2024)
         FileExport ExportExcel();
+
+        public List<ProductDTOs> ImportExcel(bool isCommit, IFormFile fileImport);
     }
 }

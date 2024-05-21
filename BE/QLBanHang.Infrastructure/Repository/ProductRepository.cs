@@ -1,10 +1,12 @@
 ﻿using AutoMapper;
 using Dapper;
 using Microsoft.Data.SqlClient;
+using Microsoft.Identity.Client;
 using QLBanHang.Core.DTOs;
 using QLBanHang.Core.Entities;
 using QLBanHang.Core.Interfaces.DBContext;
 using QLBanHang.Core.Interfaces.Infastructure;
+using QLBanHang.Core.MISAEnum;
 using System;
 using System.Collections.Generic;
 using System.Drawing.Printing;
@@ -201,7 +203,7 @@ namespace QLBanHang.Infrastructure.Repository
         {
             string colNameList = "";
 
-            var props = typeof(Type).GetProperties();
+            var props = typeof(Product).GetProperties();
 
             for (int i = 0; i < props.Length; i++)
             {
@@ -219,7 +221,7 @@ namespace QLBanHang.Infrastructure.Repository
             {
                 string colPramList = "(";
                 colPramList += $"@{props[0].Name}{index},";
-                paramet.Add($"@{props[0].Name}{index}", Guid.NewGuid());
+                paramet.Add($"@{props[0].Name}{index}", item.ProductId);
 
                 for (int i = 1; i < props.Length; i++)
                 {
@@ -238,6 +240,13 @@ namespace QLBanHang.Infrastructure.Repository
             sqlCommand = sqlCommand.TrimEnd(',') + ";";
 
             var insert = _dbContext.Connection.Execute(sql: sqlCommand, param: paramet);
+
+            foreach (var entity in entitys)
+            {
+                Configuration config = new Configuration();
+                config.ProductId = entity.ProductId;
+                InsertConfig(config);
+            }
 
             return 1;
         }
@@ -311,6 +320,18 @@ namespace QLBanHang.Infrastructure.Repository
             return entities;
         }
 
+        public IEnumerable<ProductForUserDTO> ListProductForUser(Guid accountId)
+        {
+            var sqlCommand = "Proc_GetProductForUser";
+            DynamicParameters paramet = new DynamicParameters();
+
+            paramet.Add("accountId", accountId);
+
+            var result = _dbContext.Connection.Query<ProductForUserDTO>(sql: sqlCommand, param: paramet, commandType: System.Data.CommandType.StoredProcedure);
+
+            return result;
+        }
+
         public IEnumerable<ProductDTOs> GetPaging(int pageSize, int pageIndex, string text, int status)
         {
             var sqlCommand = "Proc_GetPagingProduct";
@@ -355,6 +376,18 @@ namespace QLBanHang.Infrastructure.Repository
 
             var entities = _dbContext.Connection.Query<Product>(sql: sqlCommand, param: paramet);
             return entities;
+        }
+
+        public IEnumerable<Product> GetProductRelated(Guid productTypeId)
+        {
+            var sqlCommand = "Proc_GetProductRelated";
+            DynamicParameters paramet = new DynamicParameters();
+
+            paramet.Add("id", productTypeId);
+
+            var result = _dbContext.Connection.Query<Product>(sql: sqlCommand, param: paramet, commandType: System.Data.CommandType.StoredProcedure);
+
+            return result;
         }
     }
 }

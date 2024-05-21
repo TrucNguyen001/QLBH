@@ -4,7 +4,7 @@
     style="height: 100px; color: white; background: #f06666"
   >
     <header class="row h-100 d-flex align-items-center">
-      <div class="col-md-1 logo-baboo"></div>
+      <div style="border-radius: 8px" class="col-md-1 logo-baboo"></div>
       <div class="col-md-1">
         <router-link to="/">Trang chủ</router-link>
       </div>
@@ -178,12 +178,12 @@ export default {
 
 <style>
 .logo-baboo {
-  background: url("../../assets/img/bamboo-logo.jpg") no-repeat;
+  background: url("../../assets/img/logo/bamboo-font-icon-text-design-600nw-1504461878.webp")
+    no-repeat;
   background-position: center;
   background-size: contain;
-  height: 80px;
+  height: 60px;
   width: 80px;
-  border-radius: 10px;
 }
 input {
   border-bottom-right-radius: 0;

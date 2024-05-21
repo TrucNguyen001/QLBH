@@ -208,5 +208,17 @@ namespace QLBanHang.Infrastructure.Repository
             }
             return 1;
         }
+
+        public List<RevenueByMonth> getRevenueByMonth(int month, int year)
+        {
+            var sqlCommand = "Proc_RevenueByMonth";
+
+            DynamicParameters paramet = new DynamicParameters();
+
+            paramet.Add("month", month);
+            paramet.Add("year", year);
+            var entities = _dbContext.Connection.Query<RevenueByMonth>(sql: sqlCommand, param: paramet);
+            return (List<RevenueByMonth>)entities;
+        }
     }
 }

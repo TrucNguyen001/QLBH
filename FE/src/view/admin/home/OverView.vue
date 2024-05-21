@@ -1,5 +1,9 @@
 <template>
-  <div class="h-100 w-100">
+  <!-- <div>
+    <input class="m-input" type="date" />
+    <input class="m-input" type="date" />
+  </div> -->
+  <div v-show="this.isShowRevenueByDay === true" class="h-100 w-100">
     <div class="mt-4 d-flex">
       <select @change="handleChangeOption" v-model="yearSelect">
         <option :value="item" v-for="(item, index) in year" :key="index">
@@ -8,7 +12,7 @@
       </select>
     </div>
     <div class="d-flex justify-content-between" style="height: 250px">
-      <div style="height: 240px; width: 500px">
+      <div class="demo" style="height: 240px; width: 500px">
         <div class="chart" style="height: 180px; width: 400px">
           <canvas id="myChart" width="800" height="300px"></canvas>
         </div>
@@ -34,6 +38,24 @@
       </div>
     </div>
   </div>
+  <div v-show="this.isShowRevenueByDay === false" class="mt-5">
+    <div @click="this.isShowRevenueByDay = true" style="margin-left: 24px">
+      <button class="btn btn-primary px-4">
+        <i style="margin-right: 10px" class="bi bi-arrow-90deg-left"></i>Quay
+        lại
+      </button>
+    </div>
+    <div>
+      <div style="height: 380px; width: 1000px">
+        <div class="chart" style="height: 100%; width: 1000px">
+          <canvas id="myChartRevenueByMonth" width="1000" height="280"></canvas>
+        </div>
+        <h2 class="d-flex justify-content-center" style="width: 1250px">
+          Thống kê tháng {{ monthSelect }} năm {{ yearSelect }}
+        </h2>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -42,6 +64,7 @@ export default {
   name: "OverView",
   data() {
     return {
+      isShowRevenueByDay: true,
       listInvoice: {},
       data: [],
       dataProductType: [],
@@ -49,6 +72,10 @@ export default {
       yearSelect: "",
       top10ProductAmount: [],
       top10ProductCode: [],
+      demo: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
+      listDay: [],
+      listTotalByDay: [],
+      monthSelect: "",
     };
   },
   methods: {
@@ -86,8 +113,11 @@ export default {
         },
       });
     },
+
+    // Biêu đồ thống kê theo tháng của năm
     loadChartTotal() {
       let ctx = document.getElementById("myChart");
+      var me = this;
 
       // Kiểm tra xem có biểu đồ nào đã được tạo trên canvas không
       if (ctx) {
@@ -101,24 +131,67 @@ export default {
       ctx.myChart = new Chart(ctx, {
         type: "bar",
         data: {
-          labels: [
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-          ],
+          labels: this.demo,
           datasets: [
             {
               label: "Doanh thu từng tháng",
               data: this.data,
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+          onClick: (event, elements) => {
+            if (elements.length > 0) {
+              const chartElement = elements[0];
+              const label = ctx.myChart.data.labels[chartElement.index];
+              this.monthSelect = label;
+              me.getRevenueByMonth(label, this.yearSelect);
+            }
+          },
+        },
+      });
+    },
+
+    async getRevenueByMonth(month, year) {
+      //this.common.showLoading();
+      let result = await this.apiService.getByInfo(
+        "Invoice/Revenue",
+        month + "/" + year
+      );
+      this.listDay = result.Day;
+      this.listTotalByDay = result.Total;
+      this.loadRevenueByMonth();
+      this.isShowRevenueByDay = false;
+      //this.common.showLoading();
+    },
+
+    // Biểu đồ thống kê theo ngày
+    loadRevenueByMonth() {
+      let ctx = document.getElementById("myChartRevenueByMonth");
+
+      // Kiểm tra xem có biểu đồ nào đã được tạo trên canvas không
+      if (ctx) {
+        // Nếu có, hủy bỏ biểu đồ cũ (nếu tồn tại)
+        if (ctx.myChart) {
+          ctx.myChart.destroy();
+        }
+      }
+
+      // Tạo biểu đồ mới
+      ctx.myChart = new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: this.listDay,
+          datasets: [
+            {
+              label: "Doanh thu từng ngày",
+              data: this.listTotalByDay,
               borderWidth: 1,
             },
           ],
@@ -275,5 +348,8 @@ select {
   border: 1px solid #e0e0e0;
   outline: none;
   margin-left: 40%;
+}
+.demo {
+  overflow-x: auto;
 }
 </style>

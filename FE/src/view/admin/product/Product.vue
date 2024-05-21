@@ -33,7 +33,7 @@
             </button>
           </div>
         </div>
-        <div style="width: 42%" class="header-table-right">
+        <div style="width: 46%" class="header-table-right">
           <div class="input-icon">
             <input
               placeholder="Tìm kiếm theo tên"
@@ -48,6 +48,9 @@
           </div>
           <div @click="downloadFile" class="icon">
             <i class="bi bi-file-earmark-arrow-up"></i>
+          </div>
+          <div @click="importFile" class="icon">
+            <i class="bi bi-file-earmark-arrow-down"></i>
           </div>
           <div>
             <button
@@ -210,6 +213,9 @@ export default {
     };
   },
   methods: {
+    importFile() {
+      this.$router.push("../import-file");
+    },
     reset() {
       this.listRecordId = [];
       this.listIndexSelected = [];

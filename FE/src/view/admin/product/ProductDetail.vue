@@ -155,7 +155,7 @@
               <div style="width: 45%" class="product-type">
                 <MCombobox
                   name="ProductType"
-                  apiData="ProductType"
+                  apiData="ProductType/getAll/1"
                   :entity="productType"
                   entityName="ProductTypeName"
                   entityId="ProductTypeId"
@@ -169,7 +169,7 @@
               </div>
               <div style="width: 45%; margin-right: 20px">
                 <MCombobox
-                  apiData="Supplier"
+                  apiData="Supplier/getAll/1"
                   entityName="SupplierName"
                   entityId="SupplierId"
                   @emtitySelect="supplierSelected"
