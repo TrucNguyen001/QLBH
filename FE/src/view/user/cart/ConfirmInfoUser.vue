@@ -213,20 +213,22 @@ export default {
     }
   },
   mounted: function () {
-    let script = document.createElement("script");
-    script.src =
-      "https://www.paypal.com/sdk/js?client-id=AQjMioGAvaPO7xVSyvdC6bzeHAPd0XQEn1oZYH5YWtIxNG9efQcxBX6IzivjBtNHBBxzzvRgWfqKiIxd";
-    script.addEventListener("load", this.setLoaded);
-    document.body.appendChild(script);
-    this.convertVNDtoUSD(sessionStorage.getItem("total")).then(
-      (amountInUSD) => {
-        if (amountInUSD !== null) {
-          this.totalPay = amountInUSD;
-        } else {
-          console.log("Không thể chuyển đổi.");
+    if (sessionStorage.getItem("pay") == 2) {
+      let script = document.createElement("script");
+      script.src =
+        "https://www.paypal.com/sdk/js?client-id=AQjMioGAvaPO7xVSyvdC6bzeHAPd0XQEn1oZYH5YWtIxNG9efQcxBX6IzivjBtNHBBxzzvRgWfqKiIxd";
+      script.addEventListener("load", this.setLoaded);
+      document.body.appendChild(script);
+      this.convertVNDtoUSD(sessionStorage.getItem("total")).then(
+        (amountInUSD) => {
+          if (amountInUSD !== null) {
+            this.totalPay = amountInUSD;
+          } else {
+            console.log("Không thể chuyển đổi.");
+          }
         }
-      }
-    );
+      );
+    }
   },
 };
 </script>

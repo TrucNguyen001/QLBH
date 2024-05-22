@@ -25,12 +25,16 @@ namespace QLBanHang.Core.Service
     public class ProductService : IProductService
     {
         IProductRepository _productRepository;
+        IProductTypeRepository _productTypeRepository;
+        ISupplierRepository _supplierRepository;
         private readonly IMapper _mapper;
 
-        public ProductService(IProductRepository productRepository, IMapper mapper)
+        public ProductService(IProductRepository productRepository, IMapper mapper, IProductTypeRepository productTypeRepository, ISupplierRepository supplierRepository)
         {
             _productRepository = productRepository;
             _mapper = mapper;
+            _productTypeRepository = productTypeRepository;
+            _supplierRepository = supplierRepository;
         }
 
         public string GetProductCodeBiggest()
@@ -342,7 +346,7 @@ namespace QLBanHang.Core.Service
                         {
                             var productImport = new ProductDTOs();
 
-                            //Kiểm tra mã nhân viên
+                            //----------Kiểm tra mã sản phẩm------------
                             var productCode = worksheet?.Cells[row, 2]?.Value?.ToString()?.Trim();
                             if (string.IsNullOrEmpty(productCode))
                             {
@@ -368,6 +372,50 @@ namespace QLBanHang.Core.Service
                             }
 
 
+                            // ----------------Kiểm tra Loại sản phẩm--------------------
+                            var productTypeId = worksheet.Cells[row, 9]?.Value?.ToString()?.Trim();
+                            productTypeId = (productTypeId == "") ? null : productTypeId;
+                            if (productTypeId != null)
+                            {
+                                var productType = _productTypeRepository.GetById(Guid.Parse(productTypeId));
+                                if (productType == null)
+                                {
+                                    productImport.ImportInvalidErrors.Add("Không tim thấy loại sản phẩm");
+                                }
+                                else
+                                {
+                                    productImport.ProductTypeName = productType.ProductTypeName;
+                                    productImport.ProductTypeId = productType.ProductTypeId;
+                                }
+                            }
+                            else
+                            {
+                                //productImport.ProductTypeId = null;
+                                productImport.ImportInvalidErrors.Add("Loại sản phẩm không được phép bỏ trống");
+                            }
+
+                            // ----------------Kiểm tra nhà cung cấp sản phẩm--------------------
+                            var supplierId = worksheet.Cells[row, 8]?.Value?.ToString()?.Trim();
+                            supplierId = (supplierId == "") ? null : supplierId;
+                            if (supplierId != null)
+                            {
+                                var supplier = _supplierRepository.GetById(Guid.Parse(supplierId));
+                                if (supplier == null)
+                                {
+                                    productImport.ImportInvalidErrors.Add("Không tim thấy nhà cung cấp");
+                                }
+                                else
+                                {
+                                    productImport.SupplierName = supplier.SupplierName;
+                                    productImport.SupplierId = supplier.SupplierId;
+                                }
+                            }
+                            else
+                            {
+                                //productImport.ProductTypeId = null;
+                                productImport.ImportInvalidErrors.Add("Nhà cung cấp không được phép bỏ trống");
+                            }
+
                             productImport.ProductId = Guid.NewGuid();
                             productImport.ProductCode = productCode;
                             productImport.ProductName = productName;
@@ -375,8 +423,6 @@ namespace QLBanHang.Core.Service
                             productImport.Quantity = Convert.ToInt32(worksheet.Cells[row, 5]?.Value?.ToString()?.Trim());
                             productImport.Price = Convert.ToDecimal(worksheet.Cells[row, 6]?.Value?.ToString()?.Trim());
                             productImport.PriceReduced = Convert.ToDecimal(worksheet.Cells[row, 7]?.Value?.ToString()?.Trim());
-                            productImport.SupplierId = Guid.Parse(worksheet.Cells[row, 8]?.Value?.ToString()?.Trim());
-                            productImport.ProductTypeId = Guid.Parse(worksheet.Cells[row, 9]?.Value?.ToString()?.Trim());
                             productImport.Hot = Convert.ToInt32(worksheet.Cells[row, 10]?.Value?.ToString()?.Trim());
 
 

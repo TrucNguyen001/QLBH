@@ -122,5 +122,7 @@ namespace QLBanHang.Core.Interfaces.Infastructure
         IEnumerable<ProductForUserDTO> ListProductForUser(Guid accountId);
 
         IEnumerable<Product> GetProductRelated(Guid productTypeId);
+
+        IEnumerable<Product> Proc_ProductHot();
     }
 }

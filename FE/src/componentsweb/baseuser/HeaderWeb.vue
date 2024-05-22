@@ -106,7 +106,15 @@ export default {
     logout() {
       this.$router.push("/login-user");
     },
-    searchRecord() {
+    async searchRecord() {
+      // if (this.textSearch.trim().length > 0) {
+      //   await sessionStorage.setItem("TextSearch", this.textSearch);
+      //   this.emitter.emit("Search", this.textSearch);
+      //   this.$router.push("/user/list-product");
+      // } else {
+      //   this.common.showToastError("Nhập nội dung để có thể tìm kiếm");
+      // }
+      await sessionStorage.setItem("TextSearch", this.textSearch);
       this.emitter.emit("Search", this.textSearch);
       this.$router.push("/user/list-product");
     },

@@ -71,6 +71,13 @@ namespace QLBanHang.API.Controllers
             return StatusCode(200, productRelated);
         }
 
+        [HttpGet("ProductHot")]
+        public IActionResult ProductHot()
+        {
+            var product = _productRespository.Proc_ProductHot();
+            return StatusCode(200, product);
+        }
+
         /// <summary>
         /// Thêm bản ghi
         /// </summary>

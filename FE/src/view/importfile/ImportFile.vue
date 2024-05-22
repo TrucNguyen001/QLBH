@@ -29,9 +29,7 @@
           </div>
           <div class="content">
             <div>
-              <div style="margin-top: 10px">
-                {{ resource.MImportFile.SelectFile }}
-              </div>
+              <div style="margin-top: 10px">Chọn file để thêm sản phẩm</div>
               <div style="margin: 10px 0; display: inline-flex">
                 <input
                   v-model="nameFile"
@@ -56,7 +54,7 @@
               </div>
               <div>
                 {{ resource.MImportFile.HaveFile }}
-                <a href="/Danh_sach_nhan_vien.xlsx">{{
+                <a href="/SanPhamImport.xlsx">{{
                   resource.MImportFile.Here
                 }}</a>
               </div>
@@ -147,19 +145,29 @@
                       </td>
                       <td>{{ Product.ProductName }}</td>
                       <td>
-                        {{ Product.Avatar }}
+                        <img
+                          :src="
+                            require('@/assets/img/product/' + Product.Avatar)
+                          "
+                        />
                       </td>
                       <td>
                         {{ Product.Quantity }}
                       </td>
                       <td>
-                        {{ Product.Price }}
+                        {{
+                          this.common.changeDisplayDebitAmount(Product.Price)
+                        }}
                       </td>
                       <td>
-                        {{ Product.PriceReduced }}
+                        {{
+                          this.common.changeDisplayDebitAmount(
+                            Product.PriceReduced
+                          )
+                        }}
                       </td>
-                      <td>{{ Product.SupplierId }}</td>
-                      <td>{{ Product.ProductTypeId }}</td>
+                      <td>{{ Product.SupplierName }}</td>
+                      <td>{{ Product.ProductTypeName }}</td>
                       <td>{{ Product.Hot }}</td>
                       <td
                         v-if="Product.ImportInvalidErrors.length !== 0"

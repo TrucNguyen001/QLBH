@@ -389,5 +389,14 @@ namespace QLBanHang.Infrastructure.Repository
 
             return result;
         }
+
+        public IEnumerable<Product> Proc_ProductHot()
+        {
+            var sqlCommand = "Proc_ProductHot";
+
+            var result = _dbContext.Connection.Query<Product>(sql: sqlCommand);
+
+            return result;
+        }
     }
 }

@@ -2,8 +2,8 @@
 <template>
   <div class="container" style="min-height: 80vh">
     <div>
-      <a href="/user/home"> Trang chủ </a> /
-      <a href="/user/info"> Tin tức </a>
+      <a href="/"> Trang chủ </a> /
+      <a href="/user/news"> Tin tức </a>
     </div>
     <h4 class="my-4">Tin tức</h4>
     <h5>Giới thiệu chung</h5>

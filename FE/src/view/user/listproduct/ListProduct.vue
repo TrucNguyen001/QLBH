@@ -20,7 +20,7 @@
         <div>
           <h3>Sản phẩm nổi bật</h3>
           <div
-            v-for="product in top5ProductSuperDiscount(listProduct)"
+            v-for="product in listProductHot"
             :key="product.ProductId"
             class="mt-4"
           >
@@ -184,6 +184,7 @@ export default {
       productTypeId: "",
       listProductType: {},
       totalPages: 0,
+      listProductHot: {},
     };
   },
   methods: {
@@ -224,30 +225,10 @@ export default {
       );
       this.listProduct = result.ListRecord;
       this.totalPages = Math.ceil(result.ToTalRecord / 15);
+
+      let res = await this.apiService.get("Product/ProductHot");
+      this.listProductHot = res;
       this.common.showLoading(false);
-    },
-
-    /**
-     * Lấy ra 5 sản phẩm giảm nhiều nhất
-     * @param {danh sách sản phẩm} products
-     */
-    top5ProductSuperDiscount(products) {
-      // Kiểm tra xem products có tồn tại và có chứa sản phẩm không
-      if (
-        !products ||
-        typeof products !== "object" ||
-        Object.keys(products).length === 0
-      ) {
-        return []; // Trả về một mảng trống nếu không có sản phẩm hoặc products không hợp lệ
-      }
-
-      let productArray = Object.values(products); // Chuyển đổi object thành một mảng các sản phẩm
-      let productsWithReducedPrice = productArray.sort(
-        (a, b) => b.PriceReduced - a.PriceReduced
-      );
-
-      // Trả về 5 sản phẩm đầu tiên hoặc tất cả sản phẩm nếu có ít hơn 5 sản phẩm
-      return productsWithReducedPrice.slice(0, 5);
     },
 
     /**
@@ -255,11 +236,13 @@ export default {
      */
     selectProductType(id) {
       this.productTypeId = id;
+      this.pageIndex = 1;
       this.loadData();
     },
 
     handleChangeOption(event) {
       this.optionSelect = event.target.value;
+      this.pageIndex = 1;
       this.loadData();
     },
 
@@ -268,14 +251,17 @@ export default {
     },
   },
   created() {
+    if (sessionStorage.getItem("TextSearch")) {
+      this.infoSearch = sessionStorage.getItem("TextSearch");
+    }
     this.getListProductType();
     this.loadData();
   },
   mounted() {
-    this.emitter.on("Search", (value) => {
-      //this.$router.push("/user/list-product");
-      console.log(value);
+    let me = this;
+    me.emitter.on("Search", (value) => {
       this.infoSearch = value;
+      this.pageIndex = 1;
       this.loadData();
     });
   },
