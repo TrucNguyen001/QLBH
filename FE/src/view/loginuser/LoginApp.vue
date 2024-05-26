@@ -413,28 +413,30 @@ export default {
         "Account/login/User",
         me.accountLogin
       );
-      localStorage.setItem("token", response.Model.AccessToken);
-      localStorage.setItem("refreshToken", response.Model.RefreshToken);
-      localStorage.setItem("expiration", response.Model.Expiration);
-      localStorage.setItem("isLogin", true);
-      localStorage.setItem("account", this.accountLogin.Account);
-      localStorage.setItem("FullName", response.FullName);
-      localStorage.setItem("AccountId", response.AccountId);
-      localStorage.setItem("Email", response.Email);
+      if (response) {
+        localStorage.setItem("token", response.Model.AccessToken);
+        localStorage.setItem("refreshToken", response.Model.RefreshToken);
+        localStorage.setItem("expiration", response.Model.Expiration);
+        localStorage.setItem("isLogin", true);
+        localStorage.setItem("account", this.accountLogin.Account);
+        localStorage.setItem("FullName", response.FullName);
+        localStorage.setItem("AccountId", response.AccountId);
+        localStorage.setItem("Email", response.Email);
 
-      // Phân tích AccessToken thành các phần tử
-      let tokenParts = localStorage.getItem("token").split(".");
-      let payload = JSON.parse(atob(tokenParts[1]));
+        // Phân tích AccessToken thành các phần tử
+        let tokenParts = localStorage.getItem("token").split(".");
+        let payload = JSON.parse(atob(tokenParts[1]));
 
-      // Truy cập thông tin từ payload của token
-      let userName = payload.UserName;
-      let role = payload.Roles;
-      let accountCode = payload.AccountCode;
-      localStorage.setItem("userName", userName);
-      localStorage.setItem("AccountCode", accountCode);
-      localStorage.setItem("Role", role);
+        // Truy cập thông tin từ payload của token
+        let userName = payload.UserName;
+        let role = payload.Roles;
+        let accountCode = payload.AccountCode;
+        localStorage.setItem("userName", userName);
+        localStorage.setItem("AccountCode", accountCode);
+        localStorage.setItem("Role", role);
 
-      this.$router.push("/");
+        this.$router.push("/");
+      }
     },
     /**
      * Hàm đăng nhập

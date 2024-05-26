@@ -116,7 +116,7 @@
               </div>
             </div>
             <div class="content-main">
-              <div class="table-product">
+              <div class="table-product" style="height: 580px; overflow: auto">
                 <table style="width: 1800px" class="m-table tbl-product">
                   <thead>
                     <tr>

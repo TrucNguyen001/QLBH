@@ -19,6 +19,7 @@ using QLBanHang.Core.ValidateException;
 using Microsoft.AspNetCore.Http;
 using System.Text.RegularExpressions;
 using System.Runtime.Caching;
+using Microsoft.IdentityModel.Tokens;
 
 namespace QLBanHang.Core.Service
 {
@@ -354,14 +355,14 @@ namespace QLBanHang.Core.Service
                             }
                             else
                             {
-                                //if (!CheckProductCode(productCode, products))
-                                //{
-                                //    productImport.ImportInvalidErrors.Add(MISAExportFileExcel.ProductCodeDuplicate);
-                                //}
-                                //if (!CheckProductCodeNotChar(productCode))
-                                //{
-                                //    productImport.ImportInvalidErrors.Add(MISAResourceVN.ProductCodeNotChar);
-                                //}
+                                if (!CheckProductCode(productCode, products))
+                                {
+                                    productImport.ImportInvalidErrors.Add("Mã sản phẩm đã trùng với mã trong file");
+                                }
+                                if (!CheckProductCodePrefix(productCode))
+                                {
+                                    productImport.ImportInvalidErrors.Add("Mã sản phẩm không đúng định dạng");
+                                }
                             }
 
                             // Tên sản phẩm
@@ -371,6 +372,63 @@ namespace QLBanHang.Core.Service
                                 productImport.ImportInvalidErrors.Add("Tên sản phẩm không được phép bỏ trống");
                             }
 
+                            // ------------Avatar-----------------
+                            var avatar = worksheet.Cells[row, 4]?.Value?.ToString()?.Trim();
+                            if (string.IsNullOrEmpty(avatar))
+                            {
+                                productImport.ImportInvalidErrors.Add("Avatar không được phép bỏ trống");
+                                avatar = "error_img.png";
+                            }
+                            else
+                            {
+                                if(!IsImageFileExtension(avatar))
+                                {
+                                    productImport.ImportInvalidErrors.Add("File ảnh không đúng định dạng");
+                                    avatar = "error_img.png";
+                                }
+                            }
+
+                            //  -----------------Quanntity-------------------
+                            var quantity = Convert.ToInt32(worksheet.Cells[row, 5]?.Value?.ToString()?.Trim());
+                            if (string.IsNullOrEmpty(quantity.ToString()))
+                            {
+                                productImport.ImportInvalidErrors.Add("Số lượng không được phép bỏ trống");
+                            }
+                            else
+                            {
+                                if (quantity <= 0)
+                                {
+                                    productImport.ImportInvalidErrors.Add("Số lượng không đúng định dạng");
+                                }
+                            }
+
+                            // ------------ Price---------------
+                            var price = Convert.ToDecimal(worksheet.Cells[row, 6]?.Value?.ToString()?.Trim());
+
+                            if (string.IsNullOrEmpty(price.ToString())) {
+                                productImport.ImportInvalidErrors.Add("Giá bán không được phép bỏ trống");
+                            }
+                            else
+                            {
+                                if (price <= 0)
+                                {
+                                    productImport.ImportInvalidErrors.Add("Giá bán không đúng định dạng");
+                                }
+                            }
+
+                            // ------------------PriceReduced------------------
+                            var priceReduced = Convert.ToDecimal(worksheet.Cells[row, 7]?.Value?.ToString()?.Trim());
+                            if (!string.IsNullOrEmpty(priceReduced.ToString())) {
+                                if (priceReduced <= 0)
+                                {
+                                    productImport.ImportInvalidErrors.Add("Giá giảm không đúng định dạng");
+                                }
+                                else if (priceReduced > price && price > 0)
+                                {
+                                    productImport.ImportInvalidErrors.Add("Giá giảm không được lớn hơn giá bán");
+                                }
+
+                            }
 
                             // ----------------Kiểm tra Loại sản phẩm--------------------
                             var productTypeId = worksheet.Cells[row, 9]?.Value?.ToString()?.Trim();
@@ -390,7 +448,6 @@ namespace QLBanHang.Core.Service
                             }
                             else
                             {
-                                //productImport.ProductTypeId = null;
                                 productImport.ImportInvalidErrors.Add("Loại sản phẩm không được phép bỏ trống");
                             }
 
@@ -412,45 +469,45 @@ namespace QLBanHang.Core.Service
                             }
                             else
                             {
-                                //productImport.ProductTypeId = null;
                                 productImport.ImportInvalidErrors.Add("Nhà cung cấp không được phép bỏ trống");
+                            }
+
+                            //-----------------Hot---------------------
+                            var hot = Convert.ToInt32(worksheet.Cells[row, 10]?.Value?.ToString()?.Trim());
+
+                            if (string.IsNullOrEmpty(hot.ToString()))
+                            {
+                                productImport.ImportInvalidErrors.Add("Độ không được phép bỏ trống");
+                            }
+                            else
+                            {
+                                if (hot <= 0)
+                                {
+                                    productImport.ImportInvalidErrors.Add("Độ hot không đúng định dạng");
+                                }
                             }
 
                             productImport.ProductId = Guid.NewGuid();
                             productImport.ProductCode = productCode;
                             productImport.ProductName = productName;
-                            productImport.Avatar = worksheet.Cells[row, 4]?.Value?.ToString()?.Trim();
-                            productImport.Quantity = Convert.ToInt32(worksheet.Cells[row, 5]?.Value?.ToString()?.Trim());
-                            productImport.Price = Convert.ToDecimal(worksheet.Cells[row, 6]?.Value?.ToString()?.Trim());
-                            productImport.PriceReduced = Convert.ToDecimal(worksheet.Cells[row, 7]?.Value?.ToString()?.Trim());
-                            productImport.Hot = Convert.ToInt32(worksheet.Cells[row, 10]?.Value?.ToString()?.Trim());
+                            productImport.Avatar = avatar;
+                            productImport.Quantity = quantity;
+                            productImport.Price = price;
+                            productImport.PriceReduced = priceReduced;
+                            productImport.Hot = hot;
 
 
 
 
-                            //// Kiểm tra trùng mã
-                            //var isAlreadyExistProductCode = _productRepository.CheckDuplicateCode(productImport.ProductCode);
+                            // Kiểm tra trùng mã
+                            var isAlreadyExistProductCode = _productRepository.CheckDuplicateCode(productImport.ProductCode);
 
-                            //// Kiểm tra trùng số điện thoại
-                            //if (productImport.PhoneNumber.Length > 0)
-                            //{
-                            //    var isAlreadyExistPhoneNumber = _productRepository.CheckDuplicatePhoneNumber(productImport.PhoneNumber);
-                            //    if (isAlreadyExistPhoneNumber)
-                            //    {
-                            //        productImport.ImportInvalidErrors.Add(MISAExportFileExcel.PhoneNumberAlreadyExist);
-                            //    }
-                            //}
+                            if (isAlreadyExistProductCode)
+                            {
+                                productImport.ImportInvalidErrors.Add("Mã sản phẩm đã tồn tại");
+                            }
 
-                            //if (isAlreadyExistProductCode)
-                            //{
-                            //    productImport.ImportInvalidErrors.Add(MISAExportFileExcel.ProductCodeAlreadyExist);
-                            //}
-
-                            //if (productImport.ImportInvalidErrors.Count() == 0)
-                            //{
-                            //    productImport.IsImported = true;
-                            //    productImport.ImportInvalidErrors.Add(MISAExportFileExcel.RecordSuccess);
-                            //}
+                            
                             if (productImport.ImportInvalidErrors.Count() == 0)
                             {
                                 productImport.IsImported = true;
@@ -469,64 +526,62 @@ namespace QLBanHang.Core.Service
 
 
         /// <summary>
-        /// Hàm chuyển đổi string thành datetime
+        /// Kiểm tra xem mã sản phẩm đã có trong danh sách thêm hay chưa
         /// </summary>
-        /// <param name="date">chuỗi chuyển đổi</param>
-        /// <returns>Trả về datetinme sau khi chuyển đổi</returns>
-        /// CreatedBy: NVTruc(30/1/2024)
-        public DateTime? ConvertDateTime(string date)
-        {
-            if (string.IsNullOrEmpty(date))
-            {
-                // Trả về null nếu chuỗi rỗng
-                return null;
-            }
-
-            // Kiểm tra nếu chuỗi chứa ngày/tháng/năm
-            if (Regex.IsMatch(date, @"^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/\d{4}$"))
-            {
-                // Trả về ngày/tháng/năm dưới dạng dd/MM/yyyy
-                return DateTime.ParseExact(date, MISAResourceVN.FormatDate, null);
-            }
-
-            // Kiểm tra nếu chuỗi chứa tháng/năm
-            if (Regex.IsMatch(date, @"^(0[1-9]|1[0-2])/\d{4}$"))
-            {
-                // Trả về ngày đầu tháng dưới dạng dd/MM/yyyy
-                DateTime ngaySinh = DateTime.ParseExact(date, MISAResourceVN.FormatMonthYear, null);
-                return new DateTime(ngaySinh.Year, ngaySinh.Month, 1);
-            }
-
-            // Kiểm tra nếu chuỗi chỉ chứa năm
-            if (Regex.IsMatch(date, @"^\d{4}$") && int.TryParse(date, out int nam))
-            {
-                // Trả về ngày 01/01/năm dưới dạng dd/MM/yyyy
-                return new DateTime(nam, 1, 1);
-            }
-            return null;
-        }
-
-        /// <summary>
-        /// Kiểm tra xem mã nhân viên đã có trong danh sách thêm hay chưa
-        /// </summary>
-        /// <param name="employeeCode">Mã nhân viên</param>
+        /// <param name="employeeCode">Mã sản phẩm</param>
         /// <param name="list">Danh sách thêm</param>
         /// <returns>
         /// false: Đã tồn tại trong danh sách
         /// true: Chưa tồn tại trong danh sách
         /// </returns>
-        /// CreatedBy: NVTruc(31/1/2024)
-        //public bool CheckEmployeeCode(string employeeCode, IEnumerable<Employee> list)
-        //{
-        //    foreach (var employee in list)
-        //    {
-        //        if (employeeCode == employee.EmployeeCode)
-        //        {
-        //            return false;
-        //        }
-        //    }
-        //    return true;
-        //}
+        public bool CheckProductCode(string productCode, IEnumerable<ProductDTOs> list)
+        {
+            foreach (var produc in list)
+            {
+                if (productCode == produc.ProductCode)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Kiểm tra tiền tố của mã sản phẩm
+        /// </summary>
+        /// <param name="productCode">Mã sản phẩm</param>
+        /// <returns>
+        /// false: Mã sản phẩm < 4 ký tự hoặc không bắt đầu bằng SP-
+        /// true: Đúng định dạng yêu cầu
+        /// </returns>
+        public bool CheckProductCodePrefix(string productCode)
+        {
+            if (productCode.Length <= 3 || productCode.Substring(0, 3) != "SP-")
+            {
+                return false;
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Kiểm tra có phải file ảnh không
+        /// </summary>
+        /// <param name="filePath">ảnh</param>
+        /// <returns>
+        /// true: đúng
+        /// false: sai
+        /// </returns>
+        static bool IsImageFileExtension(string filePath)
+        {
+            // Lấy phần mở rộng của file
+            string extension = Path.GetExtension(filePath)?.ToLower();
+
+            // Danh sách các đuôi file ảnh hợp lệ
+            string[] validExtensions = { ".jpg", ".jpeg", ".png", ".gif", ".bmp", ".tiff", ".ico" };
+
+            // Kiểm tra xem phần mở rộng có nằm trong danh sách các đuôi file ảnh hợp lệ không
+            return Array.Exists(validExtensions, ext => ext == extension);
+        }
 
 
         /// <summary>

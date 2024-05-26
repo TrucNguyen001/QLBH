@@ -20,7 +20,7 @@
           class="d-flex justify-content-center align-items-center scale_img"
           style="height: 80px; margin-top: 20px"
         >
-          <p class="mx-2 my-auto">
+          <p v-if="this.listImage.length !== 0" class="mx-2 my-auto">
             <img
               class="m-2"
               v-for="(item, index) in listImage"
@@ -247,7 +247,7 @@
       class="row img-config"
       style="font-size: 20px"
     >
-      <div class="col-md-12">
+      <div class="col-md-12" v-if="product.ImageCPU">
         <h3>CPU:</h3>
         <hr />
         <img
@@ -267,7 +267,7 @@
       class="row img-config"
       style="font-size: 20px"
     >
-      <div class="col-md-12">
+      <div class="col-md-12" v-if="product.ImagePin">
         <h3>Pin:</h3>
         <hr />
         <img
@@ -287,7 +287,7 @@
       class="row img-config"
       style="font-size: 20px"
     >
-      <div class="col-md-12">
+      <div class="col-md-12" v-if="product.ImageRAM">
         <h3>RAM:</h3>
         <hr />
         <img
@@ -307,7 +307,7 @@
       class="row img-config"
       style="font-size: 20px"
     >
-      <div class="col-md-12">
+      <div class="col-md-12" v-if="product.ImageCamera">
         <h3>Camera:</h3>
         <hr />
         <img
@@ -570,7 +570,7 @@ export default {
       }
     },
     /**
-     * Thêm phản hồi
+     * Thêm phản hồi-------------
      */
     async addFeedback() {
       if (!localStorage.getItem("AccountId")) {
@@ -593,6 +593,7 @@ export default {
           this.listCommentUnique = await this.filterUniqueComments(
             this.listComment
           );
+          this.commentId = "";
         }
       }
     },
@@ -702,7 +703,9 @@ export default {
       let productId = this.$route.params.id;
       let result = await this.apiService.getByInfo("Product", productId);
       this.imageShow = result.Avatar;
-      this.listImage = result.Image.split(" ");
+      if (result.Image) {
+        this.listImage = result.Image.split(" ");
+      }
       this.product = result;
     },
     async loadAllProduct() {

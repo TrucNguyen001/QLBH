@@ -52,8 +52,12 @@ namespace QLBanHang.Core.DTOs
         [ProppertyName("Giá giảm")]
         public decimal? PriceReduced { get; set; }
 
+        [ExportFile]
+        [ProppertyName("Nhà cung cấp")]
         public Guid SupplierId { get; set; }
 
+        [ExportFile]
+        [ProppertyName("Loại sản phẩm")]
         public Guid ProductTypeId { get; set; }
 
         public int? Status { get; set; }
@@ -156,15 +160,13 @@ namespace QLBanHang.Core.DTOs
         [ProppertyName("Nội dung Pin")]
         public string? ContentPin { get; set; }
 
+
         [ExportFile]
         [ProppertyName("Chip")]
         public string? Chip { get; set; }
-
-        [ExportFile]
         [ProppertyName("Nhà cung cấp")]
         public string? SupplierName { get; set; }
 
-        [ExportFile]
         [ProppertyName("Loại sản phẩm")]
         public string? ProductTypeName { get; set; }
 

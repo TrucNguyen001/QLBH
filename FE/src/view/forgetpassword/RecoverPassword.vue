@@ -52,9 +52,7 @@
       <div>
         <div class="form-forget">
           <div class="body-form">
-            <div class="header-form">
-              <div class="logo-misa"></div>
-            </div>
+            <div class="header-form"></div>
             <div class="recover-password">
               <h2>{{ resource.MForgetPassword.RecoverPassword }}</h2>
             </div>
@@ -229,7 +227,7 @@ export default {
      * @author: Nguyễn Văn Trúc(10/3/2024)
      */
     backLogin() {
-      this.$router.push("login-user");
+      this.$router.push("/login-user");
     },
     /**
      * Hàm lấy mật khẩu
@@ -354,7 +352,7 @@ export default {
               this.helper.TypeIcon.Success
             );
             localStorage.setItem(this.helper.LocalStorage.Email, this.email);
-            this.$router.push(this.helper.Router.Login);
+            this.$router.push("/login-user");
           }
         }
       } catch (error) {

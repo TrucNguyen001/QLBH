@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("QLBanHang.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+63883af98a46919e35a9dd2813b5dc1c85dba92f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+314c1762ede3d9560c3e412a07421ed7d23795d8")]
 [assembly: System.Reflection.AssemblyProductAttribute("QLBanHang.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("QLBanHang.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
